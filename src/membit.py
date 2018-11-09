@@ -487,8 +487,8 @@ if __name__ == '__main__':
 
     printnatoms = args.printnatoms
 
-    membanal = Trajectory(trajfile, indexfile, distance_criteria,
-                          outputfile, thickness, simplethickness,
-                          insertion, printnatoms)
+    traj = Trajectory(trajfile, indexfile, distance_criteria,
+                      outputfile, thickness, simplethickness,
+                      insertion, printnatoms)
 
-    membanal.analyseTrajectory()
+    traj.analyseTrajectory()
