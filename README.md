@@ -39,7 +39,7 @@ average of Monolayer1 and Monolayer2 atoms within a given xy window.
 Reports a difference between the average z of both leaflets
 
 
-##Example usage:
+## Example usage:
 ```
 membit.py -f test.pdb -n index.ndx -thickness 10 0.1
 ```
