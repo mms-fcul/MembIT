@@ -3,7 +3,9 @@
 Python script to perform insertion and thickness analysis on lipid bilayer systems
 
 ## Requirements
-numpy module
+numpy python module
+cython python module
+The GNU C Compiler (gcc)
 
 ## Input Files
 - PDB file
