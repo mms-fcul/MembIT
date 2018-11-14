@@ -88,9 +88,9 @@ cpdef PYXgetAllAtomsMinDist2(float[:] molAtoms_x, float[:] molAtoms_y, float[:] 
                 minDist = dist
                 membatom = membraneAtoms[membatom_i]
                 atom = moleculeAtoms[atom_i]
-                #if membatom.getNumber() == '62':
-                #    print 'MinDist2', dist ** 0.5, minDist ** 0.5, atom.getNumber(), \
-                #        membatom.get3DPosition(), atom.get3DPosition()
+        #if membatom.getNumber() == '437':
+        #    print 'MinDist2', dist ** 0.5, minDist ** 0.5, atom.getNumber(), \
+        #        membatom.get3DPosition(), atom.get3DPosition()
 
         atoms_distances[membatom_i] = minDist ** 0.5
 
@@ -375,6 +375,10 @@ class Membrane(AtomCollections):
         for atom_i in range(natoms):
             atom = membrane_atoms_2sort[atom_i][0]
             distance = membrane_atoms_2sort[atom_i][1]
+
+            #if atom.getNumber() == '437':
+            #    print '437_slices', distance
+            
             if distance >= max_window:
                 continue
 
@@ -403,6 +407,10 @@ class Membrane(AtomCollections):
             if distance >= window_begin:
                 tmp_window.append(distance)
                 atoms.append(atom)
+                #if atom.getNumber() == '437':
+                #    window_half = window_begin + window_size / 2.0
+                #    print '437_slices_within', distance, window_begin, window_end, window_half
+
 
         # Deal with the last windows
         if window_step == 0:
@@ -476,6 +484,9 @@ class Membrane(AtomCollections):
                 else:
                     counter_two += 1
                     total_two += z
+
+        if counter_one + counter_two == 0:
+            raise IOError('Please decrease the cutoff input value.')
 
         # Get outter layer lipids half membrane z value
         oneML_z = total_one / counter_one
@@ -566,18 +577,27 @@ class Membrane(AtomCollections):
             #            text += '{} {}\n'.format(window_half, 0)
             #    f.write(text)
 
+            with open("log.txt", 'a') as f:
+                f.write('\n####')
             output = ''
             output_natoms = ''
             windows = []
             for window_half, atoms, distances in slices:
                 counter = 0
                 memb_total = 0.0
+
+                text = ''
+
                 for atom in atoms:
                     atom_z = atom.get3DPosition()[2]
                     atomML = atom.getLeaflet()
 
                     counter += 1
                     memb_total += atom_z
+
+                    
+                    text += '{0} '.format(atom.getNumber())
+                    
                 if counter > 0:
                     memb_average = memb_total / counter
                     thickness_value = abs(memb_average - self.getHalfZ())
