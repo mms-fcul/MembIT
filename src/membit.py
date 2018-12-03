@@ -16,6 +16,7 @@ parser.add_argument('-n', help='Required groups in the index file: \n'
                     'Protein - includes all atoms from the inserting molecule.\n'
                     '          it is used to determine which membrane atoms will\n'
                     '          be considered bulk membrane for the thickness calculations\n'
+                    '          and also insertion calculations relative to the center of the membrane("zero")\n'
                     'Center_of_Interest - includes all atoms of the inserting molecule\n'
                     '          group (residue, motif, atom, etc) whose geometric center will \n'
                     '          be the reference for the insertion calculations. \n'
@@ -36,23 +37,27 @@ parser.add_argument('-simplethickness',
 # min max are optional and by default it should use the minimum distance to P
 #and the maximum distance to P, accordingly
 parser.add_argument('-thickness', help='Thickness parameters:\n'
+                    ''
                     'All window related distances are 2D minimum distances\n'
                     'from the Membrane atoms to the Center_of_Interest Atoms.\n'
                     'The thickness is defined as the difference between the z coordinate average of '
-                    'Monolayer1 and Monolayer2 atoms within a given xy window.'
-                    '<window_size> <window_step> <min> <max>\n'
+                    'Monolayer1 and Monolayer2 atoms within a given xy window.\n'
+                    '<window_size> <window_step> <min> <max> <cutoff>\n'
                     'window_size - output window size in Angstrom\n'
                     'window_step - moving window step in Angstrom\n'
                     'min - minimum distance between Membrane and Center_of_Interest to be considered\n'
                     '      (the default is 0)\n'
                     'max - maximum distance between Membrane and Center_of_Interest to be considered\n'
                     '      (the default is the box size in xy)\n'
-                    'min and max are optional', required=False,
+                    'cutoff - membrane lipids within this cutoff will be ignored from the calculation'
+                    ' of the center of the membrane, since it should only include "bulk" membrane atoms.\n'
+                    '      (the default is 0, thus including all membrane atoms)\n', required=False,
                     metavar='window step', default=None, nargs='+')
 parser.add_argument('-insertion', help='Insertion paramenters:\n'
                     '<type> or <window> <step> <min> <max> (noNaN)\n'
                     'type - closest (insertion to closest membrane atom)\n'
                     '       average (insertion to average membrane z position)\n'
+                    '       zero    (insertion to the center of the "bulk" membrane)\n'
                     'All window related distances are 2D minimum distances\n'
                     'from the Membrane atoms to the geometric center of Center_of_Interest atoms.\n'
                     'The insertion is defined as the difference between the z coordinates of said'
@@ -363,7 +368,7 @@ class Trajectory:
         with open(self._trajfile) as f:
             for line in f:
                 if line[0:4] == 'ATOM':
-                    number = line[7:11].strip()
+                    number = line[4:11].strip()
 
                     if number in proteinAtoms:
                         atype, residue, x, y, z = readLine(line)
@@ -376,7 +381,7 @@ class Trajectory:
                                                 residue, x, y, z)
 
                     elif number in membraneAtoms:
-                        atype, residue, x, y, z = readLine(line)                        
+                        atype, residue, x, y, z = readLine(line)
                         self._membrane.addProperties(number, atype,
                                                      residue, x, y, z)
                 elif line[0:6] == 'CRYST1':

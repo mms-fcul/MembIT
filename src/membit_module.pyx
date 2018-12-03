@@ -108,6 +108,7 @@ class Atom:
         self._y       = y
         self._z       = z
 
+
     def addLeaflet(self, leaflet):
         self._leaflet = leaflet
 
@@ -733,6 +734,25 @@ class Protein(AtomCollections):
         mean_other_memb = membrane.getAverageZ(other_ml_atoms)
 
         nargs_insertion = len(parameters)
+        
+        if parameters[0] == 'closest':
+            closest_atom = membrane.getClosestAtom()
+            closest_atom_z = closest_atom.get3DPosition()[2]
+
+            insertion_value = self.distToZ(closest_atom_z, mean_other_memb,
+                                           center_z, box_z)
+
+            return str(round(insertion_value, 3))
+        
+        elif parameters[0] == 'average':
+            closest_ml = membrane.getClosestLeaflet()
+            closest_ml_atoms = membrane.getLeafletAtoms(closest_ml)
+            average_z = membrane.getAverageZ(closest_ml_atoms)
+
+            insertion_value = self.distToZ(average_z, mean_other_memb,
+                                           center_z, box_z)
+            return str(round(insertion_value, 3))
+        
         if nargs_insertion >= 4:
             max_window = float(parameters[3])
             min_window = float(parameters[2])
@@ -741,7 +761,7 @@ class Protein(AtomCollections):
             #furthest_atom = membrane.getFurthestAtom()
 
             #closest_distance = closest_atom.getDistance2CoI() ** 0.5
-            #furthest_distance = furthest_atom.getDistance2CoI()  ** 0.5
+            #furthest_dist2410ance = furthest_atom.getDistance2CoI()  ** 0.5
 
             if nargs_insertion == 3:
                 min_window = float(parameters[2])
@@ -802,22 +822,6 @@ class Protein(AtomCollections):
 
             return output
 
-        elif parameters[0] == 'closest':
-            closest_atom = membrane.getClosestAtom()
-            closest_atom_z = closest_atom.get3DPosition()[2]
-
-            insertion_value = self.distToZ(closest_atom_z, mean_other_memb,
-                                           center_z, box_z)
-            return str(round(insertion_value, 3))
-
-        elif parameters[0] == 'average':
-            closest_ml = membrane.getClosestLeaflet()
-            closest_ml_atoms = membrane.getLeafletAtoms(closest_ml)
-            average_z = membrane.getAverageZ(closest_ml_atoms)
-
-            insertion_value = self.distToZ(average_z, mean_other_memb,
-                                           center_z, box_z)
-            return str(round(insertion_value, 3))
 
     def IndexandTrajAtomsMatch(self):
         counter = 0
