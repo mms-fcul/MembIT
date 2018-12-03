@@ -58,6 +58,7 @@ parser.add_argument('-insertion', help='Insertion paramenters:\n'
                     'type - closest (insertion to closest membrane atom)\n'
                     '       average (insertion to average membrane z position)\n'
                     '       zero    (insertion to the center of the "bulk" membrane)\n'
+                    '               requires a cutoff from which a bulk membrane is considered\n'
                     'All window related distances are 2D minimum distances\n'
                     'from the Membrane atoms to the geometric center of Center_of_Interest atoms.\n'
                     'The insertion is defined as the difference between the z coordinates of said'
@@ -134,7 +135,7 @@ class Trajectory:
         self._simplethickness = simplethickness
 
         if thickness and simplethickness:
-            raise IOError('Incompatible arguments: simplethickness and thicknes.')
+            raise IOError('Incompatible arguments: simplethickness and thickness.')
 
         if thickness:
             self._thicknessOutput1 = ''
@@ -154,23 +155,34 @@ class Trajectory:
         if insertion:
             self._insertionOutput = ''            
             nargs_insertion = len(insertion)
-            if nargs_insertion == 1:
-                if insertion[0] == 'closest' or \
-                   insertion[0] == 'average' or \
-                   insertion[0] == 'zero':
+
+            if insertion[0] == 'closest' or \
+               insertion[0] == 'average':
+                if nargs_insertion == 1:
                     self._insertion_window = insertion[0]
                 else:
-                    raise IOError('The insertion modes allowed are "closest" '
-                                  'if the reference atom to calculate the '
-                                  'insertion is the closest membrane atom and '
-                                  '"average" if the reference to is the '
-                                  'average z position of the membrane atoms.\n'
-                                  'Usage: -insertion closest\n'
-                                  '                  average\n'
-                                  '                  1 0.1 0 10')
-            elif nargs_insertion > 5:
-                raise IOError('The insertion argument should have at most 5 '
-                              'fields')
+                    print 'Warning: Extra arguments have been '\
+                        'submitted and will be ignored'
+
+            elif insertion[0] == 'zero':
+                if nargs_insertion == 2:
+                    self._insertion_window = insertion[0]
+                elif nargs_insertion == 1:
+                    raise IOError('Cutoff missing. The center of the '
+                                  'membrane requires the definition of a cutoff '
+                                  'beyond which bulk properties are assumed.')
+                else:
+                    print 'Warning: Extra arguments have been '\
+                        'submitted and will be ignored'
+
+            else:
+                if nargs_insertion < 2:
+                    raise IOError('The insertion argument requires '
+                                  'at least 2 fields (window_size and step)')
+
+                elif nargs_insertion > 5:
+                    raise IOError('The insertion argument should '
+                                  'have at most 5 fields')
 
         self._curtime = None
         self._box = None

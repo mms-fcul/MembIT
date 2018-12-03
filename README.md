@@ -29,6 +29,7 @@ One can choose between three insertion definitions:
 - closest (insertion to closest membrane atom)
 - average (insertion to average membrane z position)
 - cutoff  (insertion to membrane atoms within a cutoff)
+- zero    (insertion to the center of the membrane)
 
 ### Thickness
 Reports the thickness of each Monolayer.
