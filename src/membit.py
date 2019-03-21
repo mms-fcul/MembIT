@@ -405,7 +405,7 @@ class Trajectory:
 
                 elif line[0:5] == 'TITLE':
                     line = line.strip()
-                    time = line.split('t=')[1].replace(' ', '')
+                    time = line.split('t=')[1].split()[0]
                     self._curtime = int(float(time))
 
                 elif line[0:3] == 'TER':
