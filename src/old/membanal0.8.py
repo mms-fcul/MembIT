@@ -1,10 +1,17 @@
 #! /usr/bin/python
 
 import argparse
-from protein import Protein
-from membrane import Membrane
-from atom import Atom
-import os
+from membanal_helper import *
+
+"""
+Os slices tem de ser fixos para nao variarem com os frames
+Nan quando o slice nao tem pontos
+
+na documentacao falar no problema da precisao das floats 
+que apenas foi corrigida na condicao das janelas de output
+
+"""
+
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
                                  description='\n'
@@ -16,15 +23,13 @@ parser.add_argument('-f', help='PDB trajectory file',
 # Protein distancia minima a todos os atomos - so para thickness
 # Center_of_Interest centro geometrico - so para insertion
 parser.add_argument('-n', help='Required groups in the index file: \n'
-                    'Protein - includes all atoms from the inserting molecule.\n'
+                    'Protein - includes all atoms from the inserting molecule\n'
                     '          it is used to determine which membrane atoms will\n'
-                    '          be considered bulk membrane for the thickness calculations\n'
-                    '          and also insertion calculations relative to the center of the membrane("zero")\n'
+                    '          be considered for the thickness calculations\n'
                     'Center_of_Interest - includes all atoms of the inserting molecule\n'
                     '          group (residue, motif, atom, etc) whose geometric center will \n'
-                    '          be the reference for the insertion calculations. \n'
-                    '          In thickness calculations all atoms of this index group \n'
-                    '          will be used. \n'
+                    '          be the reference for the insertion calculations\n'
+                    'Membrane - Monolayer1 + Monolayer2 atoms\n'
                     'Monolayer1 - all atoms from one of the monolayers\n'
                     'Monolayer2 - all atoms from the other monolayer',
                     required=True, metavar='index.ndx')
@@ -40,28 +45,23 @@ parser.add_argument('-simplethickness',
 # min max are optional and by default it should use the minimum distance to P
 #and the maximum distance to P, accordingly
 parser.add_argument('-thickness', help='Thickness parameters:\n'
-                    ''
                     'All window related distances are 2D minimum distances\n'
-                    'from the Membrane atoms to the Center_of_Interest Atoms.\n'
+                    'from the Membrane atoms to the Protein Atoms.\n'
                     'The thickness is defined as the difference between the z coordinate average of '
-                    'Monolayer1 and Monolayer2 atoms within a given xy window.\n'
-                    '<window_size> <window_step> <min> <max> <cutoff>\n'
+                    'Monolayer1 and Monolayer2 atoms within a given xy window.'
+                    '<window_size> <window_step> <min> <max>\n'
                     'window_size - output window size in Angstrom\n'
                     'window_step - moving window step in Angstrom\n'
-                    'min - minimum distance between Membrane and Center_of_Interest to be considered\n'
+                    'min - minimum distance between Membrane and Protein to be considered\n'
                     '      (the default is 0)\n'
-                    'max - maximum distance between Membrane and Center_of_Interest to be considered\n'
+                    'max - maximum distance between Membrane and Protein to be considered\n'
                     '      (the default is the box size in xy)\n'
-                    'cutoff - membrane lipids within this cutoff will be ignored from the calculation'
-                    ' of the center of the membrane, since it should only include "bulk" membrane atoms.\n'
-                    '      (the default is 0, thus including all membrane atoms)\n', required=False,
+                    'min and max are optional', required=False,
                     metavar='window step', default=None, nargs='+')
 parser.add_argument('-insertion', help='Insertion paramenters:\n'
                     '<type> or <window> <step> <min> <max> (noNaN)\n'
                     'type - closest (insertion to closest membrane atom)\n'
                     '       average (insertion to average membrane z position)\n'
-                    '       zero    (insertion to the center of the "bulk" membrane)\n'
-                    '               requires a cutoff from which a bulk membrane is considered\n'
                     'All window related distances are 2D minimum distances\n'
                     'from the Membrane atoms to the geometric center of Center_of_Interest atoms.\n'
                     'The insertion is defined as the difference between the z coordinates of said'
@@ -71,7 +71,7 @@ parser.add_argument('-insertion', help='Insertion paramenters:\n'
                     'window_step - moving window step in Angstrom\n'
                     'min - minimum distance between Membrane and Center_of_Interest to be considered\n'
                     '      (the default is 0)\n'
-                    'max - maximum distance between Membrane and Center_of_Interest to be considered\n'
+                    'max - maximum distance between Membrane and Center_of_Interest to be considered\n'                    
                     '      (the default is box_size in xy)\n'
                     'noNaN - replaces NaN output entries where there are no membranes atoms in the '
                     'specified cut off with the insertion relative to the closest atom'
@@ -112,11 +112,11 @@ class Trajectory:
         """Instanciates a Trajectory object and checks some input the
         consistency of the input arguments
 
-        Requires:
-        trajfile
-        indexfile
-        outputfile
-        thickness
+        Requires: 
+        trajfile 
+        indexfile 
+        outputfile 
+        thickness 
         insertion
 
         Ensures:
@@ -138,7 +138,7 @@ class Trajectory:
         self._simplethickness = simplethickness
 
         if thickness and simplethickness:
-            raise IOError('Incompatible arguments: simplethickness and thickness.')
+            raise IOError('Incompatible arguments: simplethickness and thicknes.')
 
         if thickness:
             self._thicknessOutput1 = ''
@@ -156,36 +156,25 @@ class Trajectory:
 
         self._insertion = insertion
         if insertion:
-            self._insertionOutput = ''
+            self._insertionOutput = ''            
             nargs_insertion = len(insertion)
-
-            if insertion[0] == 'closest' or \
-               insertion[0] == 'average':
-                if nargs_insertion == 1:
+            if nargs_insertion == 1:
+                if insertion[0] == 'closest' or \
+                   insertion[0] == 'average' or \
+                   insertion[0] == 'zero':
                     self._insertion_window = insertion[0]
                 else:
-                    print 'Warning: Extra arguments have been '\
-                        'submitted and will be ignored'
-
-            elif insertion[0] == 'zero':
-                if nargs_insertion == 2:
-                    self._insertion_window = insertion[0]
-                elif nargs_insertion == 1:
-                    raise IOError('Cutoff missing. The center of the '
-                                  'membrane requires the definition of a cutoff '
-                                  'beyond which bulk properties are assumed.')
-                else:
-                    print 'Warning: Extra arguments have been '\
-                        'submitted and will be ignored'
-
-            else:
-                if nargs_insertion < 2:
-                    raise IOError('The insertion argument requires '
-                                  'at least 2 fields (window_size and step)')
-
-                elif nargs_insertion > 5:
-                    raise IOError('The insertion argument should '
-                                  'have at most 5 fields')
+                    raise IOError('The insertion modes allowed are "closest" '
+                                  'if the reference atom to calculate the '
+                                  'insertion is the closest membrane atom and '
+                                  '"average" if the reference to is the '
+                                  'average z position of the membrane atoms.\n'
+                                  'Usage: -insertion closest\n'
+                                  '                  average\n'
+                                  '                  1 0.1 0 10')
+            elif nargs_insertion > 5:
+                raise IOError('The insertion argument should have at most 5 '
+                              'fields')
 
         self._curtime = None
         self._box = None
@@ -234,14 +223,14 @@ class Trajectory:
 
         traj = self.loadTrajectory()
 
-        if self._insertion:
+        if self._insertion:            
             outputnameInsertion = createOutputFile("insertion")
 
         if self._thickness:
-            outputnameThicknessTop    = createOutputFile("thicknessTop")
-            outputnameThicknessAvg1 = createOutputFile("thicknessTop_avg")
-            outputnameThicknessBottom    = createOutputFile("thicknessBottom")
-            outputnameThicknessAvg2 = createOutputFile("thicknessBottom_avg")
+            outputnameThickness1    = createOutputFile("thickness1")
+            outputnameThicknessAvg1 = createOutputFile("thickness1_avg")
+            outputnameThickness2    = createOutputFile("thickness2")
+            outputnameThicknessAvg2 = createOutputFile("thickness2_avg")
 
         if self._simplethickness:
             outputnameThickness = createOutputFile("thickness")
@@ -285,24 +274,24 @@ class Trajectory:
                 self._CoI.calcAtomsClosestML(self._membrane)
 
                 # Calculate the Thickness for ML1
-                thicknessTop = self._membrane.getThickness(self._CoI,
+                thickness1 = self._membrane.getThickness(self._CoI,
                                                          'top',
                                                          self._box,
                                                          self._thickness,
-                                                         outputnameThicknessTop,
+                                                         outputnameThickness1,
                                                          self._printnatoms)
 
                 # Calculate the Thickness for ML2
-                thicknessBottom = self._membrane.getThickness(self._CoI,
+                thickness2 = self._membrane.getThickness(self._CoI,
                                                          'bottom',
                                                          self._box,
                                                          self._thickness,
-                                                         outputnameThicknessBottom,
+                                                         outputnameThickness2,
                                                          self._printnatoms)
                 self._CoI.clearLeafletAtoms()
                 # Save the Outputs
-                self.saveOutput(outputnameThicknessTop, thicknessTop)
-                self.saveOutput(outputnameThicknessBottom, thicknessBottom)
+                self.saveOutput(outputnameThickness1, thickness1)
+                self.saveOutput(outputnameThickness2, thickness2)
 
             if self._simplethickness:
                 # Calculate the Membrane Thickness
@@ -316,8 +305,8 @@ class Trajectory:
             self.writeOutput(outputnameInsertion)
 
         if self._thickness:
-            self.writeOutput(outputnameThicknessTop)
-            self.writeOutput(outputnameThicknessBottom)
+            self.writeOutput(outputnameThickness1)
+            self.writeOutput(outputnameThickness2)
 
             avgs_top, windows_top,\
                 avgs_bottom, windows_bottom = self._membrane.calcThicknessAvg()
@@ -383,7 +372,7 @@ class Trajectory:
         with open(self._trajfile) as f:
             for line in f:
                 if line[0:4] == 'ATOM':
-                    number = line[4:11].strip()
+                    number = line[7:11].strip()
 
                     if number in proteinAtoms:
                         atype, residue, x, y, z = readLine(line)
@@ -391,12 +380,12 @@ class Trajectory:
                                                     residue, x, y, z)
 
                     if number in CoIAtoms:
-                        atype, residue, x, y, z = readLine(line)
+                        atype, residue, x, y, z = readLine(line)                        
                         self._CoI.addProperties(number, atype,
                                                 residue, x, y, z)
 
                     elif number in membraneAtoms:
-                        atype, residue, x, y, z = readLine(line)
+                        atype, residue, x, y, z = readLine(line)                        
                         self._membrane.addProperties(number, atype,
                                                      residue, x, y, z)
                 elif line[0:6] == 'CRYST1':
@@ -408,7 +397,7 @@ class Trajectory:
 
                 elif line[0:5] == 'TITLE':
                     line = line.strip()
-                    time = line.split('t=')[1].split()[0]
+                    time = line.split('t=')[1].replace(' ', '')
                     self._curtime = int(float(time))
 
                 elif line[0:3] == 'TER':
@@ -447,11 +436,11 @@ class Trajectory:
         data_type = outputname.split('_')[-1].replace('.xvg', '')
         if data_type == 'insertion':
             self._insertionOutput += line + '\n'
-        elif data_type == 'thicknessTop':
-            # If all NaNs don't save the data
+        elif data_type == 'thickness1':
+            # If all NaNs don't save the data            
             if nNaNs != (len(data.split(' ')) - 2 )/ 3:
                 self._thicknessOutput1 += line + '\n'
-        elif data_type == 'thicknessBottom':
+        elif data_type == 'thickness2':
             # If all NaNs don't save the data
             if nNaNs != (len(data.split(' ')) - 2 )/ 3:
                 self._thicknessOutput2 += line + '\n'
@@ -462,9 +451,9 @@ class Trajectory:
         data_type = outputname.split('_')[-1].replace('.xvg', '')
         if data_type == 'insertion':
             data = self._insertionOutput
-        elif data_type == 'thicknessTop':
+        elif data_type == 'thickness1':
             data = self._thicknessOutput1
-        elif data_type == 'thicknessBottom':
+        elif data_type == 'thickness2':
             data = self._thicknessOutput2
         elif data_type == 'thickness':
             data = self._thicknessOutput
@@ -498,8 +487,8 @@ if __name__ == '__main__':
 
     printnatoms = args.printnatoms
 
-    traj = Trajectory(trajfile, indexfile, distance_criteria,
-                      outputfile, thickness, simplethickness,
-                      insertion, printnatoms)
+    membanal = Trajectory(trajfile, indexfile, distance_criteria,
+                          outputfile, thickness, simplethickness,
+                          insertion, printnatoms)
 
-    traj.analyseTrajectory()
+    membanal.analyseTrajectory()
