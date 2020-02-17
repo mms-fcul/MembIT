@@ -57,7 +57,7 @@ parser.add_argument('-thickness', help='Thickness parameters:\n'
                     '      (the default is 0, thus including all membrane atoms)\n', required=False,
                     metavar='window step', default=None, nargs='+')
 parser.add_argument('-insertion', help='Insertion paramenters:\n'
-                    '<type> or <window> <step> <min> <max> (noNaN)\n'
+                    '<type> or <window> <step> <min> <max> <noNaN><nclosest>\n'
                     'type - closest (insertion to closest membrane atom)\n'
                     '       average (insertion to average membrane z position)\n'
                     '       zero    (insertion to the center of the "bulk" membrane)\n'
@@ -73,9 +73,12 @@ parser.add_argument('-insertion', help='Insertion paramenters:\n'
                     '      (the default is 0)\n'
                     'max - maximum distance between Membrane and Center_of_Interest to be considered\n'
                     '      (the default is box_size in xy)\n'
-                    'noNaN - replaces NaN output entries where there are no membranes atoms in the '
-                    'specified cut off with the insertion relative to the closest atom'
-                    'min, max and noNaN are optional', required=False,
+                    'noNaN - replaces NaN output entries where there are no membranes atoms in the \n'
+                    '        specified cut off with the insertion relative to the closest atom'
+                    'min, max and noNaN are optional\n'
+                    'nclosest - this argument can only be used with noNaN. It specifies the number of \n'
+                    '           the closest membrane atoms to include in the calculation \n'
+                    '           (if there is no membrane atom within the specified cutoff). ', required=False,
                     metavar='closest', default=None, nargs='+')
 
 parser.add_argument('-distance', help='All distances between the membrane and the center_of_interest \n'
