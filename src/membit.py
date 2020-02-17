@@ -83,7 +83,8 @@ parser.add_argument('-insertion', help='Insertion paramenters:\n'
 
 parser.add_argument('-distance', help='All distances between the membrane and the center_of_interest \n'
                     'will be calculated using 2 or 3 dimensions. The default is 3. \n'
-                    'This is only for insertion, thickness is always 2D.',
+                    'This is only for insertion, thickness is always 2D.'
+                    'The choice of the closest membrane leaflet is based solely on the 3D distances.',
                     choices=['3D', '2D'], required=False, default='3D')
 
 parser.add_argument('-printnatoms', help='Adds a column to the insertion output with the '

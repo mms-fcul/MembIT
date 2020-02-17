@@ -77,8 +77,9 @@ class Membrane(AtomCollections):
         furthest_atom = None
         for membraneAtom in self.getAtoms():
             if criteria == '2D':
-                new_dist = membraneAtom.distTo2D(center[0], center[1], box[0], box[1])
-                membraneAtom.setDistance2CoI(new_dist)
+                atom_dist = membraneAtom.distTo2D(center[0], center[1], box[0], box[1])
+                membraneAtom.setDistance2CoI(atom_dist)
+                new_dist = membraneAtom.distTo3D(center[0], center[1], center[2], box[0], box[1], box[2])
             elif criteria == '3D':
                 new_dist = membraneAtom.distTo3D(center[0], center[1], center[2], box[0], box[1], box[2])
                 membraneAtom.setDistance2CoI(new_dist)
