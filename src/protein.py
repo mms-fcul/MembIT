@@ -128,13 +128,23 @@ class Protein(AtomCollections):
             for window_half, atoms, distances in slices:
                 natoms = len(atoms)
 
-                if natoms == 0:
-                    if 'noNaN' in parameters[-1]:
-                        nclosest_atoms = parameters[-1].strip('noNaN')
-                        if len(nclosest_atoms) == 0:
-                            nclosest_atoms = 1
-                        else:
-                            nclosest_atoms = int(nclosest_atoms)
+
+                if natoms == 0 and 'noNaN' in parameters[-1]:
+                    nclosest_atoms = parameters[-1].strip('noNaN')
+                    if len(nclosest_atoms) == 0:
+                        nclosest_atoms = 1
+                    else:
+                        nclosest_atoms = int(nclosest_atoms)
+                    atoms = atom_sorted_bydist[:nclosest_atoms]
+                    natoms = len(atoms)
+                elif 'min' in parameters[-1]:
+                    nclosest_atoms = parameters[-1].strip('min')
+                    if len(nclosest_atoms) == 0:
+                        nclosest_atoms = 1
+                    else:
+                        nclosest_atoms = int(nclosest_atoms)
+                    if natoms < nclosest_atoms:
+                        nclosest_atoms = int(nclosest_atoms)
                         atoms = atom_sorted_bydist[:nclosest_atoms]
                         natoms = len(atoms)
 
