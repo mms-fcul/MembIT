@@ -1061,7 +1061,7 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "membrane.pyx":129
+/* "membrane.pyx":132
  * 
  * 
  *     def getSlices(self, window_size, window_step,             # <<<<<<<<<<<<<<
@@ -1850,6 +1850,7 @@ extern int __pyx_module_is_main_membrane;
 int __pyx_module_is_main_membrane = 0;
 
 /* Implementation of 'membrane' */
+static PyObject *__pyx_builtin_staticmethod;
 static PyObject *__pyx_builtin_enumerate;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_round;
@@ -2010,6 +2011,7 @@ static const char __pyx_k_membraneAtom[] = "membraneAtom";
 static const char __pyx_k_membrane_pyx[] = "membrane.pyx";
 static const char __pyx_k_otherLeaflet[] = "_otherLeaflet";
 static const char __pyx_k_ouput_radius[] = "ouput_radius";
+static const char __pyx_k_staticmethod[] = "staticmethod";
 static const char __pyx_k_window_begin[] = "window_begin";
 static const char __pyx_k_windows_both[] = "windows_both";
 static const char __pyx_k_bottomLeaflet[] = "_bottomLeaflet";
@@ -2051,6 +2053,7 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_getSimpleThickness[] = "getSimpleThickness";
 static const char __pyx_k_getAllAtomsMinDist2[] = "getAllAtomsMinDist2";
 static const char __pyx_k_outputnameThickness[] = "outputnameThickness";
+static const char __pyx_k_sortAtomsByDistance[] = "sortAtomsByDistance";
 static const char __pyx_k_Membrane_getAverageZ[] = "Membrane.getAverageZ";
 static const char __pyx_k_chooseClosestLeaflet[] = "chooseClosestLeaflet";
 static const char __pyx_k_max_window_converted[] = "max_window_converted";
@@ -2058,7 +2061,6 @@ static const char __pyx_k_window_end_converted[] = "window_end_converted";
 static const char __pyx_k_Membrane_getThickness[] = "Membrane.getThickness";
 static const char __pyx_k_membrane_atoms_sorted[] = "membrane_atoms_sorted";
 static const char __pyx_k_Membrane_saveThickness[] = "Membrane.saveThickness";
-static const char __pyx_k_PYXgetAllAtomsMinDist2[] = "PYXgetAllAtomsMinDist2";
 static const char __pyx_k_Membrane_getClosestAtom[] = "Membrane.getClosestAtom";
 static const char __pyx_k_Membrane_getFurthestAtom[] = "Membrane.getFurthestAtom";
 static const char __pyx_k_Membrane_getLeafletAtoms[] = "Membrane.getLeafletAtoms";
@@ -2069,18 +2071,19 @@ static const char __pyx_k_Membrane_calcHalfMembraneZ[] = "Membrane.calcHalfMembr
 static const char __pyx_k_Membrane_getClosestLeaflet[] = "Membrane.getClosestLeaflet";
 static const char __pyx_k_Membrane_getSimpleThickness[] = "Membrane.getSimpleThickness";
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
+static const char __pyx_k_Membrane_sortAtomsByDistance[] = "Membrane.sortAtomsByDistance";
 static const char __pyx_k_Membrane_chooseClosestLeaflet[] = "Membrane.chooseClosestLeaflet";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static const char __pyx_k_Format_string_allocated_too_shor[] = "Format string allocated too short, see comment in numpy.pxd";
-static const char __pyx_k_Membrane_getReferenceML2CoIDista[] = "Membrane.getReferenceML2CoIDistanceSorted.<locals>.<lambda>";
+static const char __pyx_k_Membrane_getReferenceML2CoIDista[] = "Membrane.getReferenceML2CoIDistanceSorted";
+static const char __pyx_k_Membrane_sortAtomsByDistance_loc[] = "Membrane.sortAtomsByDistance.<locals>.<lambda>";
 static const char __pyx_k_Non_native_byte_order_not_suppor[] = "Non-native byte order not supported";
 static const char __pyx_k_Please_decrease_the_cutoff_input[] = "Please decrease the cutoff input value.";
 static const char __pyx_k_getReferenceML2CoIDistanceSorted[] = "getReferenceML2CoIDistanceSorted";
 static const char __pyx_k_ndarray_is_not_Fortran_contiguou[] = "ndarray is not Fortran contiguous";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
 static const char __pyx_k_Format_string_allocated_too_shor_2[] = "Format string allocated too short.";
-static const char __pyx_k_Membrane_getReferenceML2CoIDista_2[] = "Membrane.getReferenceML2CoIDistanceSorted";
 static PyObject *__pyx_kp_s_0;
 static PyObject *__pyx_kp_s_0_1;
 static PyObject *__pyx_kp_s_0_2;
@@ -2107,16 +2110,16 @@ static PyObject *__pyx_n_s_Membrane_getHalfZ;
 static PyObject *__pyx_n_s_Membrane_getLeafletAtoms;
 static PyObject *__pyx_n_s_Membrane_getOtherLeaflet;
 static PyObject *__pyx_n_s_Membrane_getReferenceML2CoIDista;
-static PyObject *__pyx_n_s_Membrane_getReferenceML2CoIDista_2;
 static PyObject *__pyx_n_s_Membrane_getSimpleThickness;
 static PyObject *__pyx_n_s_Membrane_getSlices;
 static PyObject *__pyx_n_s_Membrane_getThickness;
 static PyObject *__pyx_n_s_Membrane_saveThickness;
 static PyObject *__pyx_n_s_Membrane_setHalfZ;
 static PyObject *__pyx_n_s_Membrane_setLeafletsOrder;
+static PyObject *__pyx_n_s_Membrane_sortAtomsByDistance;
+static PyObject *__pyx_n_s_Membrane_sortAtomsByDistance_loc;
 static PyObject *__pyx_n_s_NaN;
 static PyObject *__pyx_kp_u_Non_native_byte_order_not_suppor;
-static PyObject *__pyx_n_s_PYXgetAllAtomsMinDist2;
 static PyObject *__pyx_kp_s_Please_decrease_the_cutoff_input;
 static PyObject *__pyx_n_s_RuntimeError;
 static PyObject *__pyx_n_s_ValueError;
@@ -2272,6 +2275,8 @@ static PyObject *__pyx_n_s_setHalfZ;
 static PyObject *__pyx_n_s_setLeafletsOrder;
 static PyObject *__pyx_n_s_slices;
 static PyObject *__pyx_n_s_sort;
+static PyObject *__pyx_n_s_sortAtomsByDistance;
+static PyObject *__pyx_n_s_staticmethod;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_text;
 static PyObject *__pyx_n_s_thickness;
@@ -2316,14 +2321,15 @@ static PyObject *__pyx_pf_8membrane_8Membrane_16getHalfZ(CYTHON_UNUSED PyObject 
 static PyObject *__pyx_pf_8membrane_8Membrane_18setLeafletsOrder(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_leaftlet, PyObject *__pyx_v_order); /* proto */
 static PyObject *__pyx_pf_8membrane_8Membrane_20chooseClosestLeaflet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_protein, PyObject *__pyx_v_box, PyObject *__pyx_v_criteria); /* proto */
 static PyObject *__pyx_pf_8membrane_8Membrane_22getAverageZ(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_atoms); /* proto */
-static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
 static PyObject *__pyx_pf_8membrane_8Membrane_24getReferenceML2CoIDistanceSorted(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_8membrane_8Membrane_26getSlices(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_window_size, PyObject *__pyx_v_window_step, PyObject *__pyx_v_min_window, PyObject *__pyx_v_max_window, PyObject *__pyx_v_membrane_atoms_sorted); /* proto */
-static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_protein, PyObject *__pyx_v_parameters, PyObject *__pyx_v_box); /* proto */
-static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_outputnameThickness); /* proto */
-static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_CoI, PyObject *__pyx_v_leaflet, PyObject *__pyx_v_box, PyObject *__pyx_v_parameters, PyObject *__pyx_v_outputfile, PyObject *__pyx_v_printnatoms); /* proto */
-static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_window, PyObject *__pyx_v_thickness, PyObject *__pyx_v_leaflet); /* proto */
-static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
+static PyObject *__pyx_pf_8membrane_8Membrane_26sortAtomsByDistance(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_membAtoms, PyObject *__pyx_v_atoms_distances); /* proto */
+static PyObject *__pyx_pf_8membrane_8Membrane_28getSlices(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_window_size, PyObject *__pyx_v_window_step, PyObject *__pyx_v_min_window, PyObject *__pyx_v_max_window, PyObject *__pyx_v_membrane_atoms_sorted); /* proto */
+static PyObject *__pyx_pf_8membrane_8Membrane_31calcHalfMembraneZ(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_protein, PyObject *__pyx_v_parameters, PyObject *__pyx_v_box); /* proto */
+static PyObject *__pyx_pf_8membrane_8Membrane_33getSimpleThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_outputnameThickness); /* proto */
+static PyObject *__pyx_pf_8membrane_8Membrane_35getThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_CoI, PyObject *__pyx_v_leaflet, PyObject *__pyx_v_box, PyObject *__pyx_v_parameters, PyObject *__pyx_v_outputfile, PyObject *__pyx_v_printnatoms); /* proto */
+static PyObject *__pyx_pf_8membrane_8Membrane_37saveThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_window, PyObject *__pyx_v_thickness, PyObject *__pyx_v_leaflet); /* proto */
+static PyObject *__pyx_pf_8membrane_8Membrane_39calcThicknessAvg(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tp_new_8membrane___pyx_scope_struct__getSlices(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -2372,11 +2378,12 @@ static PyObject *__pyx_tuple__46;
 static PyObject *__pyx_tuple__48;
 static PyObject *__pyx_tuple__50;
 static PyObject *__pyx_tuple__52;
-static PyObject *__pyx_tuple__53;
+static PyObject *__pyx_tuple__54;
 static PyObject *__pyx_tuple__55;
 static PyObject *__pyx_tuple__57;
 static PyObject *__pyx_tuple__59;
 static PyObject *__pyx_tuple__61;
+static PyObject *__pyx_tuple__63;
 static PyObject *__pyx_codeobj__3;
 static PyObject *__pyx_codeobj__27;
 static PyObject *__pyx_codeobj__29;
@@ -2391,11 +2398,12 @@ static PyObject *__pyx_codeobj__45;
 static PyObject *__pyx_codeobj__47;
 static PyObject *__pyx_codeobj__49;
 static PyObject *__pyx_codeobj__51;
-static PyObject *__pyx_codeobj__54;
+static PyObject *__pyx_codeobj__53;
 static PyObject *__pyx_codeobj__56;
 static PyObject *__pyx_codeobj__58;
 static PyObject *__pyx_codeobj__60;
 static PyObject *__pyx_codeobj__62;
+static PyObject *__pyx_codeobj__64;
 /* Late includes */
 
 /* "membrane.pyx":9
@@ -4986,67 +4994,11 @@ static PyObject *__pyx_pw_8membrane_8Membrane_25getReferenceML2CoIDistanceSorted
   return __pyx_r;
 }
 
-/* "membrane.pyx":125
- *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
- * 
- *         membrane_atoms_sorted.sort(key=lambda x: x[1])             # <<<<<<<<<<<<<<
- *         return membrane_atoms_sorted
- * 
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_8membrane_8Membrane_32getReferenceML2CoIDistanceSorted_lambda(PyObject *__pyx_self, PyObject *__pyx_v_x); /*proto*/
-static PyMethodDef __pyx_mdef_8membrane_8Membrane_32getReferenceML2CoIDistanceSorted_lambda = {"lambda", (PyCFunction)__pyx_pw_8membrane_8Membrane_32getReferenceML2CoIDistanceSorted_lambda, METH_O, 0};
-static PyObject *__pyx_pw_8membrane_8Membrane_32getReferenceML2CoIDistanceSorted_lambda(PyObject *__pyx_self, PyObject *__pyx_v_x) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("lambda (wrapper)", 0);
-  __pyx_r = __pyx_lambda_funcdef_lambda(__pyx_self, ((PyObject *)__pyx_v_x));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("lambda", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_x, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("membrane.Membrane.getReferenceML2CoIDistanceSorted.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "membrane.pyx":114
- *         return total / counter
- * 
- *     def getReferenceML2CoIDistanceSorted(self):             # <<<<<<<<<<<<<<
- *         atoms_distances = []
- *         membAtoms = self.getLeafletAtoms(self._closestLeaflet)
- */
-
 static PyObject *__pyx_pf_8membrane_8Membrane_24getReferenceML2CoIDistanceSorted(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_atoms_distances = NULL;
   PyObject *__pyx_v_membAtoms = NULL;
   PyObject *__pyx_v_membAtom = NULL;
   PyObject *__pyx_v_distance = NULL;
-  PyObject *__pyx_v_membrane_atoms_sorted = NULL;
-  PyObject *__pyx_v_i = NULL;
-  CYTHON_UNUSED PyObject *__pyx_v_atom = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5057,6 +5009,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_24getReferenceML2CoIDistanceSorted
   Py_ssize_t __pyx_t_6;
   PyObject *(*__pyx_t_7)(PyObject *);
   int __pyx_t_8;
+  int __pyx_t_9;
   __Pyx_RefNannySetupContext("getReferenceML2CoIDistanceSorted", 0);
 
   /* "membrane.pyx":115
@@ -5185,7 +5138,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_24getReferenceML2CoIDistanceSorted
  *         for membAtom in membAtoms:
  *             distance = membAtom.getDistance2CoI() ** 0.5             # <<<<<<<<<<<<<<
  *             atoms_distances.append(distance)
- * 
+ *         return self.sortAtomsByDistance(membAtoms, atoms_distances)
  */
     __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_membAtom, __pyx_n_s_getDistance2CoI); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
@@ -5217,8 +5170,8 @@ static PyObject *__pyx_pf_8membrane_8Membrane_24getReferenceML2CoIDistanceSorted
  *         for membAtom in membAtoms:
  *             distance = membAtom.getDistance2CoI() ** 0.5
  *             atoms_distances.append(distance)             # <<<<<<<<<<<<<<
+ *         return self.sortAtomsByDistance(membAtoms, atoms_distances)
  * 
- *         membrane_atoms_sorted = []
  */
     __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_atoms_distances, __pyx_v_distance); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 119, __pyx_L1_error)
 
@@ -5232,140 +5185,63 @@ static PyObject *__pyx_pf_8membrane_8Membrane_24getReferenceML2CoIDistanceSorted
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "membrane.pyx":121
+  /* "membrane.pyx":120
+ *             distance = membAtom.getDistance2CoI() ** 0.5
  *             atoms_distances.append(distance)
+ *         return self.sortAtomsByDistance(membAtoms, atoms_distances)             # <<<<<<<<<<<<<<
  * 
- *         membrane_atoms_sorted = []             # <<<<<<<<<<<<<<
- *         for i, atom in enumerate(membAtoms):
- *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
- */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_membrane_atoms_sorted = ((PyObject*)__pyx_t_1);
-  __pyx_t_1 = 0;
-
-  /* "membrane.pyx":122
- * 
- *         membrane_atoms_sorted = []
- *         for i, atom in enumerate(membAtoms):             # <<<<<<<<<<<<<<
- *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
- * 
- */
-  __Pyx_INCREF(__pyx_int_0);
-  __pyx_t_1 = __pyx_int_0;
-  if (likely(PyList_CheckExact(__pyx_v_membAtoms)) || PyTuple_CheckExact(__pyx_v_membAtoms)) {
-    __pyx_t_5 = __pyx_v_membAtoms; __Pyx_INCREF(__pyx_t_5); __pyx_t_6 = 0;
-    __pyx_t_7 = NULL;
-  } else {
-    __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_v_membAtoms); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 122, __pyx_L1_error)
-  }
-  for (;;) {
-    if (likely(!__pyx_t_7)) {
-      if (likely(PyList_CheckExact(__pyx_t_5))) {
-        if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_5)) break;
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 122, __pyx_L1_error)
-        #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        #endif
-      } else {
-        if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 122, __pyx_L1_error)
-        #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        #endif
-      }
-    } else {
-      __pyx_t_2 = __pyx_t_7(__pyx_t_5);
-      if (unlikely(!__pyx_t_2)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 122, __pyx_L1_error)
-        }
-        break;
-      }
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    __Pyx_XDECREF_SET(__pyx_v_atom, __pyx_t_2);
-    __pyx_t_2 = 0;
-    __Pyx_INCREF(__pyx_t_1);
-    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
-    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_1, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1);
-    __pyx_t_1 = __pyx_t_2;
-    __pyx_t_2 = 0;
-
-    /* "membrane.pyx":123
- *         membrane_atoms_sorted = []
- *         for i, atom in enumerate(membAtoms):
- *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))             # <<<<<<<<<<<<<<
- * 
- *         membrane_atoms_sorted.sort(key=lambda x: x[1])
- */
-    __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_membAtoms, __pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 123, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_atoms_distances, __pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 123, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 123, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_2);
-    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
-    __pyx_t_2 = 0;
-    __pyx_t_3 = 0;
-    __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_membrane_atoms_sorted, __pyx_t_4); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 123, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-    /* "membrane.pyx":122
- * 
- *         membrane_atoms_sorted = []
- *         for i, atom in enumerate(membAtoms):             # <<<<<<<<<<<<<<
- *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
- * 
- */
-  }
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "membrane.pyx":125
- *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
- * 
- *         membrane_atoms_sorted.sort(key=lambda x: x[1])             # <<<<<<<<<<<<<<
- *         return membrane_atoms_sorted
- * 
- */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_membrane_atoms_sorted, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 125, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_32getReferenceML2CoIDistanceSorted_lambda, 0, __pyx_n_s_Membrane_getReferenceML2CoIDista, NULL, __pyx_n_s_membrane, __pyx_d, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_key, __pyx_t_4) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-  /* "membrane.pyx":126
- * 
- *         membrane_atoms_sorted.sort(key=lambda x: x[1])
- *         return membrane_atoms_sorted             # <<<<<<<<<<<<<<
- * 
- * 
+ *     @staticmethod
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_membrane_atoms_sorted);
-  __pyx_r = __pyx_v_membrane_atoms_sorted;
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_sortAtomsByDistance); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_2 = NULL;
+  __pyx_t_9 = 0;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_5);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_5, function);
+      __pyx_t_9 = 1;
+    }
+  }
+  #if CYTHON_FAST_PYCALL
+  if (PyFunction_Check(__pyx_t_5)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_membAtoms, __pyx_v_atoms_distances};
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  #if CYTHON_FAST_PYCCALL
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_membAtoms, __pyx_v_atoms_distances};
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  {
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (__pyx_t_2) {
+      __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2); __pyx_t_2 = NULL;
+    }
+    __Pyx_INCREF(__pyx_v_membAtoms);
+    __Pyx_GIVEREF(__pyx_v_membAtoms);
+    PyTuple_SET_ITEM(__pyx_t_3, 0+__pyx_t_9, __pyx_v_membAtoms);
+    __Pyx_INCREF(__pyx_v_atoms_distances);
+    __Pyx_GIVEREF(__pyx_v_atoms_distances);
+    PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_9, __pyx_v_atoms_distances);
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
   goto __pyx_L0;
 
   /* "membrane.pyx":114
@@ -5390,6 +5266,304 @@ static PyObject *__pyx_pf_8membrane_8Membrane_24getReferenceML2CoIDistanceSorted
   __Pyx_XDECREF(__pyx_v_membAtoms);
   __Pyx_XDECREF(__pyx_v_membAtom);
   __Pyx_XDECREF(__pyx_v_distance);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "membrane.pyx":123
+ * 
+ *     @staticmethod
+ *     def sortAtomsByDistance(membAtoms, atoms_distances):             # <<<<<<<<<<<<<<
+ *         membrane_atoms_sorted = []
+ *         for i, atom in enumerate(membAtoms):
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8membrane_8Membrane_27sortAtomsByDistance(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_8membrane_8Membrane_27sortAtomsByDistance = {"sortAtomsByDistance", (PyCFunction)__pyx_pw_8membrane_8Membrane_27sortAtomsByDistance, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_8membrane_8Membrane_27sortAtomsByDistance(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_membAtoms = 0;
+  PyObject *__pyx_v_atoms_distances = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("sortAtomsByDistance (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_membAtoms,&__pyx_n_s_atoms_distances,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_membAtoms)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_atoms_distances)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("sortAtomsByDistance", 1, 2, 2, 1); __PYX_ERR(0, 123, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sortAtomsByDistance") < 0)) __PYX_ERR(0, 123, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_membAtoms = values[0];
+    __pyx_v_atoms_distances = values[1];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("sortAtomsByDistance", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 123, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("membrane.Membrane.sortAtomsByDistance", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8membrane_8Membrane_26sortAtomsByDistance(__pyx_self, __pyx_v_membAtoms, __pyx_v_atoms_distances);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "membrane.pyx":128
+ *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
+ * 
+ *         membrane_atoms_sorted.sort(key=lambda x: x[1])             # <<<<<<<<<<<<<<
+ *         return membrane_atoms_sorted
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8membrane_8Membrane_19sortAtomsByDistance_lambda(PyObject *__pyx_self, PyObject *__pyx_v_x); /*proto*/
+static PyMethodDef __pyx_mdef_8membrane_8Membrane_19sortAtomsByDistance_lambda = {"lambda", (PyCFunction)__pyx_pw_8membrane_8Membrane_19sortAtomsByDistance_lambda, METH_O, 0};
+static PyObject *__pyx_pw_8membrane_8Membrane_19sortAtomsByDistance_lambda(PyObject *__pyx_self, PyObject *__pyx_v_x) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("lambda (wrapper)", 0);
+  __pyx_r = __pyx_lambda_funcdef_lambda(__pyx_self, ((PyObject *)__pyx_v_x));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("lambda", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_x, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("membrane.Membrane.sortAtomsByDistance.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "membrane.pyx":123
+ * 
+ *     @staticmethod
+ *     def sortAtomsByDistance(membAtoms, atoms_distances):             # <<<<<<<<<<<<<<
+ *         membrane_atoms_sorted = []
+ *         for i, atom in enumerate(membAtoms):
+ */
+
+static PyObject *__pyx_pf_8membrane_8Membrane_26sortAtomsByDistance(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_membAtoms, PyObject *__pyx_v_atoms_distances) {
+  PyObject *__pyx_v_membrane_atoms_sorted = NULL;
+  PyObject *__pyx_v_i = NULL;
+  CYTHON_UNUSED PyObject *__pyx_v_atom = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  Py_ssize_t __pyx_t_3;
+  PyObject *(*__pyx_t_4)(PyObject *);
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  int __pyx_t_8;
+  __Pyx_RefNannySetupContext("sortAtomsByDistance", 0);
+
+  /* "membrane.pyx":124
+ *     @staticmethod
+ *     def sortAtomsByDistance(membAtoms, atoms_distances):
+ *         membrane_atoms_sorted = []             # <<<<<<<<<<<<<<
+ *         for i, atom in enumerate(membAtoms):
+ *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
+ */
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_membrane_atoms_sorted = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "membrane.pyx":125
+ *     def sortAtomsByDistance(membAtoms, atoms_distances):
+ *         membrane_atoms_sorted = []
+ *         for i, atom in enumerate(membAtoms):             # <<<<<<<<<<<<<<
+ *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
+ * 
+ */
+  __Pyx_INCREF(__pyx_int_0);
+  __pyx_t_1 = __pyx_int_0;
+  if (likely(PyList_CheckExact(__pyx_v_membAtoms)) || PyTuple_CheckExact(__pyx_v_membAtoms)) {
+    __pyx_t_2 = __pyx_v_membAtoms; __Pyx_INCREF(__pyx_t_2); __pyx_t_3 = 0;
+    __pyx_t_4 = NULL;
+  } else {
+    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_membAtoms); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_4 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
+  }
+  for (;;) {
+    if (likely(!__pyx_t_4)) {
+      if (likely(PyList_CheckExact(__pyx_t_2))) {
+        if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_2)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_5); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 125, __pyx_L1_error)
+        #else
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 125, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        #endif
+      } else {
+        if (__pyx_t_3 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_5); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 125, __pyx_L1_error)
+        #else
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 125, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        #endif
+      }
+    } else {
+      __pyx_t_5 = __pyx_t_4(__pyx_t_2);
+      if (unlikely(!__pyx_t_5)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 125, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_5);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_atom, __pyx_t_5);
+    __pyx_t_5 = 0;
+    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
+    __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_t_1, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 125, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_1);
+    __pyx_t_1 = __pyx_t_5;
+    __pyx_t_5 = 0;
+
+    /* "membrane.pyx":126
+ *         membrane_atoms_sorted = []
+ *         for i, atom in enumerate(membAtoms):
+ *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))             # <<<<<<<<<<<<<<
+ * 
+ *         membrane_atoms_sorted.sort(key=lambda x: x[1])
+ */
+    __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_membAtoms, __pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_atoms_distances, __pyx_v_i); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_GIVEREF(__pyx_t_5);
+    PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5);
+    __Pyx_GIVEREF(__pyx_t_6);
+    PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_6);
+    __pyx_t_5 = 0;
+    __pyx_t_6 = 0;
+    __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_membrane_atoms_sorted, __pyx_t_7); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+    /* "membrane.pyx":125
+ *     def sortAtomsByDistance(membAtoms, atoms_distances):
+ *         membrane_atoms_sorted = []
+ *         for i, atom in enumerate(membAtoms):             # <<<<<<<<<<<<<<
+ *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
+ * 
+ */
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "membrane.pyx":128
+ *             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
+ * 
+ *         membrane_atoms_sorted.sort(key=lambda x: x[1])             # <<<<<<<<<<<<<<
+ *         return membrane_atoms_sorted
+ * 
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_membrane_atoms_sorted, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_7 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_19sortAtomsByDistance_lambda, 0, __pyx_n_s_Membrane_sortAtomsByDistance_loc, NULL, __pyx_n_s_membrane, __pyx_d, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_key, __pyx_t_7) < 0) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+  /* "membrane.pyx":129
+ * 
+ *         membrane_atoms_sorted.sort(key=lambda x: x[1])
+ *         return membrane_atoms_sorted             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_membrane_atoms_sorted);
+  __pyx_r = __pyx_v_membrane_atoms_sorted;
+  goto __pyx_L0;
+
+  /* "membrane.pyx":123
+ * 
+ *     @staticmethod
+ *     def sortAtomsByDistance(membAtoms, atoms_distances):             # <<<<<<<<<<<<<<
+ *         membrane_atoms_sorted = []
+ *         for i, atom in enumerate(membAtoms):
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_AddTraceback("membrane.Membrane.sortAtomsByDistance", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_membrane_atoms_sorted);
   __Pyx_XDECREF(__pyx_v_i);
   __Pyx_XDECREF(__pyx_v_atom);
@@ -5397,9 +5571,9 @@ static PyObject *__pyx_pf_8membrane_8Membrane_24getReferenceML2CoIDistanceSorted
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_8membrane_8Membrane_30generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "membrane.pyx":129
+/* "membrane.pyx":132
  * 
  * 
  *     def getSlices(self, window_size, window_step,             # <<<<<<<<<<<<<<
@@ -5408,9 +5582,9 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8membrane_8Membrane_27getSlices(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_8membrane_8Membrane_27getSlices = {"getSlices", (PyCFunction)__pyx_pw_8membrane_8Membrane_27getSlices, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_8membrane_8Membrane_27getSlices(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8membrane_8Membrane_29getSlices(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_8membrane_8Membrane_29getSlices = {"getSlices", (PyCFunction)__pyx_pw_8membrane_8Membrane_29getSlices, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_8membrane_8Membrane_29getSlices(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_window_size = 0;
   PyObject *__pyx_v_window_step = 0;
@@ -5451,35 +5625,35 @@ static PyObject *__pyx_pw_8membrane_8Membrane_27getSlices(PyObject *__pyx_self, 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_window_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 1); __PYX_ERR(0, 129, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 1); __PYX_ERR(0, 132, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_window_step)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 2); __PYX_ERR(0, 129, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 2); __PYX_ERR(0, 132, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_min_window)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 3); __PYX_ERR(0, 129, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 3); __PYX_ERR(0, 132, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_max_window)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 4); __PYX_ERR(0, 129, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 4); __PYX_ERR(0, 132, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_membrane_atoms_sorted)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 5); __PYX_ERR(0, 129, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, 5); __PYX_ERR(0, 132, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "getSlices") < 0)) __PYX_ERR(0, 129, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "getSlices") < 0)) __PYX_ERR(0, 132, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -5500,20 +5674,20 @@ static PyObject *__pyx_pw_8membrane_8Membrane_27getSlices(PyObject *__pyx_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 129, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("getSlices", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 132, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("membrane.Membrane.getSlices", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8membrane_8Membrane_26getSlices(__pyx_self, __pyx_v_self, __pyx_v_window_size, __pyx_v_window_step, __pyx_v_min_window, __pyx_v_max_window, __pyx_v_membrane_atoms_sorted);
+  __pyx_r = __pyx_pf_8membrane_8Membrane_28getSlices(__pyx_self, __pyx_v_self, __pyx_v_window_size, __pyx_v_window_step, __pyx_v_min_window, __pyx_v_max_window, __pyx_v_membrane_atoms_sorted);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8membrane_8Membrane_26getSlices(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_window_size, PyObject *__pyx_v_window_step, PyObject *__pyx_v_min_window, PyObject *__pyx_v_max_window, PyObject *__pyx_v_membrane_atoms_sorted) {
+static PyObject *__pyx_pf_8membrane_8Membrane_28getSlices(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_window_size, PyObject *__pyx_v_window_step, PyObject *__pyx_v_min_window, PyObject *__pyx_v_max_window, PyObject *__pyx_v_membrane_atoms_sorted) {
   struct __pyx_obj_8membrane___pyx_scope_struct__getSlices *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -5522,7 +5696,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_26getSlices(CYTHON_UNUSED PyObject
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_8membrane___pyx_scope_struct__getSlices *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 129, __pyx_L1_error)
+    __PYX_ERR(0, 132, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -5545,7 +5719,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_26getSlices(CYTHON_UNUSED PyObject
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_membrane_atoms_sorted);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_membrane_atoms_sorted);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_8membrane_8Membrane_28generator, __pyx_codeobj__3, (PyObject *) __pyx_cur_scope, __pyx_n_s_getSlices, __pyx_n_s_Membrane_getSlices, __pyx_n_s_membrane); if (unlikely(!gen)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_8membrane_8Membrane_30generator, __pyx_codeobj__3, (PyObject *) __pyx_cur_scope, __pyx_n_s_getSlices, __pyx_n_s_Membrane_getSlices, __pyx_n_s_membrane); if (unlikely(!gen)) __PYX_ERR(0, 132, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5561,7 +5735,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_26getSlices(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_8membrane_8Membrane_30generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
   struct __pyx_obj_8membrane___pyx_scope_struct__getSlices *__pyx_cur_scope = ((struct __pyx_obj_8membrane___pyx_scope_struct__getSlices *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
@@ -5589,71 +5763,71 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 129, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 132, __pyx_L1_error)
 
-  /* "membrane.pyx":133
+  /* "membrane.pyx":136
  *         cdef int natoms
  *         cdef float distance, window_begin, window_end, window_half
  *         window_begin = min_window             # <<<<<<<<<<<<<<
  *         window_end = window_begin + window_size
  * 
  */
-  __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_cur_scope->__pyx_v_min_window); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_cur_scope->__pyx_v_min_window); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 136, __pyx_L1_error)
   __pyx_cur_scope->__pyx_v_window_begin = __pyx_t_1;
 
-  /* "membrane.pyx":134
+  /* "membrane.pyx":137
  *         cdef float distance, window_begin, window_end, window_half
  *         window_begin = min_window
  *         window_end = window_begin + window_size             # <<<<<<<<<<<<<<
  * 
  *         natoms = len(membrane_atoms_sorted)
  */
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyNumber_Add(__pyx_t_2, __pyx_cur_scope->__pyx_v_window_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_t_2, __pyx_cur_scope->__pyx_v_window_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_cur_scope->__pyx_v_window_end = __pyx_t_1;
 
-  /* "membrane.pyx":136
+  /* "membrane.pyx":139
  *         window_end = window_begin + window_size
  * 
  *         natoms = len(membrane_atoms_sorted)             # <<<<<<<<<<<<<<
  * 
  *         #with open('tmpnew', 'w') as f:
  */
-  __pyx_t_4 = PyObject_Length(__pyx_cur_scope->__pyx_v_membrane_atoms_sorted); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_cur_scope->__pyx_v_membrane_atoms_sorted); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 139, __pyx_L1_error)
   __pyx_cur_scope->__pyx_v_natoms = __pyx_t_4;
 
-  /* "membrane.pyx":148
+  /* "membrane.pyx":151
  * 
  * 
  *         tmp_window = []             # <<<<<<<<<<<<<<
  *         atoms = []
  *         #print ('a', min([i[1] for i in membrane_atoms]),
  */
-  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_tmp_window = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "membrane.pyx":149
+  /* "membrane.pyx":152
  * 
  *         tmp_window = []
  *         atoms = []             # <<<<<<<<<<<<<<
  *         #print ('a', min([i[1] for i in membrane_atoms]),
  *         #       max([i[1] for i in membrane_atoms]))
  */
-  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_atoms = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "membrane.pyx":152
+  /* "membrane.pyx":155
  *         #print ('a', min([i[1] for i in membrane_atoms]),
  *         #       max([i[1] for i in membrane_atoms]))
  *         for atom_i in range(natoms):             # <<<<<<<<<<<<<<
@@ -5665,16 +5839,16 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_cur_scope->__pyx_v_atom_i = __pyx_t_7;
 
-    /* "membrane.pyx":153
+    /* "membrane.pyx":156
  *         #       max([i[1] for i in membrane_atoms]))
  *         for atom_i in range(natoms):
  *             atom = membrane_atoms_sorted[atom_i][0]             # <<<<<<<<<<<<<<
  *             distance = membrane_atoms_sorted[atom_i][1]
  * 
  */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_membrane_atoms_sorted, __pyx_cur_scope->__pyx_v_atom_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_membrane_atoms_sorted, __pyx_cur_scope->__pyx_v_atom_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 156, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 153, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_atom);
@@ -5682,38 +5856,38 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":154
+    /* "membrane.pyx":157
  *         for atom_i in range(natoms):
  *             atom = membrane_atoms_sorted[atom_i][0]
  *             distance = membrane_atoms_sorted[atom_i][1]             # <<<<<<<<<<<<<<
  * 
  *             #if atom.getNumber() == '437':
  */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_membrane_atoms_sorted, __pyx_cur_scope->__pyx_v_atom_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 154, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_membrane_atoms_sorted, __pyx_cur_scope->__pyx_v_atom_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 157, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 154, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 154, __pyx_L1_error)
+    __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 157, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_cur_scope->__pyx_v_distance = __pyx_t_1;
 
-    /* "membrane.pyx":159
+    /* "membrane.pyx":162
  *             #    print '437_slices', distance
  * 
  *             if distance >= max_window:             # <<<<<<<<<<<<<<
  *                 continue
  * 
  */
-    __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_distance); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 159, __pyx_L1_error)
+    __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_distance); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_cur_scope->__pyx_v_max_window, Py_GE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_cur_scope->__pyx_v_max_window, Py_GE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 159, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_8) {
 
-      /* "membrane.pyx":160
+      /* "membrane.pyx":163
  * 
  *             if distance >= max_window:
  *                 continue             # <<<<<<<<<<<<<<
@@ -5722,7 +5896,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  */
       goto __pyx_L4_continue;
 
-      /* "membrane.pyx":159
+      /* "membrane.pyx":162
  *             #    print '437_slices', distance
  * 
  *             if distance >= max_window:             # <<<<<<<<<<<<<<
@@ -5731,7 +5905,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  */
     }
 
-    /* "membrane.pyx":162
+    /* "membrane.pyx":165
  *                 continue
  * 
  *             while distance > window_end:             # <<<<<<<<<<<<<<
@@ -5742,35 +5916,35 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       __pyx_t_8 = ((__pyx_cur_scope->__pyx_v_distance > __pyx_cur_scope->__pyx_v_window_end) != 0);
       if (!__pyx_t_8) break;
 
-      /* "membrane.pyx":164
+      /* "membrane.pyx":167
  *             while distance > window_end:
  *                 # Save tmp_window in windows
  *                 window_half = window_begin + window_size / 2.0             # <<<<<<<<<<<<<<
  *                 yield window_half, atoms, tmp_window
  * 
  */
-      __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 164, __pyx_L1_error)
+      __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = __Pyx_PyFloat_DivideObjC(__pyx_cur_scope->__pyx_v_window_size, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 164, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyFloat_DivideObjC(__pyx_cur_scope->__pyx_v_window_size, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_9 = PyNumber_Add(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 164, __pyx_L1_error)
+      __pyx_t_9 = PyNumber_Add(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_9); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 164, __pyx_L1_error)
+      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_9); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_cur_scope->__pyx_v_window_half = __pyx_t_1;
 
-      /* "membrane.pyx":165
+      /* "membrane.pyx":168
  *                 # Save tmp_window in windows
  *                 window_half = window_begin + window_size / 2.0
  *                 yield window_half, atoms, tmp_window             # <<<<<<<<<<<<<<
  * 
  *                 # Update the window
  */
-      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_half); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 165, __pyx_L1_error)
+      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_half); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_9);
@@ -5796,69 +5970,69 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       __pyx_t_5 = __pyx_cur_scope->__pyx_t_0;
       __pyx_t_6 = __pyx_cur_scope->__pyx_t_1;
       __pyx_t_7 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 165, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 168, __pyx_L1_error)
 
-      /* "membrane.pyx":168
+      /* "membrane.pyx":171
  * 
  *                 # Update the window
  *                 window_begin += window_step             # <<<<<<<<<<<<<<
  *                 window_end += window_step
  * 
  */
-      __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
+      __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 171, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_9 = PyNumber_InPlaceAdd(__pyx_t_3, __pyx_cur_scope->__pyx_v_window_step); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L1_error)
+      __pyx_t_9 = PyNumber_InPlaceAdd(__pyx_t_3, __pyx_cur_scope->__pyx_v_window_step); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_9); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 168, __pyx_L1_error)
+      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_9); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 171, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_cur_scope->__pyx_v_window_begin = __pyx_t_1;
 
-      /* "membrane.pyx":169
+      /* "membrane.pyx":172
  *                 # Update the window
  *                 window_begin += window_step
  *                 window_end += window_step             # <<<<<<<<<<<<<<
  * 
  *                 # Remove points from new window
  */
-      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 169, __pyx_L1_error)
+      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 172, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_3 = PyNumber_InPlaceAdd(__pyx_t_9, __pyx_cur_scope->__pyx_v_window_step); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 169, __pyx_L1_error)
+      __pyx_t_3 = PyNumber_InPlaceAdd(__pyx_t_9, __pyx_cur_scope->__pyx_v_window_step); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 172, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 169, __pyx_L1_error)
+      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 172, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_cur_scope->__pyx_v_window_end = __pyx_t_1;
 
-      /* "membrane.pyx":172
+      /* "membrane.pyx":175
  * 
  *                 # Remove points from new window
  *                 new_tmp_window = []             # <<<<<<<<<<<<<<
  *                 new_atoms = []
  *                 i = 0
  */
-      __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 172, __pyx_L1_error)
+      __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 175, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_new_tmp_window);
       __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_new_tmp_window, ((PyObject*)__pyx_t_3));
       __Pyx_GIVEREF(__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "membrane.pyx":173
+      /* "membrane.pyx":176
  *                 # Remove points from new window
  *                 new_tmp_window = []
  *                 new_atoms = []             # <<<<<<<<<<<<<<
  *                 i = 0
  *                 while i < len(tmp_window) and tmp_window[i] <= window_end:
  */
-      __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 173, __pyx_L1_error)
+      __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 176, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_new_atoms);
       __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_new_atoms, ((PyObject*)__pyx_t_3));
       __Pyx_GIVEREF(__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "membrane.pyx":174
+      /* "membrane.pyx":177
  *                 new_tmp_window = []
  *                 new_atoms = []
  *                 i = 0             # <<<<<<<<<<<<<<
@@ -5870,7 +6044,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_i, __pyx_int_0);
       __Pyx_GIVEREF(__pyx_int_0);
 
-      /* "membrane.pyx":175
+      /* "membrane.pyx":178
  *                 new_atoms = []
  *                 i = 0
  *                 while i < len(tmp_window) and tmp_window[i] <= window_end:             # <<<<<<<<<<<<<<
@@ -5878,74 +6052,74 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  *                         new_tmp_window.append(tmp_window[i])
  */
       while (1) {
-        __pyx_t_4 = PyList_GET_SIZE(__pyx_cur_scope->__pyx_v_tmp_window); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 175, __pyx_L1_error)
-        __pyx_t_3 = PyInt_FromSsize_t(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __pyx_t_4 = PyList_GET_SIZE(__pyx_cur_scope->__pyx_v_tmp_window); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 178, __pyx_L1_error)
+        __pyx_t_3 = PyInt_FromSsize_t(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_9 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_i, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __pyx_t_9 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_i, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         if (__pyx_t_10) {
         } else {
           __pyx_t_8 = __pyx_t_10;
           goto __pyx_L12_bool_binop_done;
         }
-        __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = PyObject_RichCompare(__pyx_t_9, __pyx_t_3, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __pyx_t_2 = PyObject_RichCompare(__pyx_t_9, __pyx_t_3, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 175, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 178, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_8 = __pyx_t_10;
         __pyx_L12_bool_binop_done:;
         if (!__pyx_t_8) break;
 
-        /* "membrane.pyx":176
+        /* "membrane.pyx":179
  *                 i = 0
  *                 while i < len(tmp_window) and tmp_window[i] <= window_end:
  *                     if tmp_window[i] >= window_begin:             # <<<<<<<<<<<<<<
  *                         new_tmp_window.append(tmp_window[i])
  *                         new_atoms.append(atoms[i])
  */
-        __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 176, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 179, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 176, __pyx_L1_error)
+        __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 179, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_9 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_GE); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 176, __pyx_L1_error)
+        __pyx_t_9 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_GE); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 179, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 176, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 179, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         if (__pyx_t_8) {
 
-          /* "membrane.pyx":177
+          /* "membrane.pyx":180
  *                 while i < len(tmp_window) and tmp_window[i] <= window_end:
  *                     if tmp_window[i] >= window_begin:
  *                         new_tmp_window.append(tmp_window[i])             # <<<<<<<<<<<<<<
  *                         new_atoms.append(atoms[i])
  *                     i += 1
  */
-          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 177, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 180, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_new_tmp_window, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 177, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_new_tmp_window, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 180, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-          /* "membrane.pyx":178
+          /* "membrane.pyx":181
  *                     if tmp_window[i] >= window_begin:
  *                         new_tmp_window.append(tmp_window[i])
  *                         new_atoms.append(atoms[i])             # <<<<<<<<<<<<<<
  *                     i += 1
  * 
  */
-          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_atoms, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 178, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_atoms, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 181, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_new_atoms, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 178, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_new_atoms, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 181, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-          /* "membrane.pyx":176
+          /* "membrane.pyx":179
  *                 i = 0
  *                 while i < len(tmp_window) and tmp_window[i] <= window_end:
  *                     if tmp_window[i] >= window_begin:             # <<<<<<<<<<<<<<
@@ -5954,14 +6128,14 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  */
         }
 
-        /* "membrane.pyx":179
+        /* "membrane.pyx":182
  *                         new_tmp_window.append(tmp_window[i])
  *                         new_atoms.append(atoms[i])
  *                     i += 1             # <<<<<<<<<<<<<<
  * 
  *                 tmp_window = new_tmp_window
  */
-        __pyx_t_9 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_i, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 179, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_i, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 182, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_i);
         __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_i, __pyx_t_9);
@@ -5969,7 +6143,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
         __pyx_t_9 = 0;
       }
 
-      /* "membrane.pyx":181
+      /* "membrane.pyx":184
  *                     i += 1
  * 
  *                 tmp_window = new_tmp_window             # <<<<<<<<<<<<<<
@@ -5981,7 +6155,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_new_tmp_window);
       __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_new_tmp_window);
 
-      /* "membrane.pyx":182
+      /* "membrane.pyx":185
  * 
  *                 tmp_window = new_tmp_window
  *                 atoms = new_atoms             # <<<<<<<<<<<<<<
@@ -5994,7 +6168,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_new_atoms);
     }
 
-    /* "membrane.pyx":184
+    /* "membrane.pyx":187
  *                 atoms = new_atoms
  * 
  *             if distance >= window_begin:             # <<<<<<<<<<<<<<
@@ -6004,28 +6178,28 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
     __pyx_t_8 = ((__pyx_cur_scope->__pyx_v_distance >= __pyx_cur_scope->__pyx_v_window_begin) != 0);
     if (__pyx_t_8) {
 
-      /* "membrane.pyx":185
+      /* "membrane.pyx":188
  * 
  *             if distance >= window_begin:
  *                 tmp_window.append(distance)             # <<<<<<<<<<<<<<
  *                 atoms.append(atom)
  *                 #if atom.getNumber() == '437':
  */
-      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_distance); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 185, __pyx_L1_error)
+      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_distance); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 188, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 185, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 188, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-      /* "membrane.pyx":186
+      /* "membrane.pyx":189
  *             if distance >= window_begin:
  *                 tmp_window.append(distance)
  *                 atoms.append(atom)             # <<<<<<<<<<<<<<
  *                 #if atom.getNumber() == '437':
  *                 #    window_half = window_begin + window_size / 2.0
  */
-      __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_atoms, __pyx_cur_scope->__pyx_v_atom); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_atoms, __pyx_cur_scope->__pyx_v_atom); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 189, __pyx_L1_error)
 
-      /* "membrane.pyx":184
+      /* "membrane.pyx":187
  *                 atoms = new_atoms
  * 
  *             if distance >= window_begin:             # <<<<<<<<<<<<<<
@@ -6036,20 +6210,20 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
     __pyx_L4_continue:;
   }
 
-  /* "membrane.pyx":193
+  /* "membrane.pyx":196
  * 
  *         # Deal with the last windows
  *         if window_step == 0:             # <<<<<<<<<<<<<<
  *             window_step = 999999
  * 
  */
-  __pyx_t_9 = __Pyx_PyInt_EqObjC(__pyx_cur_scope->__pyx_v_window_step, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyInt_EqObjC(__pyx_cur_scope->__pyx_v_window_step, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   if (__pyx_t_8) {
 
-    /* "membrane.pyx":194
+    /* "membrane.pyx":197
  *         # Deal with the last windows
  *         if window_step == 0:
  *             window_step = 999999             # <<<<<<<<<<<<<<
@@ -6061,7 +6235,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_window_step, __pyx_int_999999);
     __Pyx_GIVEREF(__pyx_int_999999);
 
-    /* "membrane.pyx":193
+    /* "membrane.pyx":196
  * 
  *         # Deal with the last windows
  *         if window_step == 0:             # <<<<<<<<<<<<<<
@@ -6070,16 +6244,16 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  */
   }
 
-  /* "membrane.pyx":196
+  /* "membrane.pyx":199
  *             window_step = 999999
  * 
  *         window_end_converted = int(round(window_end, 3) * 1000)             # <<<<<<<<<<<<<<
  *         max_window_converted = int(max_window * 1000)
  * 
  */
-  __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_9);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_9);
@@ -6087,36 +6261,36 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
   __Pyx_GIVEREF(__pyx_int_3);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_3);
   __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_3, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_3, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Multiply(__pyx_t_9, __pyx_int_1000); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Multiply(__pyx_t_9, __pyx_int_1000); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyNumber_Int(__pyx_t_3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyNumber_Int(__pyx_t_3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_GIVEREF(__pyx_t_9);
   __pyx_cur_scope->__pyx_v_window_end_converted = __pyx_t_9;
   __pyx_t_9 = 0;
 
-  /* "membrane.pyx":197
+  /* "membrane.pyx":200
  * 
  *         window_end_converted = int(round(window_end, 3) * 1000)
  *         max_window_converted = int(max_window * 1000)             # <<<<<<<<<<<<<<
  * 
  *         while window_end_converted <= max_window_converted:
  */
-  __pyx_t_9 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_max_window, __pyx_int_1000); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_t_9 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_max_window, __pyx_int_1000); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_3 = __Pyx_PyNumber_Int(__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyNumber_Int(__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_max_window_converted = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "membrane.pyx":199
+  /* "membrane.pyx":202
  *         max_window_converted = int(max_window * 1000)
  * 
  *         while window_end_converted <= max_window_converted:             # <<<<<<<<<<<<<<
@@ -6124,40 +6298,40 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  *             new_atoms = []
  */
   while (1) {
-    __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_window_end_converted, __pyx_cur_scope->__pyx_v_max_window_converted, Py_LE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 199, __pyx_L1_error)
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_window_end_converted, __pyx_cur_scope->__pyx_v_max_window_converted, Py_LE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 202, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (!__pyx_t_8) break;
 
-    /* "membrane.pyx":200
+    /* "membrane.pyx":203
  * 
  *         while window_end_converted <= max_window_converted:
  *             new_tmp_window = []             # <<<<<<<<<<<<<<
  *             new_atoms = []
  *             i = 0
  */
-    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 200, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_new_tmp_window);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_new_tmp_window, ((PyObject*)__pyx_t_3));
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "membrane.pyx":201
+    /* "membrane.pyx":204
  *         while window_end_converted <= max_window_converted:
  *             new_tmp_window = []
  *             new_atoms = []             # <<<<<<<<<<<<<<
  *             i = 0
  *             if len(tmp_window) != 0:
  */
-    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 201, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_new_atoms);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_new_atoms, ((PyObject*)__pyx_t_3));
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "membrane.pyx":202
+    /* "membrane.pyx":205
  *             new_tmp_window = []
  *             new_atoms = []
  *             i = 0             # <<<<<<<<<<<<<<
@@ -6169,18 +6343,18 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_i, __pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
 
-    /* "membrane.pyx":203
+    /* "membrane.pyx":206
  *             new_atoms = []
  *             i = 0
  *             if len(tmp_window) != 0:             # <<<<<<<<<<<<<<
  *                 while i < len(tmp_window) and tmp_window[i] < window_end:
  *                     if tmp_window[i] > window_begin:
  */
-    __pyx_t_4 = PyList_GET_SIZE(__pyx_cur_scope->__pyx_v_tmp_window); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_4 = PyList_GET_SIZE(__pyx_cur_scope->__pyx_v_tmp_window); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 206, __pyx_L1_error)
     __pyx_t_8 = ((__pyx_t_4 != 0) != 0);
     if (__pyx_t_8) {
 
-      /* "membrane.pyx":204
+      /* "membrane.pyx":207
  *             i = 0
  *             if len(tmp_window) != 0:
  *                 while i < len(tmp_window) and tmp_window[i] < window_end:             # <<<<<<<<<<<<<<
@@ -6188,74 +6362,74 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  *                         new_tmp_window.append(tmp_window[i])
  */
       while (1) {
-        __pyx_t_4 = PyList_GET_SIZE(__pyx_cur_scope->__pyx_v_tmp_window); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 204, __pyx_L1_error)
-        __pyx_t_3 = PyInt_FromSsize_t(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_4 = PyList_GET_SIZE(__pyx_cur_scope->__pyx_v_tmp_window); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 207, __pyx_L1_error)
+        __pyx_t_3 = PyInt_FromSsize_t(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 207, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_9 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_i, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_9 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_i, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 207, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 207, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         if (__pyx_t_10) {
         } else {
           __pyx_t_8 = __pyx_t_10;
           goto __pyx_L22_bool_binop_done;
         }
-        __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 207, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 207, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = PyObject_RichCompare(__pyx_t_9, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_2 = PyObject_RichCompare(__pyx_t_9, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 207, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_8 = __pyx_t_10;
         __pyx_L22_bool_binop_done:;
         if (!__pyx_t_8) break;
 
-        /* "membrane.pyx":205
+        /* "membrane.pyx":208
  *             if len(tmp_window) != 0:
  *                 while i < len(tmp_window) and tmp_window[i] < window_end:
  *                     if tmp_window[i] > window_begin:             # <<<<<<<<<<<<<<
  *                         new_tmp_window.append(tmp_window[i])
  *                         new_atoms.append(atoms[i])
  */
-        __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 205, __pyx_L1_error)
+        __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 208, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_9 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_GT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 205, __pyx_L1_error)
+        __pyx_t_9 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_GT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 208, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 205, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 208, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         if (__pyx_t_8) {
 
-          /* "membrane.pyx":206
+          /* "membrane.pyx":209
  *                 while i < len(tmp_window) and tmp_window[i] < window_end:
  *                     if tmp_window[i] > window_begin:
  *                         new_tmp_window.append(tmp_window[i])             # <<<<<<<<<<<<<<
  *                         new_atoms.append(atoms[i])
  *                     i += 1
  */
-          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 206, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 209, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_new_tmp_window, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 206, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_new_tmp_window, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 209, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-          /* "membrane.pyx":207
+          /* "membrane.pyx":210
  *                     if tmp_window[i] > window_begin:
  *                         new_tmp_window.append(tmp_window[i])
  *                         new_atoms.append(atoms[i])             # <<<<<<<<<<<<<<
  *                     i += 1
  * 
  */
-          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_atoms, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 207, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_atoms, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 210, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_new_atoms, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 207, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_new_atoms, __pyx_t_9); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 210, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-          /* "membrane.pyx":205
+          /* "membrane.pyx":208
  *             if len(tmp_window) != 0:
  *                 while i < len(tmp_window) and tmp_window[i] < window_end:
  *                     if tmp_window[i] > window_begin:             # <<<<<<<<<<<<<<
@@ -6264,14 +6438,14 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  */
         }
 
-        /* "membrane.pyx":208
+        /* "membrane.pyx":211
  *                         new_tmp_window.append(tmp_window[i])
  *                         new_atoms.append(atoms[i])
  *                     i += 1             # <<<<<<<<<<<<<<
  * 
  *                 tmp_window = new_tmp_window
  */
-        __pyx_t_9 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_i, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 208, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_i, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 211, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_i);
         __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_i, __pyx_t_9);
@@ -6279,7 +6453,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
         __pyx_t_9 = 0;
       }
 
-      /* "membrane.pyx":210
+      /* "membrane.pyx":213
  *                     i += 1
  * 
  *                 tmp_window = new_tmp_window             # <<<<<<<<<<<<<<
@@ -6291,7 +6465,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_tmp_window, __pyx_cur_scope->__pyx_v_new_tmp_window);
       __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_new_tmp_window);
 
-      /* "membrane.pyx":211
+      /* "membrane.pyx":214
  * 
  *                 tmp_window = new_tmp_window
  *                 atoms = new_atoms             # <<<<<<<<<<<<<<
@@ -6303,35 +6477,35 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_atoms, __pyx_cur_scope->__pyx_v_new_atoms);
       __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_new_atoms);
 
-      /* "membrane.pyx":212
+      /* "membrane.pyx":215
  *                 tmp_window = new_tmp_window
  *                 atoms = new_atoms
  *                 window_half = window_begin + window_size / 2.0             # <<<<<<<<<<<<<<
  *                 yield window_half, atoms, tmp_window
  *             else:
  */
-      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 212, __pyx_L1_error)
+      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 215, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_3 = __Pyx_PyFloat_DivideObjC(__pyx_cur_scope->__pyx_v_window_size, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 212, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyFloat_DivideObjC(__pyx_cur_scope->__pyx_v_window_size, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 215, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = PyNumber_Add(__pyx_t_9, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
+      __pyx_t_2 = PyNumber_Add(__pyx_t_9, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 212, __pyx_L1_error)
+      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 215, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_cur_scope->__pyx_v_window_half = __pyx_t_1;
 
-      /* "membrane.pyx":213
+      /* "membrane.pyx":216
  *                 atoms = new_atoms
  *                 window_half = window_begin + window_size / 2.0
  *                 yield window_half, atoms, tmp_window             # <<<<<<<<<<<<<<
  *             else:
  *                 window_half = window_begin + window_size / 2.0
  */
-      __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_half); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+      __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_half); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 213, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 216, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
@@ -6351,9 +6525,9 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       __pyx_generator->resume_label = 2;
       return __pyx_r;
       __pyx_L25_resume_from_yield:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 213, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 216, __pyx_L1_error)
 
-      /* "membrane.pyx":203
+      /* "membrane.pyx":206
  *             new_atoms = []
  *             i = 0
  *             if len(tmp_window) != 0:             # <<<<<<<<<<<<<<
@@ -6363,7 +6537,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       goto __pyx_L19;
     }
 
-    /* "membrane.pyx":215
+    /* "membrane.pyx":218
  *                 yield window_half, atoms, tmp_window
  *             else:
  *                 window_half = window_begin + window_size / 2.0             # <<<<<<<<<<<<<<
@@ -6371,32 +6545,32 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  * 
  */
     /*else*/ {
-      __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 215, __pyx_L1_error)
+      __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 218, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyFloat_DivideObjC(__pyx_cur_scope->__pyx_v_window_size, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFloat_DivideObjC(__pyx_cur_scope->__pyx_v_window_size, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_9 = PyNumber_Add(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 215, __pyx_L1_error)
+      __pyx_t_9 = PyNumber_Add(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 218, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_9); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 215, __pyx_L1_error)
+      __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_9); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 218, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_cur_scope->__pyx_v_window_half = __pyx_t_1;
 
-      /* "membrane.pyx":216
+      /* "membrane.pyx":219
  *             else:
  *                 window_half = window_begin + window_size / 2.0
  *                 yield window_half, [], []             # <<<<<<<<<<<<<<
  * 
  *             window_begin += window_step
  */
-      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_half); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 216, __pyx_L1_error)
+      __pyx_t_9 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_half); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 219, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+      __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 216, __pyx_L1_error)
+      __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 219, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 216, __pyx_L1_error)
+      __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 219, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_9);
@@ -6416,71 +6590,71 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
       __pyx_generator->resume_label = 3;
       return __pyx_r;
       __pyx_L26_resume_from_yield:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 216, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 219, __pyx_L1_error)
     }
     __pyx_L19:;
 
-    /* "membrane.pyx":218
+    /* "membrane.pyx":221
  *                 yield window_half, [], []
  * 
  *             window_begin += window_step             # <<<<<<<<<<<<<<
  *             window_end += window_step
  *             window_half = window_begin + window_size / 2.0
  */
-    __pyx_t_12 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_12 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 221, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_3 = PyNumber_InPlaceAdd(__pyx_t_12, __pyx_cur_scope->__pyx_v_window_step); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_3 = PyNumber_InPlaceAdd(__pyx_t_12, __pyx_cur_scope->__pyx_v_window_step); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 221, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 221, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_cur_scope->__pyx_v_window_begin = __pyx_t_1;
 
-    /* "membrane.pyx":219
+    /* "membrane.pyx":222
  * 
  *             window_begin += window_step
  *             window_end += window_step             # <<<<<<<<<<<<<<
  *             window_half = window_begin + window_size / 2.0
  *             #yield window_half, [], []
  */
-    __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_12 = PyNumber_InPlaceAdd(__pyx_t_3, __pyx_cur_scope->__pyx_v_window_step); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __pyx_t_12 = PyNumber_InPlaceAdd(__pyx_t_3, __pyx_cur_scope->__pyx_v_window_step); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 222, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_12); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 219, __pyx_L1_error)
+    __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_12); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 222, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __pyx_cur_scope->__pyx_v_window_end = __pyx_t_1;
 
-    /* "membrane.pyx":220
+    /* "membrane.pyx":223
  *             window_begin += window_step
  *             window_end += window_step
  *             window_half = window_begin + window_size / 2.0             # <<<<<<<<<<<<<<
  *             #yield window_half, [], []
  *             window_end_converted = int(round(window_end, 3) * 1000)
  */
-    __pyx_t_12 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 220, __pyx_L1_error)
+    __pyx_t_12 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_begin); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_3 = __Pyx_PyFloat_DivideObjC(__pyx_cur_scope->__pyx_v_window_size, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 220, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFloat_DivideObjC(__pyx_cur_scope->__pyx_v_window_size, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = PyNumber_Add(__pyx_t_12, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_Add(__pyx_t_12, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 220, __pyx_L1_error)
+    __pyx_t_1 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_1 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_cur_scope->__pyx_v_window_half = __pyx_t_1;
 
-    /* "membrane.pyx":222
+    /* "membrane.pyx":225
  *             window_half = window_begin + window_size / 2.0
  *             #yield window_half, [], []
  *             window_end_converted = int(round(window_end, 3) * 1000)             # <<<<<<<<<<<<<<
  *             max_window_converted = int(max_window * 1000)
  * 
  */
-    __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_window_end); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
@@ -6488,13 +6662,13 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
     __Pyx_GIVEREF(__pyx_int_3);
     PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_3);
     __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyNumber_Multiply(__pyx_t_2, __pyx_int_1000); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_3 = PyNumber_Multiply(__pyx_t_2, __pyx_int_1000); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyNumber_Int(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyNumber_Int(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_window_end_converted);
@@ -6502,16 +6676,16 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":223
+    /* "membrane.pyx":226
  *             #yield window_half, [], []
  *             window_end_converted = int(round(window_end, 3) * 1000)
  *             max_window_converted = int(max_window * 1000)             # <<<<<<<<<<<<<<
  * 
  *     def calcHalfMembraneZ(self, protein, parameters, box):
  */
-    __pyx_t_2 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_max_window, __pyx_int_1000); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 223, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_max_window, __pyx_int_1000); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyNumber_Int(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyNumber_Int(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_max_window_converted);
@@ -6521,7 +6695,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "membrane.pyx":129
+  /* "membrane.pyx":132
  * 
  * 
  *     def getSlices(self, window_size, window_step,             # <<<<<<<<<<<<<<
@@ -6547,7 +6721,7 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
   return __pyx_r;
 }
 
-/* "membrane.pyx":225
+/* "membrane.pyx":228
  *             max_window_converted = int(max_window * 1000)
  * 
  *     def calcHalfMembraneZ(self, protein, parameters, box):             # <<<<<<<<<<<<<<
@@ -6556,10 +6730,10 @@ static PyObject *__pyx_gb_8membrane_8Membrane_28generator(__pyx_CoroutineObject 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8membrane_8Membrane_30calcHalfMembraneZ(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8membrane_8Membrane_29calcHalfMembraneZ[] = "\n        ";
-static PyMethodDef __pyx_mdef_8membrane_8Membrane_30calcHalfMembraneZ = {"calcHalfMembraneZ", (PyCFunction)__pyx_pw_8membrane_8Membrane_30calcHalfMembraneZ, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8membrane_8Membrane_29calcHalfMembraneZ};
-static PyObject *__pyx_pw_8membrane_8Membrane_30calcHalfMembraneZ(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8membrane_8Membrane_32calcHalfMembraneZ(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8membrane_8Membrane_31calcHalfMembraneZ[] = "\n        ";
+static PyMethodDef __pyx_mdef_8membrane_8Membrane_32calcHalfMembraneZ = {"calcHalfMembraneZ", (PyCFunction)__pyx_pw_8membrane_8Membrane_32calcHalfMembraneZ, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8membrane_8Membrane_31calcHalfMembraneZ};
+static PyObject *__pyx_pw_8membrane_8Membrane_32calcHalfMembraneZ(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_protein = 0;
   PyObject *__pyx_v_parameters = 0;
@@ -6594,23 +6768,23 @@ static PyObject *__pyx_pw_8membrane_8Membrane_30calcHalfMembraneZ(PyObject *__py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_protein)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calcHalfMembraneZ", 1, 4, 4, 1); __PYX_ERR(0, 225, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calcHalfMembraneZ", 1, 4, 4, 1); __PYX_ERR(0, 228, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_parameters)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calcHalfMembraneZ", 1, 4, 4, 2); __PYX_ERR(0, 225, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calcHalfMembraneZ", 1, 4, 4, 2); __PYX_ERR(0, 228, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_box)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calcHalfMembraneZ", 1, 4, 4, 3); __PYX_ERR(0, 225, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calcHalfMembraneZ", 1, 4, 4, 3); __PYX_ERR(0, 228, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calcHalfMembraneZ") < 0)) __PYX_ERR(0, 225, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calcHalfMembraneZ") < 0)) __PYX_ERR(0, 228, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -6627,20 +6801,20 @@ static PyObject *__pyx_pw_8membrane_8Membrane_30calcHalfMembraneZ(PyObject *__py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("calcHalfMembraneZ", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 225, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("calcHalfMembraneZ", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 228, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("membrane.Membrane.calcHalfMembraneZ", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(__pyx_self, __pyx_v_self, __pyx_v_protein, __pyx_v_parameters, __pyx_v_box);
+  __pyx_r = __pyx_pf_8membrane_8Membrane_31calcHalfMembraneZ(__pyx_self, __pyx_v_self, __pyx_v_protein, __pyx_v_parameters, __pyx_v_box);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_protein, PyObject *__pyx_v_parameters, PyObject *__pyx_v_box) {
+static PyObject *__pyx_pf_8membrane_8Membrane_31calcHalfMembraneZ(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_protein, PyObject *__pyx_v_parameters, PyObject *__pyx_v_box) {
   int __pyx_v_atom_i;
   int __pyx_v_counter_one;
   int __pyx_v_counter_two;
@@ -6673,17 +6847,17 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   __Pyx_RefNannySetupContext("calcHalfMembraneZ", 0);
   __Pyx_INCREF(__pyx_v_protein);
 
-  /* "membrane.pyx":230
+  /* "membrane.pyx":233
  *         cdef int atom_i, counter_one, counter_two
  *         cdef float distance, cutoff, total_one, total_two, oneML_z, twoML_z, half_membrane_z
  *         nargs_insertion = len(parameters)             # <<<<<<<<<<<<<<
  *         if nargs_insertion == 5:
  *             cutoff = float(parameters[4])
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_parameters); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_parameters); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 233, __pyx_L1_error)
   __pyx_v_nargs_insertion = __pyx_t_1;
 
-  /* "membrane.pyx":231
+  /* "membrane.pyx":234
  *         cdef float distance, cutoff, total_one, total_two, oneML_z, twoML_z, half_membrane_z
  *         nargs_insertion = len(parameters)
  *         if nargs_insertion == 5:             # <<<<<<<<<<<<<<
@@ -6693,20 +6867,20 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   __pyx_t_2 = ((__pyx_v_nargs_insertion == 5) != 0);
   if (__pyx_t_2) {
 
-    /* "membrane.pyx":232
+    /* "membrane.pyx":235
  *         nargs_insertion = len(parameters)
  *         if nargs_insertion == 5:
  *             cutoff = float(parameters[4])             # <<<<<<<<<<<<<<
  *         else:
  *             cutoff = 0
  */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 235, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_AsDouble(__pyx_t_3); if (unlikely(__pyx_t_4 == ((double)((double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_AsDouble(__pyx_t_3); if (unlikely(__pyx_t_4 == ((double)((double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 235, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_cutoff = __pyx_t_4;
 
-    /* "membrane.pyx":231
+    /* "membrane.pyx":234
  *         cdef float distance, cutoff, total_one, total_two, oneML_z, twoML_z, half_membrane_z
  *         nargs_insertion = len(parameters)
  *         if nargs_insertion == 5:             # <<<<<<<<<<<<<<
@@ -6716,7 +6890,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
     goto __pyx_L3;
   }
 
-  /* "membrane.pyx":234
+  /* "membrane.pyx":237
  *             cutoff = float(parameters[4])
  *         else:
  *             cutoff = 0             # <<<<<<<<<<<<<<
@@ -6728,14 +6902,14 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   }
   __pyx_L3:;
 
-  /* "membrane.pyx":237
+  /* "membrane.pyx":240
  * 
  *         # Get lipids beyond a specified 2D cutoff
  *         protein = protein.getAtoms()             # <<<<<<<<<<<<<<
  *         membrane = self.getAtoms()
- *         dists2Protein = self.getAllAtomsMinDist2(protein, membrane, box, 2)
+ *         dists2Protein = getAllAtomsMinDist2(protein, membrane, box, 2)
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_protein, __pyx_n_s_getAtoms); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_protein, __pyx_n_s_getAtoms); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 240, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -6748,24 +6922,24 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
     }
   }
   if (__pyx_t_6) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 237, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 237, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 240, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF_SET(__pyx_v_protein, __pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "membrane.pyx":238
+  /* "membrane.pyx":241
  *         # Get lipids beyond a specified 2D cutoff
  *         protein = protein.getAtoms()
  *         membrane = self.getAtoms()             # <<<<<<<<<<<<<<
- *         dists2Protein = self.getAllAtomsMinDist2(protein, membrane, box, 2)
+ *         dists2Protein = getAllAtomsMinDist2(protein, membrane, box, 2)
  *         natoms = len(membrane)
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getAtoms); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 238, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getAtoms); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -6778,28 +6952,28 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
     }
   }
   if (__pyx_t_6) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 238, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 238, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 241, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_membrane = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "membrane.pyx":239
+  /* "membrane.pyx":242
  *         protein = protein.getAtoms()
  *         membrane = self.getAtoms()
- *         dists2Protein = self.getAllAtomsMinDist2(protein, membrane, box, 2)             # <<<<<<<<<<<<<<
+ *         dists2Protein = getAllAtomsMinDist2(protein, membrane, box, 2)             # <<<<<<<<<<<<<<
  *         natoms = len(membrane)
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getAllAtomsMinDist2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_getAllAtomsMinDist2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
     __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
     if (likely(__pyx_t_6)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
@@ -6812,7 +6986,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_v_protein, __pyx_v_membrane, __pyx_v_box, __pyx_int_2};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
@@ -6820,13 +6994,13 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_v_protein, __pyx_v_membrane, __pyx_v_box, __pyx_int_2};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
   #endif
   {
-    __pyx_t_8 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_8 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -6843,7 +7017,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
     __Pyx_INCREF(__pyx_int_2);
     __Pyx_GIVEREF(__pyx_int_2);
     PyTuple_SET_ITEM(__pyx_t_8, 3+__pyx_t_7, __pyx_int_2);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
@@ -6851,17 +7025,17 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   __pyx_v_dists2Protein = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "membrane.pyx":240
+  /* "membrane.pyx":243
  *         membrane = self.getAtoms()
- *         dists2Protein = self.getAllAtomsMinDist2(protein, membrane, box, 2)
+ *         dists2Protein = getAllAtomsMinDist2(protein, membrane, box, 2)
  *         natoms = len(membrane)             # <<<<<<<<<<<<<<
  * 
  *         #for atom_i in range(natoms):
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_membrane); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_membrane); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 243, __pyx_L1_error)
   __pyx_v_natoms = __pyx_t_1;
 
-  /* "membrane.pyx":249
+  /* "membrane.pyx":252
  * 
  * 
  *         counter_one = 0             # <<<<<<<<<<<<<<
@@ -6870,7 +7044,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
   __pyx_v_counter_one = 0;
 
-  /* "membrane.pyx":250
+  /* "membrane.pyx":253
  * 
  *         counter_one = 0
  *         counter_two = 0             # <<<<<<<<<<<<<<
@@ -6879,7 +7053,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
   __pyx_v_counter_two = 0;
 
-  /* "membrane.pyx":251
+  /* "membrane.pyx":254
  *         counter_one = 0
  *         counter_two = 0
  *         total_one = 0             # <<<<<<<<<<<<<<
@@ -6888,7 +7062,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
   __pyx_v_total_one = 0.0;
 
-  /* "membrane.pyx":252
+  /* "membrane.pyx":255
  *         counter_two = 0
  *         total_one = 0
  *         total_two = 0             # <<<<<<<<<<<<<<
@@ -6897,7 +7071,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
   __pyx_v_total_two = 0.0;
 
-  /* "membrane.pyx":253
+  /* "membrane.pyx":256
  *         total_one = 0
  *         total_two = 0
  *         for atom_i in range(natoms):             # <<<<<<<<<<<<<<
@@ -6909,32 +7083,32 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_9; __pyx_t_7+=1) {
     __pyx_v_atom_i = __pyx_t_7;
 
-    /* "membrane.pyx":254
+    /* "membrane.pyx":257
  *         total_two = 0
  *         for atom_i in range(natoms):
  *             atom = membrane[atom_i]             # <<<<<<<<<<<<<<
  *             distance = dists2Protein[atom_i]
  *             if distance >= cutoff:
  */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_membrane, __pyx_v_atom_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_membrane, __pyx_v_atom_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_XDECREF_SET(__pyx_v_atom, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "membrane.pyx":255
+    /* "membrane.pyx":258
  *         for atom_i in range(natoms):
  *             atom = membrane[atom_i]
  *             distance = dists2Protein[atom_i]             # <<<<<<<<<<<<<<
  *             if distance >= cutoff:
  *                 z = atom.get3DPosition()[2]
  */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_dists2Protein, __pyx_v_atom_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 255, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_dists2Protein, __pyx_v_atom_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 258, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_10 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_10 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 255, __pyx_L1_error)
+    __pyx_t_10 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_10 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 258, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_distance = __pyx_t_10;
 
-    /* "membrane.pyx":256
+    /* "membrane.pyx":259
  *             atom = membrane[atom_i]
  *             distance = dists2Protein[atom_i]
  *             if distance >= cutoff:             # <<<<<<<<<<<<<<
@@ -6944,14 +7118,14 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
     __pyx_t_2 = ((__pyx_v_distance >= __pyx_v_cutoff) != 0);
     if (__pyx_t_2) {
 
-      /* "membrane.pyx":257
+      /* "membrane.pyx":260
  *             distance = dists2Protein[atom_i]
  *             if distance >= cutoff:
  *                 z = atom.get3DPosition()[2]             # <<<<<<<<<<<<<<
  *                 if atom.getLeaflet() == 'one':
  *                     counter_one += 1
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_get3DPosition); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_get3DPosition); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 260, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_8 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -6964,27 +7138,27 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
         }
       }
       if (__pyx_t_8) {
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       } else {
-        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
       }
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_3, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_3, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 260, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XDECREF_SET(__pyx_v_z, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "membrane.pyx":258
+      /* "membrane.pyx":261
  *             if distance >= cutoff:
  *                 z = atom.get3DPosition()[2]
  *                 if atom.getLeaflet() == 'one':             # <<<<<<<<<<<<<<
  *                     counter_one += 1
  *                     total_one += z
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_getLeaflet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 258, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_getLeaflet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 261, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_8 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -6997,18 +7171,18 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
         }
       }
       if (__pyx_t_8) {
-        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 258, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 261, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       } else {
-        __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 258, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 261, __pyx_L1_error)
       }
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_5, __pyx_n_s_one, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 258, __pyx_L1_error)
+      __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_5, __pyx_n_s_one, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 261, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_2) {
 
-        /* "membrane.pyx":259
+        /* "membrane.pyx":262
  *                 z = atom.get3DPosition()[2]
  *                 if atom.getLeaflet() == 'one':
  *                     counter_one += 1             # <<<<<<<<<<<<<<
@@ -7017,23 +7191,23 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
         __pyx_v_counter_one = (__pyx_v_counter_one + 1);
 
-        /* "membrane.pyx":260
+        /* "membrane.pyx":263
  *                 if atom.getLeaflet() == 'one':
  *                     counter_one += 1
  *                     total_one += z             # <<<<<<<<<<<<<<
  *                 else:
  *                     counter_two += 1
  */
-        __pyx_t_5 = PyFloat_FromDouble(__pyx_v_total_one); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 260, __pyx_L1_error)
+        __pyx_t_5 = PyFloat_FromDouble(__pyx_v_total_one); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 263, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_3 = PyNumber_InPlaceAdd(__pyx_t_5, __pyx_v_z); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
+        __pyx_t_3 = PyNumber_InPlaceAdd(__pyx_t_5, __pyx_v_z); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 263, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_10 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_10 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 260, __pyx_L1_error)
+        __pyx_t_10 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_10 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 263, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_v_total_one = __pyx_t_10;
 
-        /* "membrane.pyx":258
+        /* "membrane.pyx":261
  *             if distance >= cutoff:
  *                 z = atom.get3DPosition()[2]
  *                 if atom.getLeaflet() == 'one':             # <<<<<<<<<<<<<<
@@ -7043,7 +7217,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
         goto __pyx_L7;
       }
 
-      /* "membrane.pyx":262
+      /* "membrane.pyx":265
  *                     total_one += z
  *                 else:
  *                     counter_two += 1             # <<<<<<<<<<<<<<
@@ -7053,25 +7227,25 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
       /*else*/ {
         __pyx_v_counter_two = (__pyx_v_counter_two + 1);
 
-        /* "membrane.pyx":263
+        /* "membrane.pyx":266
  *                 else:
  *                     counter_two += 1
  *                     total_two += z             # <<<<<<<<<<<<<<
  * 
  *         if counter_one + counter_two == 0:
  */
-        __pyx_t_3 = PyFloat_FromDouble(__pyx_v_total_two); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 263, __pyx_L1_error)
+        __pyx_t_3 = PyFloat_FromDouble(__pyx_v_total_two); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_5 = PyNumber_InPlaceAdd(__pyx_t_3, __pyx_v_z); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 263, __pyx_L1_error)
+        __pyx_t_5 = PyNumber_InPlaceAdd(__pyx_t_3, __pyx_v_z); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 266, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_10 = __pyx_PyFloat_AsFloat(__pyx_t_5); if (unlikely((__pyx_t_10 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 263, __pyx_L1_error)
+        __pyx_t_10 = __pyx_PyFloat_AsFloat(__pyx_t_5); if (unlikely((__pyx_t_10 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 266, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_v_total_two = __pyx_t_10;
       }
       __pyx_L7:;
 
-      /* "membrane.pyx":256
+      /* "membrane.pyx":259
  *             atom = membrane[atom_i]
  *             distance = dists2Protein[atom_i]
  *             if distance >= cutoff:             # <<<<<<<<<<<<<<
@@ -7081,7 +7255,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
     }
   }
 
-  /* "membrane.pyx":265
+  /* "membrane.pyx":268
  *                     total_two += z
  * 
  *         if counter_one + counter_two == 0:             # <<<<<<<<<<<<<<
@@ -7091,20 +7265,20 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   __pyx_t_2 = (((__pyx_v_counter_one + __pyx_v_counter_two) == 0) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "membrane.pyx":266
+    /* "membrane.pyx":269
  * 
  *         if counter_one + counter_two == 0:
  *             raise IOError('Please decrease the cutoff input value.')             # <<<<<<<<<<<<<<
  * 
  *         # Get outter layer lipids half membrane z value
  */
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_IOError, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 266, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_IOError, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_Raise(__pyx_t_5, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __PYX_ERR(0, 266, __pyx_L1_error)
+    __PYX_ERR(0, 269, __pyx_L1_error)
 
-    /* "membrane.pyx":265
+    /* "membrane.pyx":268
  *                     total_two += z
  * 
  *         if counter_one + counter_two == 0:             # <<<<<<<<<<<<<<
@@ -7113,7 +7287,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
   }
 
-  /* "membrane.pyx":269
+  /* "membrane.pyx":272
  * 
  *         # Get outter layer lipids half membrane z value
  *         oneML_z = total_one / counter_one             # <<<<<<<<<<<<<<
@@ -7122,11 +7296,11 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
   if (unlikely(__pyx_v_counter_one == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 269, __pyx_L1_error)
+    __PYX_ERR(0, 272, __pyx_L1_error)
   }
   __pyx_v_oneML_z = (__pyx_v_total_one / __pyx_v_counter_one);
 
-  /* "membrane.pyx":270
+  /* "membrane.pyx":273
  *         # Get outter layer lipids half membrane z value
  *         oneML_z = total_one / counter_one
  *         twoML_z = total_two / counter_two             # <<<<<<<<<<<<<<
@@ -7135,11 +7309,11 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
   if (unlikely(__pyx_v_counter_two == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 270, __pyx_L1_error)
+    __PYX_ERR(0, 273, __pyx_L1_error)
   }
   __pyx_v_twoML_z = (__pyx_v_total_two / __pyx_v_counter_two);
 
-  /* "membrane.pyx":272
+  /* "membrane.pyx":275
  *         twoML_z = total_two / counter_two
  * 
  *         if oneML_z < twoML_z:             # <<<<<<<<<<<<<<
@@ -7149,35 +7323,35 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   __pyx_t_2 = ((__pyx_v_oneML_z < __pyx_v_twoML_z) != 0);
   if (__pyx_t_2) {
 
-    /* "membrane.pyx":273
+    /* "membrane.pyx":276
  * 
  *         if oneML_z < twoML_z:
  *             self.setLeafletsOrder('one', 'bottom')             # <<<<<<<<<<<<<<
  *             self.setLeafletsOrder('two', 'top')
  *         else:
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setLeafletsOrder); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setLeafletsOrder); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "membrane.pyx":274
+    /* "membrane.pyx":277
  *         if oneML_z < twoML_z:
  *             self.setLeafletsOrder('one', 'bottom')
  *             self.setLeafletsOrder('two', 'top')             # <<<<<<<<<<<<<<
  *         else:
  *             self.setLeafletsOrder('one', 'top')
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setLeafletsOrder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 274, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setLeafletsOrder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 274, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "membrane.pyx":272
+    /* "membrane.pyx":275
  *         twoML_z = total_two / counter_two
  * 
  *         if oneML_z < twoML_z:             # <<<<<<<<<<<<<<
@@ -7187,7 +7361,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
     goto __pyx_L9;
   }
 
-  /* "membrane.pyx":276
+  /* "membrane.pyx":279
  *             self.setLeafletsOrder('two', 'top')
  *         else:
  *             self.setLeafletsOrder('one', 'top')             # <<<<<<<<<<<<<<
@@ -7195,30 +7369,30 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  * 
  */
   /*else*/ {
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setLeafletsOrder); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setLeafletsOrder); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 279, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 279, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "membrane.pyx":277
+    /* "membrane.pyx":280
  *         else:
  *             self.setLeafletsOrder('one', 'top')
  *             self.setLeafletsOrder('two', 'bottom')             # <<<<<<<<<<<<<<
  * 
  *         half_membrane_z = (oneML_z + twoML_z) / 2
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setLeafletsOrder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 277, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setLeafletsOrder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 280, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 277, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 280, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __pyx_L9:;
 
-  /* "membrane.pyx":279
+  /* "membrane.pyx":282
  *             self.setLeafletsOrder('two', 'bottom')
  * 
  *         half_membrane_z = (oneML_z + twoML_z) / 2             # <<<<<<<<<<<<<<
@@ -7227,16 +7401,16 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
   __pyx_v_half_membrane_z = ((__pyx_v_oneML_z + __pyx_v_twoML_z) / 2.0);
 
-  /* "membrane.pyx":281
+  /* "membrane.pyx":284
  *         half_membrane_z = (oneML_z + twoML_z) / 2
  * 
  *         self.setHalfZ(half_membrane_z)             # <<<<<<<<<<<<<<
  * 
  *     def getSimpleThickness(self, outputnameThickness):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setHalfZ); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setHalfZ); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_half_membrane_z); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_half_membrane_z); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -7249,14 +7423,14 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
     }
   }
   if (!__pyx_t_6) {
-    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 284, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GOTREF(__pyx_t_5);
   } else {
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_t_8};
-      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 284, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -7265,20 +7439,20 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_t_8};
-      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 284, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     } else
     #endif
     {
-      __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 284, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_6); __pyx_t_6 = NULL;
       __Pyx_GIVEREF(__pyx_t_8);
       PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_t_8);
       __pyx_t_8 = 0;
-      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 284, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     }
@@ -7286,7 +7460,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "membrane.pyx":225
+  /* "membrane.pyx":228
  *             max_window_converted = int(max_window * 1000)
  * 
  *     def calcHalfMembraneZ(self, protein, parameters, box):             # <<<<<<<<<<<<<<
@@ -7316,7 +7490,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
   return __pyx_r;
 }
 
-/* "membrane.pyx":283
+/* "membrane.pyx":286
  *         self.setHalfZ(half_membrane_z)
  * 
  *     def getSimpleThickness(self, outputnameThickness):             # <<<<<<<<<<<<<<
@@ -7325,9 +7499,9 @@ static PyObject *__pyx_pf_8membrane_8Membrane_29calcHalfMembraneZ(CYTHON_UNUSED 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8membrane_8Membrane_32getSimpleThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_8membrane_8Membrane_32getSimpleThickness = {"getSimpleThickness", (PyCFunction)__pyx_pw_8membrane_8Membrane_32getSimpleThickness, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_8membrane_8Membrane_32getSimpleThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8membrane_8Membrane_34getSimpleThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_8membrane_8Membrane_34getSimpleThickness = {"getSimpleThickness", (PyCFunction)__pyx_pw_8membrane_8Membrane_34getSimpleThickness, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_8membrane_8Membrane_34getSimpleThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   CYTHON_UNUSED PyObject *__pyx_v_outputnameThickness = 0;
   PyObject *__pyx_r = 0;
@@ -7356,11 +7530,11 @@ static PyObject *__pyx_pw_8membrane_8Membrane_32getSimpleThickness(PyObject *__p
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_outputnameThickness)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getSimpleThickness", 1, 2, 2, 1); __PYX_ERR(0, 283, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getSimpleThickness", 1, 2, 2, 1); __PYX_ERR(0, 286, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "getSimpleThickness") < 0)) __PYX_ERR(0, 283, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "getSimpleThickness") < 0)) __PYX_ERR(0, 286, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -7373,20 +7547,20 @@ static PyObject *__pyx_pw_8membrane_8Membrane_32getSimpleThickness(PyObject *__p
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("getSimpleThickness", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 283, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("getSimpleThickness", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 286, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("membrane.Membrane.getSimpleThickness", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8membrane_8Membrane_31getSimpleThickness(__pyx_self, __pyx_v_self, __pyx_v_outputnameThickness);
+  __pyx_r = __pyx_pf_8membrane_8Membrane_33getSimpleThickness(__pyx_self, __pyx_v_self, __pyx_v_outputnameThickness);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_outputnameThickness) {
+static PyObject *__pyx_pf_8membrane_8Membrane_33getSimpleThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_outputnameThickness) {
   int __pyx_v_ntop;
   int __pyx_v_nbottom;
   float __pyx_v_topZ;
@@ -7408,37 +7582,37 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
   PyObject *__pyx_t_8 = NULL;
   __Pyx_RefNannySetupContext("getSimpleThickness", 0);
 
-  /* "membrane.pyx":287
+  /* "membrane.pyx":290
  *         cdef float topZ, bottomZ
  * 
  *         topAtoms = self.getLeafletAtoms('one')             # <<<<<<<<<<<<<<
  *         bottomAtoms = self.getLeafletAtoms('two')
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getLeafletAtoms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getLeafletAtoms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 290, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 290, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_topAtoms = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "membrane.pyx":288
+  /* "membrane.pyx":291
  * 
  *         topAtoms = self.getLeafletAtoms('one')
  *         bottomAtoms = self.getLeafletAtoms('two')             # <<<<<<<<<<<<<<
  * 
  *         topZ = 0
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getLeafletAtoms); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getLeafletAtoms); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_bottomAtoms = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "membrane.pyx":290
+  /* "membrane.pyx":293
  *         bottomAtoms = self.getLeafletAtoms('two')
  * 
  *         topZ = 0             # <<<<<<<<<<<<<<
@@ -7447,7 +7621,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
  */
   __pyx_v_topZ = 0.0;
 
-  /* "membrane.pyx":291
+  /* "membrane.pyx":294
  * 
  *         topZ = 0
  *         ntop = 0             # <<<<<<<<<<<<<<
@@ -7456,7 +7630,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
  */
   __pyx_v_ntop = 0;
 
-  /* "membrane.pyx":292
+  /* "membrane.pyx":295
  *         topZ = 0
  *         ntop = 0
  *         for atom in topAtoms:             # <<<<<<<<<<<<<<
@@ -7467,26 +7641,26 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
     __pyx_t_1 = __pyx_v_topAtoms; __Pyx_INCREF(__pyx_t_1); __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_topAtoms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_topAtoms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 292, __pyx_L1_error)
+    __pyx_t_4 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 295, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_4)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 292, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 295, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_3 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 292, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 295, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -7496,7 +7670,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 292, __pyx_L1_error)
+          else __PYX_ERR(0, 295, __pyx_L1_error)
         }
         break;
       }
@@ -7505,14 +7679,14 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
     __Pyx_XDECREF_SET(__pyx_v_atom, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":293
+    /* "membrane.pyx":296
  *         ntop = 0
  *         for atom in topAtoms:
  *             z = atom.get3DPosition()[2]             # <<<<<<<<<<<<<<
  *             topZ += z
  *             ntop += 1
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_get3DPosition); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 293, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_get3DPosition); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 296, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -7525,36 +7699,36 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
       }
     }
     if (__pyx_t_6) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 293, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 296, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 293, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 296, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_2, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 293, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_2, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 296, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_XDECREF_SET(__pyx_v_z, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "membrane.pyx":294
+    /* "membrane.pyx":297
  *         for atom in topAtoms:
  *             z = atom.get3DPosition()[2]
  *             topZ += z             # <<<<<<<<<<<<<<
  *             ntop += 1
  *         topZ /= ntop
  */
-    __pyx_t_5 = PyFloat_FromDouble(__pyx_v_topZ); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 294, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble(__pyx_v_topZ); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_t_5, __pyx_v_z); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 294, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_t_5, __pyx_v_z); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 297, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_7 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_7 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 294, __pyx_L1_error)
+    __pyx_t_7 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_7 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 297, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_topZ = __pyx_t_7;
 
-    /* "membrane.pyx":295
+    /* "membrane.pyx":298
  *             z = atom.get3DPosition()[2]
  *             topZ += z
  *             ntop += 1             # <<<<<<<<<<<<<<
@@ -7563,7 +7737,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
  */
     __pyx_v_ntop = (__pyx_v_ntop + 1);
 
-    /* "membrane.pyx":292
+    /* "membrane.pyx":295
  *         topZ = 0
  *         ntop = 0
  *         for atom in topAtoms:             # <<<<<<<<<<<<<<
@@ -7573,7 +7747,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "membrane.pyx":296
+  /* "membrane.pyx":299
  *             topZ += z
  *             ntop += 1
  *         topZ /= ntop             # <<<<<<<<<<<<<<
@@ -7582,11 +7756,11 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
  */
   if (unlikely(__pyx_v_ntop == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 296, __pyx_L1_error)
+    __PYX_ERR(0, 299, __pyx_L1_error)
   }
   __pyx_v_topZ = (__pyx_v_topZ / __pyx_v_ntop);
 
-  /* "membrane.pyx":298
+  /* "membrane.pyx":301
  *         topZ /= ntop
  * 
  *         bottomZ = 0             # <<<<<<<<<<<<<<
@@ -7595,7 +7769,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
  */
   __pyx_v_bottomZ = 0.0;
 
-  /* "membrane.pyx":299
+  /* "membrane.pyx":302
  * 
  *         bottomZ = 0
  *         nbottom = 0             # <<<<<<<<<<<<<<
@@ -7604,7 +7778,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
  */
   __pyx_v_nbottom = 0;
 
-  /* "membrane.pyx":300
+  /* "membrane.pyx":303
  *         bottomZ = 0
  *         nbottom = 0
  *         for atom in bottomAtoms:             # <<<<<<<<<<<<<<
@@ -7615,26 +7789,26 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
     __pyx_t_1 = __pyx_v_bottomAtoms; __Pyx_INCREF(__pyx_t_1); __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_bottomAtoms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_bottomAtoms); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 300, __pyx_L1_error)
+    __pyx_t_4 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 303, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_4)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 300, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 303, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 300, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_3 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 300, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 303, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 300, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -7644,7 +7818,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 300, __pyx_L1_error)
+          else __PYX_ERR(0, 303, __pyx_L1_error)
         }
         break;
       }
@@ -7653,14 +7827,14 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
     __Pyx_XDECREF_SET(__pyx_v_atom, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":301
+    /* "membrane.pyx":304
  *         nbottom = 0
  *         for atom in bottomAtoms:
  *             z = atom.get3DPosition()[2]             # <<<<<<<<<<<<<<
  *             bottomZ += z
  *             nbottom += 1
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_get3DPosition); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 301, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_get3DPosition); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 304, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -7673,36 +7847,36 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
       }
     }
     if (__pyx_t_6) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 304, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 304, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_2, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 301, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_2, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 304, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_XDECREF_SET(__pyx_v_z, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "membrane.pyx":302
+    /* "membrane.pyx":305
  *         for atom in bottomAtoms:
  *             z = atom.get3DPosition()[2]
  *             bottomZ += z             # <<<<<<<<<<<<<<
  *             nbottom += 1
  *         bottomZ /= nbottom
  */
-    __pyx_t_5 = PyFloat_FromDouble(__pyx_v_bottomZ); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 302, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble(__pyx_v_bottomZ); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_t_5, __pyx_v_z); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_t_5, __pyx_v_z); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_7 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_7 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 302, __pyx_L1_error)
+    __pyx_t_7 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_7 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_bottomZ = __pyx_t_7;
 
-    /* "membrane.pyx":303
+    /* "membrane.pyx":306
  *             z = atom.get3DPosition()[2]
  *             bottomZ += z
  *             nbottom += 1             # <<<<<<<<<<<<<<
@@ -7711,7 +7885,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
  */
     __pyx_v_nbottom = (__pyx_v_nbottom + 1);
 
-    /* "membrane.pyx":300
+    /* "membrane.pyx":303
  *         bottomZ = 0
  *         nbottom = 0
  *         for atom in bottomAtoms:             # <<<<<<<<<<<<<<
@@ -7721,7 +7895,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "membrane.pyx":304
+  /* "membrane.pyx":307
  *             bottomZ += z
  *             nbottom += 1
  *         bottomZ /= nbottom             # <<<<<<<<<<<<<<
@@ -7730,20 +7904,20 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
  */
   if (unlikely(__pyx_v_nbottom == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 304, __pyx_L1_error)
+    __PYX_ERR(0, 307, __pyx_L1_error)
   }
   __pyx_v_bottomZ = (__pyx_v_bottomZ / __pyx_v_nbottom);
 
-  /* "membrane.pyx":306
+  /* "membrane.pyx":309
  *         bottomZ /= nbottom
  * 
  *         output = ' {0} '.format(abs(topZ - bottomZ))             # <<<<<<<<<<<<<<
  * 
  *         return output
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = PyFloat_FromDouble(fabsf((__pyx_v_topZ - __pyx_v_bottomZ))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_5 = PyFloat_FromDouble(fabsf((__pyx_v_topZ - __pyx_v_bottomZ))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7756,14 +7930,14 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
     }
   }
   if (!__pyx_t_6) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -7772,20 +7946,20 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else
     #endif
     {
-      __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 306, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 309, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
       __Pyx_GIVEREF(__pyx_t_5);
       PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
@@ -7794,7 +7968,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
   __pyx_v_output = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "membrane.pyx":308
+  /* "membrane.pyx":311
  *         output = ' {0} '.format(abs(topZ - bottomZ))
  * 
  *         return output             # <<<<<<<<<<<<<<
@@ -7806,7 +7980,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
   __pyx_r = __pyx_v_output;
   goto __pyx_L0;
 
-  /* "membrane.pyx":283
+  /* "membrane.pyx":286
  *         self.setHalfZ(half_membrane_z)
  * 
  *     def getSimpleThickness(self, outputnameThickness):             # <<<<<<<<<<<<<<
@@ -7834,7 +8008,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "membrane.pyx":310
+/* "membrane.pyx":313
  *         return output
  * 
  *     def getThickness(self, CoI, leaflet, box,             # <<<<<<<<<<<<<<
@@ -7843,9 +8017,9 @@ static PyObject *__pyx_pf_8membrane_8Membrane_31getSimpleThickness(CYTHON_UNUSED
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8membrane_8Membrane_34getThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_8membrane_8Membrane_34getThickness = {"getThickness", (PyCFunction)__pyx_pw_8membrane_8Membrane_34getThickness, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_8membrane_8Membrane_34getThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8membrane_8Membrane_36getThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_8membrane_8Membrane_36getThickness = {"getThickness", (PyCFunction)__pyx_pw_8membrane_8Membrane_36getThickness, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_8membrane_8Membrane_36getThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_CoI = 0;
   PyObject *__pyx_v_leaflet = 0;
@@ -7889,41 +8063,41 @@ static PyObject *__pyx_pw_8membrane_8Membrane_34getThickness(PyObject *__pyx_sel
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_CoI)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 1); __PYX_ERR(0, 310, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 1); __PYX_ERR(0, 313, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_leaflet)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 2); __PYX_ERR(0, 310, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 2); __PYX_ERR(0, 313, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_box)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 3); __PYX_ERR(0, 310, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 3); __PYX_ERR(0, 313, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_parameters)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 4); __PYX_ERR(0, 310, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 4); __PYX_ERR(0, 313, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_outputfile)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 5); __PYX_ERR(0, 310, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 5); __PYX_ERR(0, 313, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_printnatoms)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 6); __PYX_ERR(0, 310, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, 6); __PYX_ERR(0, 313, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "getThickness") < 0)) __PYX_ERR(0, 310, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "getThickness") < 0)) __PYX_ERR(0, 313, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 7) {
       goto __pyx_L5_argtuple_error;
@@ -7946,20 +8120,20 @@ static PyObject *__pyx_pw_8membrane_8Membrane_34getThickness(PyObject *__pyx_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 310, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("getThickness", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 313, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("membrane.Membrane.getThickness", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8membrane_8Membrane_33getThickness(__pyx_self, __pyx_v_self, __pyx_v_CoI, __pyx_v_leaflet, __pyx_v_box, __pyx_v_parameters, __pyx_v_outputfile, __pyx_v_printnatoms);
+  __pyx_r = __pyx_pf_8membrane_8Membrane_35getThickness(__pyx_self, __pyx_v_self, __pyx_v_CoI, __pyx_v_leaflet, __pyx_v_box, __pyx_v_parameters, __pyx_v_outputfile, __pyx_v_printnatoms);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_CoI, PyObject *__pyx_v_leaflet, PyObject *__pyx_v_box, PyObject *__pyx_v_parameters, PyObject *__pyx_v_outputfile, PyObject *__pyx_v_printnatoms) {
+static PyObject *__pyx_pf_8membrane_8Membrane_35getThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_CoI, PyObject *__pyx_v_leaflet, PyObject *__pyx_v_box, PyObject *__pyx_v_parameters, PyObject *__pyx_v_outputfile, PyObject *__pyx_v_printnatoms) {
   PyObject *__pyx_v_box_x = NULL;
   PyObject *__pyx_v_box_y = NULL;
   CYTHON_UNUSED PyObject *__pyx_v_box_z = NULL;
@@ -7972,6 +8146,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
   CYTHON_UNUSED PyObject *__pyx_v_ouput_radius = NULL;
   PyObject *__pyx_v_membrane = NULL;
   PyObject *__pyx_v_dists2Protein = NULL;
+  PyObject *__pyx_v_membrane_atoms_sorted = NULL;
   PyObject *__pyx_v_slices = NULL;
   PyObject *__pyx_v_f = NULL;
   PyObject *__pyx_v_output = NULL;
@@ -8017,74 +8192,74 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
   __Pyx_RefNannySetupContext("getThickness", 0);
   __Pyx_INCREF(__pyx_v_CoI);
 
-  /* "membrane.pyx":312
+  /* "membrane.pyx":315
  *     def getThickness(self, CoI, leaflet, box,
  *                      parameters, outputfile, printnatoms):
  *         box_x = box[0]             # <<<<<<<<<<<<<<
  *         box_y = box[1]
  *         box_z = box[2]
  */
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_box, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_box, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_box_x = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "membrane.pyx":313
+  /* "membrane.pyx":316
  *                      parameters, outputfile, printnatoms):
  *         box_x = box[0]
  *         box_y = box[1]             # <<<<<<<<<<<<<<
  *         box_z = box[2]
  * 
  */
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_box, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_box, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_box_y = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "membrane.pyx":314
+  /* "membrane.pyx":317
  *         box_x = box[0]
  *         box_y = box[1]
  *         box_z = box[2]             # <<<<<<<<<<<<<<
  * 
  *         box_size = (box_x ** 2 + box_y ** 2) ** 0.5
  */
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_box, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_box, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_box_z = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "membrane.pyx":316
+  /* "membrane.pyx":319
  *         box_z = box[2]
  * 
  *         box_size = (box_x ** 2 + box_y ** 2) ** 0.5             # <<<<<<<<<<<<<<
  * 
  *         nargs_insertion = len(parameters)
  */
-  __pyx_t_1 = PyNumber_Power(__pyx_v_box_x, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Power(__pyx_v_box_x, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Power(__pyx_v_box_y, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Power(__pyx_v_box_y, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Power(__pyx_t_3, __pyx_float_0_5, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Power(__pyx_t_3, __pyx_float_0_5, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_box_size = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "membrane.pyx":318
+  /* "membrane.pyx":321
  *         box_size = (box_x ** 2 + box_y ** 2) ** 0.5
  * 
  *         nargs_insertion = len(parameters)             # <<<<<<<<<<<<<<
  *         if nargs_insertion >= 4:
  *             max_window = float(parameters[3])
  */
-  __pyx_t_4 = PyObject_Length(__pyx_v_parameters); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_v_parameters); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 321, __pyx_L1_error)
   __pyx_v_nargs_insertion = __pyx_t_4;
 
-  /* "membrane.pyx":319
+  /* "membrane.pyx":322
  * 
  *         nargs_insertion = len(parameters)
  *         if nargs_insertion >= 4:             # <<<<<<<<<<<<<<
@@ -8094,35 +8269,35 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
   __pyx_t_5 = ((__pyx_v_nargs_insertion >= 4) != 0);
   if (__pyx_t_5) {
 
-    /* "membrane.pyx":320
+    /* "membrane.pyx":323
  *         nargs_insertion = len(parameters)
  *         if nargs_insertion >= 4:
  *             max_window = float(parameters[3])             # <<<<<<<<<<<<<<
  *             min_window = float(parameters[2])
  *         if nargs_insertion >= 2:
  */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_parameters, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 320, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_parameters, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyNumber_Float(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 320, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyNumber_Float(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_max_window = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "membrane.pyx":321
+    /* "membrane.pyx":324
  *         if nargs_insertion >= 4:
  *             max_window = float(parameters[3])
  *             min_window = float(parameters[2])             # <<<<<<<<<<<<<<
  *         if nargs_insertion >= 2:
  *             if nargs_insertion == 3:
  */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 321, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_AsDouble(__pyx_t_3); if (unlikely(__pyx_t_6 == ((double)((double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 321, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_AsDouble(__pyx_t_3); if (unlikely(__pyx_t_6 == ((double)((double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_min_window = __pyx_t_6;
 
-    /* "membrane.pyx":319
+    /* "membrane.pyx":322
  * 
  *         nargs_insertion = len(parameters)
  *         if nargs_insertion >= 4:             # <<<<<<<<<<<<<<
@@ -8131,7 +8306,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  */
   }
 
-  /* "membrane.pyx":322
+  /* "membrane.pyx":325
  *             max_window = float(parameters[3])
  *             min_window = float(parameters[2])
  *         if nargs_insertion >= 2:             # <<<<<<<<<<<<<<
@@ -8141,7 +8316,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
   __pyx_t_5 = ((__pyx_v_nargs_insertion >= 2) != 0);
   if (__pyx_t_5) {
 
-    /* "membrane.pyx":323
+    /* "membrane.pyx":326
  *             min_window = float(parameters[2])
  *         if nargs_insertion >= 2:
  *             if nargs_insertion == 3:             # <<<<<<<<<<<<<<
@@ -8151,20 +8326,20 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     switch (__pyx_v_nargs_insertion) {
       case 3:
 
-      /* "membrane.pyx":324
+      /* "membrane.pyx":327
  *         if nargs_insertion >= 2:
  *             if nargs_insertion == 3:
  *                 min_window = float(parameters[2])             # <<<<<<<<<<<<<<
  *                 max_window = box_size
  *             elif nargs_insertion == 2:
  */
-      __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 324, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 327, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = __Pyx_PyObject_AsDouble(__pyx_t_3); if (unlikely(__pyx_t_6 == ((double)((double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 324, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_AsDouble(__pyx_t_3); if (unlikely(__pyx_t_6 == ((double)((double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 327, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_v_min_window = __pyx_t_6;
 
-      /* "membrane.pyx":325
+      /* "membrane.pyx":328
  *             if nargs_insertion == 3:
  *                 min_window = float(parameters[2])
  *                 max_window = box_size             # <<<<<<<<<<<<<<
@@ -8174,7 +8349,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_v_box_size);
       __Pyx_XDECREF_SET(__pyx_v_max_window, __pyx_v_box_size);
 
-      /* "membrane.pyx":323
+      /* "membrane.pyx":326
  *             min_window = float(parameters[2])
  *         if nargs_insertion >= 2:
  *             if nargs_insertion == 3:             # <<<<<<<<<<<<<<
@@ -8183,7 +8358,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  */
       break;
 
-      /* "membrane.pyx":326
+      /* "membrane.pyx":329
  *                 min_window = float(parameters[2])
  *                 max_window = box_size
  *             elif nargs_insertion == 2:             # <<<<<<<<<<<<<<
@@ -8192,7 +8367,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  */
       case 2:
 
-      /* "membrane.pyx":327
+      /* "membrane.pyx":330
  *                 max_window = box_size
  *             elif nargs_insertion == 2:
  *                 min_window = 0             # <<<<<<<<<<<<<<
@@ -8201,7 +8376,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  */
       __pyx_v_min_window = 0.0;
 
-      /* "membrane.pyx":328
+      /* "membrane.pyx":331
  *             elif nargs_insertion == 2:
  *                 min_window = 0
  *                 max_window = box_size             # <<<<<<<<<<<<<<
@@ -8211,7 +8386,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_v_box_size);
       __Pyx_XDECREF_SET(__pyx_v_max_window, __pyx_v_box_size);
 
-      /* "membrane.pyx":326
+      /* "membrane.pyx":329
  *                 min_window = float(parameters[2])
  *                 max_window = box_size
  *             elif nargs_insertion == 2:             # <<<<<<<<<<<<<<
@@ -8222,35 +8397,35 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       default: break;
     }
 
-    /* "membrane.pyx":330
+    /* "membrane.pyx":333
  *                 max_window = box_size
  * 
  *             window_step = float(parameters[1])             # <<<<<<<<<<<<<<
  *             window_size = float(parameters[0])
  * 
  */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 330, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 333, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_AsDouble(__pyx_t_3); if (unlikely(__pyx_t_6 == ((double)((double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 330, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_AsDouble(__pyx_t_3); if (unlikely(__pyx_t_6 == ((double)((double)-1)) && PyErr_Occurred())) __PYX_ERR(0, 333, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_window_step = __pyx_t_6;
 
-    /* "membrane.pyx":331
+    /* "membrane.pyx":334
  * 
  *             window_step = float(parameters[1])
  *             window_size = float(parameters[0])             # <<<<<<<<<<<<<<
  * 
  *             ouput_radius = ''
  */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_parameters, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyNumber_Float(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 331, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyNumber_Float(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_window_size = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":333
+    /* "membrane.pyx":336
  *             window_size = float(parameters[0])
  * 
  *             ouput_radius = ''             # <<<<<<<<<<<<<<
@@ -8260,31 +8435,31 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     __Pyx_INCREF(__pyx_kp_s__11);
     __pyx_v_ouput_radius = __pyx_kp_s__11;
 
-    /* "membrane.pyx":334
+    /* "membrane.pyx":337
  * 
  *             ouput_radius = ''
  *             if window_size > box_size:             # <<<<<<<<<<<<<<
  *                 window_size = int(box_size)
  *                 ouput_radius = 'box_size'
  */
-    __pyx_t_2 = PyObject_RichCompare(__pyx_v_window_size, __pyx_v_box_size, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_v_window_size, __pyx_v_box_size, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 337, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_5) {
 
-      /* "membrane.pyx":335
+      /* "membrane.pyx":338
  *             ouput_radius = ''
  *             if window_size > box_size:
  *                 window_size = int(box_size)             # <<<<<<<<<<<<<<
  *                 ouput_radius = 'box_size'
  * 
  */
-      __pyx_t_2 = __Pyx_PyNumber_Int(__pyx_v_box_size); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 335, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyNumber_Int(__pyx_v_box_size); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 338, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF_SET(__pyx_v_window_size, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "membrane.pyx":336
+      /* "membrane.pyx":339
  *             if window_size > box_size:
  *                 window_size = int(box_size)
  *                 ouput_radius = 'box_size'             # <<<<<<<<<<<<<<
@@ -8294,7 +8469,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_n_s_box_size);
       __Pyx_DECREF_SET(__pyx_v_ouput_radius, __pyx_n_s_box_size);
 
-      /* "membrane.pyx":334
+      /* "membrane.pyx":337
  * 
  *             ouput_radius = ''
  *             if window_size > box_size:             # <<<<<<<<<<<<<<
@@ -8303,14 +8478,14 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  */
     }
 
-    /* "membrane.pyx":339
+    /* "membrane.pyx":342
  * 
  *             # Get distances to coi
  *             CoI = CoI.getAtomsInLeaflet(leaflet)             # <<<<<<<<<<<<<<
  *             membrane = self.getLeafletAtoms(leaflet)
  * 
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_CoI, __pyx_n_s_getAtomsInLeaflet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_CoI, __pyx_n_s_getAtomsInLeaflet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 342, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -8323,13 +8498,13 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       }
     }
     if (!__pyx_t_1) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_leaflet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_leaflet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     } else {
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_3)) {
         PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_v_leaflet};
-        __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_GOTREF(__pyx_t_2);
       } else
@@ -8337,19 +8512,19 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
         PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_v_leaflet};
-        __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_GOTREF(__pyx_t_2);
       } else
       #endif
       {
-        __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 339, __pyx_L1_error)
+        __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 342, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_1); __pyx_t_1 = NULL;
         __Pyx_INCREF(__pyx_v_leaflet);
         __Pyx_GIVEREF(__pyx_v_leaflet);
         PyTuple_SET_ITEM(__pyx_t_7, 0+1, __pyx_v_leaflet);
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
@@ -8358,14 +8533,14 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     __Pyx_DECREF_SET(__pyx_v_CoI, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":340
+    /* "membrane.pyx":343
  *             # Get distances to coi
  *             CoI = CoI.getAtomsInLeaflet(leaflet)
  *             membrane = self.getLeafletAtoms(leaflet)             # <<<<<<<<<<<<<<
  * 
- *             dists2Protein = self.getAllAtomsMinDist2(CoI, membrane, box, 2)
+ *             dists2Protein = getAllAtomsMinDist2(CoI, membrane, box, 2)
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getLeafletAtoms); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getLeafletAtoms); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 343, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_7 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -8378,13 +8553,13 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       }
     }
     if (!__pyx_t_7) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_leaflet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_leaflet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     } else {
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_3)) {
         PyObject *__pyx_temp[2] = {__pyx_t_7, __pyx_v_leaflet};
-        __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_GOTREF(__pyx_t_2);
       } else
@@ -8392,19 +8567,19 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
         PyObject *__pyx_temp[2] = {__pyx_t_7, __pyx_v_leaflet};
-        __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_GOTREF(__pyx_t_2);
       } else
       #endif
       {
-        __pyx_t_1 = PyTuple_New(1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_New(1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_7); __pyx_t_7 = NULL;
         __Pyx_INCREF(__pyx_v_leaflet);
         __Pyx_GIVEREF(__pyx_v_leaflet);
         PyTuple_SET_ITEM(__pyx_t_1, 0+1, __pyx_v_leaflet);
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       }
@@ -8413,18 +8588,18 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     __pyx_v_membrane = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":342
+    /* "membrane.pyx":345
  *             membrane = self.getLeafletAtoms(leaflet)
  * 
- *             dists2Protein = self.getAllAtomsMinDist2(CoI, membrane, box, 2)             # <<<<<<<<<<<<<<
+ *             dists2Protein = getAllAtomsMinDist2(CoI, membrane, box, 2)             # <<<<<<<<<<<<<<
+ *             membrane_atoms_sorted = self.sortAtomsByDistance(membrane, dists2Protein)
  * 
- *             slices = self.getSlices(window_size, window_step,
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getAllAtomsMinDist2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 342, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_getAllAtomsMinDist2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = NULL;
     __pyx_t_8 = 0;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
+    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
       __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
       if (likely(__pyx_t_1)) {
         PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
@@ -8437,7 +8612,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[5] = {__pyx_t_1, __pyx_v_CoI, __pyx_v_membrane, __pyx_v_box, __pyx_int_2};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_2);
     } else
@@ -8445,13 +8620,13 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[5] = {__pyx_t_1, __pyx_v_CoI, __pyx_v_membrane, __pyx_v_box, __pyx_int_2};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_2);
     } else
     #endif
     {
-      __pyx_t_7 = PyTuple_New(4+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 342, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(4+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 345, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       if (__pyx_t_1) {
         __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -8468,7 +8643,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_int_2);
       __Pyx_GIVEREF(__pyx_int_2);
       PyTuple_SET_ITEM(__pyx_t_7, 3+__pyx_t_8, __pyx_int_2);
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
@@ -8476,33 +8651,90 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     __pyx_v_dists2Protein = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":344
- *             dists2Protein = self.getAllAtomsMinDist2(CoI, membrane, box, 2)
+    /* "membrane.pyx":346
+ * 
+ *             dists2Protein = getAllAtomsMinDist2(CoI, membrane, box, 2)
+ *             membrane_atoms_sorted = self.sortAtomsByDistance(membrane, dists2Protein)             # <<<<<<<<<<<<<<
+ * 
+ *             slices = self.getSlices(window_size, window_step,
+ */
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_sortAtomsByDistance); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_7 = NULL;
+    __pyx_t_8 = 0;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_7)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_7);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_3, function);
+        __pyx_t_8 = 1;
+      }
+    }
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(__pyx_t_3)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_v_membrane, __pyx_v_dists2Protein};
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __Pyx_GOTREF(__pyx_t_2);
+    } else
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_v_membrane, __pyx_v_dists2Protein};
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __Pyx_GOTREF(__pyx_t_2);
+    } else
+    #endif
+    {
+      __pyx_t_1 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (__pyx_t_7) {
+        __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_7); __pyx_t_7 = NULL;
+      }
+      __Pyx_INCREF(__pyx_v_membrane);
+      __Pyx_GIVEREF(__pyx_v_membrane);
+      PyTuple_SET_ITEM(__pyx_t_1, 0+__pyx_t_8, __pyx_v_membrane);
+      __Pyx_INCREF(__pyx_v_dists2Protein);
+      __Pyx_GIVEREF(__pyx_v_dists2Protein);
+      PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_8, __pyx_v_dists2Protein);
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_v_membrane_atoms_sorted = __pyx_t_2;
+    __pyx_t_2 = 0;
+
+    /* "membrane.pyx":348
+ *             membrane_atoms_sorted = self.sortAtomsByDistance(membrane, dists2Protein)
  * 
  *             slices = self.getSlices(window_size, window_step,             # <<<<<<<<<<<<<<
  *                                     min_window, max_window,
- *                                     dists2Protein, membrane)
+ *                                     membrane_atoms_sorted)
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getSlices); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getSlices); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_7 = PyFloat_FromDouble(__pyx_v_window_step); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 344, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_window_step); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
 
-    /* "membrane.pyx":345
+    /* "membrane.pyx":349
  * 
  *             slices = self.getSlices(window_size, window_step,
  *                                     min_window, max_window,             # <<<<<<<<<<<<<<
- *                                     dists2Protein, membrane)
+ *                                     membrane_atoms_sorted)
  * 
  */
-    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_min_window); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely(!__pyx_v_max_window)) { __Pyx_RaiseUnboundLocalError("max_window"); __PYX_ERR(0, 345, __pyx_L1_error) }
+    __pyx_t_7 = PyFloat_FromDouble(__pyx_v_min_window); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 349, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (unlikely(!__pyx_v_max_window)) { __Pyx_RaiseUnboundLocalError("max_window"); __PYX_ERR(0, 349, __pyx_L1_error) }
 
-    /* "membrane.pyx":346
+    /* "membrane.pyx":350
  *             slices = self.getSlices(window_size, window_step,
  *                                     min_window, max_window,
- *                                     dists2Protein, membrane)             # <<<<<<<<<<<<<<
+ *                                     membrane_atoms_sorted)             # <<<<<<<<<<<<<<
  * 
  *             #with open('slices', 'w') as f:
  */
@@ -8520,26 +8752,26 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     }
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
-      PyObject *__pyx_temp[7] = {__pyx_t_9, __pyx_v_window_size, __pyx_t_7, __pyx_t_1, __pyx_v_max_window, __pyx_v_dists2Protein, __pyx_v_membrane};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 6+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+      PyObject *__pyx_temp[6] = {__pyx_t_9, __pyx_v_window_size, __pyx_t_1, __pyx_t_7, __pyx_v_max_window, __pyx_v_membrane_atoms_sorted};
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 5+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     } else
     #endif
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
-      PyObject *__pyx_temp[7] = {__pyx_t_9, __pyx_v_window_size, __pyx_t_7, __pyx_t_1, __pyx_v_max_window, __pyx_v_dists2Protein, __pyx_v_membrane};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 6+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+      PyObject *__pyx_temp[6] = {__pyx_t_9, __pyx_v_window_size, __pyx_t_1, __pyx_t_7, __pyx_v_max_window, __pyx_v_membrane_atoms_sorted};
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 5+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     } else
     #endif
     {
-      __pyx_t_10 = PyTuple_New(6+__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 344, __pyx_L1_error)
+      __pyx_t_10 = PyTuple_New(5+__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 348, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       if (__pyx_t_9) {
         __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -8547,22 +8779,19 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_v_window_size);
       __Pyx_GIVEREF(__pyx_v_window_size);
       PyTuple_SET_ITEM(__pyx_t_10, 0+__pyx_t_8, __pyx_v_window_size);
-      __Pyx_GIVEREF(__pyx_t_7);
-      PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_8, __pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_1);
-      PyTuple_SET_ITEM(__pyx_t_10, 2+__pyx_t_8, __pyx_t_1);
+      PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_8, __pyx_t_1);
+      __Pyx_GIVEREF(__pyx_t_7);
+      PyTuple_SET_ITEM(__pyx_t_10, 2+__pyx_t_8, __pyx_t_7);
       __Pyx_INCREF(__pyx_v_max_window);
       __Pyx_GIVEREF(__pyx_v_max_window);
       PyTuple_SET_ITEM(__pyx_t_10, 3+__pyx_t_8, __pyx_v_max_window);
-      __Pyx_INCREF(__pyx_v_dists2Protein);
-      __Pyx_GIVEREF(__pyx_v_dists2Protein);
-      PyTuple_SET_ITEM(__pyx_t_10, 4+__pyx_t_8, __pyx_v_dists2Protein);
-      __Pyx_INCREF(__pyx_v_membrane);
-      __Pyx_GIVEREF(__pyx_v_membrane);
-      PyTuple_SET_ITEM(__pyx_t_10, 5+__pyx_t_8, __pyx_v_membrane);
-      __pyx_t_7 = 0;
+      __Pyx_INCREF(__pyx_v_membrane_atoms_sorted);
+      __Pyx_GIVEREF(__pyx_v_membrane_atoms_sorted);
+      PyTuple_SET_ITEM(__pyx_t_10, 4+__pyx_t_8, __pyx_v_membrane_atoms_sorted);
       __pyx_t_1 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+      __pyx_t_7 = 0;
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     }
@@ -8570,7 +8799,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     __pyx_v_slices = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":357
+    /* "membrane.pyx":361
  *             #    f.write(text)
  * 
  *             with open("log.txt", 'a') as f:             # <<<<<<<<<<<<<<
@@ -8578,27 +8807,27 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  *             output = ''
  */
     /*with:*/ {
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 357, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 361, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_11 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 357, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 361, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_10 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 357, __pyx_L6_error)
+      __pyx_t_10 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 361, __pyx_L6_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_1 = NULL;
+      __pyx_t_7 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
-        __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_10);
-        if (likely(__pyx_t_1)) {
+        __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_10);
+        if (likely(__pyx_t_7)) {
           PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_10);
-          __Pyx_INCREF(__pyx_t_1);
+          __Pyx_INCREF(__pyx_t_7);
           __Pyx_INCREF(function);
           __Pyx_DECREF_SET(__pyx_t_10, function);
         }
       }
-      if (__pyx_t_1) {
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L6_error)
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      if (__pyx_t_7) {
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 361, __pyx_L6_error)
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       } else {
-        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L6_error)
+        __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 361, __pyx_L6_error)
       }
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -8617,21 +8846,21 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
             __pyx_v_f = __pyx_t_10;
             __pyx_t_10 = 0;
 
-            /* "membrane.pyx":358
+            /* "membrane.pyx":362
  * 
  *             with open("log.txt", 'a') as f:
  *                 f.write('\n####')             # <<<<<<<<<<<<<<
  *             output = ''
  *             output_natoms = ''
  */
-            __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_f, __pyx_n_s_write); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 358, __pyx_L10_error)
+            __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_f, __pyx_n_s_write); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 362, __pyx_L10_error)
             __Pyx_GOTREF(__pyx_t_10);
-            __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L10_error)
+            __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L10_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "membrane.pyx":357
+            /* "membrane.pyx":361
  *             #    f.write(text)
  * 
  *             with open("log.txt", 'a') as f:             # <<<<<<<<<<<<<<
@@ -8645,27 +8874,27 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
           goto __pyx_L15_try_end;
           __pyx_L10_error:;
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           /*except:*/ {
             __Pyx_AddTraceback("membrane.Membrane.getThickness", __pyx_clineno, __pyx_lineno, __pyx_filename);
-            if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_10, &__pyx_t_3) < 0) __PYX_ERR(0, 357, __pyx_L12_except_error)
+            if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_10, &__pyx_t_3) < 0) __PYX_ERR(0, 361, __pyx_L12_except_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_GOTREF(__pyx_t_10);
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_1 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_10, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 357, __pyx_L12_except_error)
-            __Pyx_GOTREF(__pyx_t_1);
-            __pyx_t_15 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_1, NULL);
+            __pyx_t_7 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_10, __pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 361, __pyx_L12_except_error)
+            __Pyx_GOTREF(__pyx_t_7);
+            __pyx_t_15 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_7, NULL);
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-            __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-            if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 357, __pyx_L12_except_error)
+            __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+            if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 361, __pyx_L12_except_error)
             __Pyx_GOTREF(__pyx_t_15);
             __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_15);
             __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-            if (__pyx_t_5 < 0) __PYX_ERR(0, 357, __pyx_L12_except_error)
+            if (__pyx_t_5 < 0) __PYX_ERR(0, 361, __pyx_L12_except_error)
             __pyx_t_16 = ((!(__pyx_t_5 != 0)) != 0);
             if (__pyx_t_16) {
               __Pyx_GIVEREF(__pyx_t_2);
@@ -8673,7 +8902,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
               __Pyx_XGIVEREF(__pyx_t_3);
               __Pyx_ErrRestoreWithState(__pyx_t_2, __pyx_t_10, __pyx_t_3);
               __pyx_t_2 = 0; __pyx_t_10 = 0; __pyx_t_3 = 0; 
-              __PYX_ERR(0, 357, __pyx_L12_except_error)
+              __PYX_ERR(0, 361, __pyx_L12_except_error)
             }
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -8699,7 +8928,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
           if (__pyx_t_11) {
             __pyx_t_14 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__15, NULL);
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 357, __pyx_L1_error)
+            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 361, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_14);
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
           }
@@ -8714,7 +8943,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __pyx_L19:;
     }
 
-    /* "membrane.pyx":359
+    /* "membrane.pyx":363
  *             with open("log.txt", 'a') as f:
  *                 f.write('\n####')
  *             output = ''             # <<<<<<<<<<<<<<
@@ -8724,7 +8953,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     __Pyx_INCREF(__pyx_kp_s__11);
     __pyx_v_output = __pyx_kp_s__11;
 
-    /* "membrane.pyx":360
+    /* "membrane.pyx":364
  *                 f.write('\n####')
  *             output = ''
  *             output_natoms = ''             # <<<<<<<<<<<<<<
@@ -8734,19 +8963,19 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     __Pyx_INCREF(__pyx_kp_s__11);
     __pyx_v_output_natoms = __pyx_kp_s__11;
 
-    /* "membrane.pyx":361
+    /* "membrane.pyx":365
  *             output = ''
  *             output_natoms = ''
  *             windows = []             # <<<<<<<<<<<<<<
  *             for window_half, atoms, distances in slices:
  *                 counter = 0
  */
-    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 361, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 365, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_v_windows = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "membrane.pyx":362
+    /* "membrane.pyx":366
  *             output_natoms = ''
  *             windows = []
  *             for window_half, atoms, distances in slices:             # <<<<<<<<<<<<<<
@@ -8757,26 +8986,26 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __pyx_t_3 = __pyx_v_slices; __Pyx_INCREF(__pyx_t_3); __pyx_t_4 = 0;
       __pyx_t_17 = NULL;
     } else {
-      __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_slices); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 362, __pyx_L1_error)
+      __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_slices); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 366, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_17 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 362, __pyx_L1_error)
+      __pyx_t_17 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 366, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_17)) {
         if (likely(PyList_CheckExact(__pyx_t_3))) {
           if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_10 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_10); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 362, __pyx_L1_error)
+          __pyx_t_10 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_10); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 366, __pyx_L1_error)
           #else
-          __pyx_t_10 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 362, __pyx_L1_error)
+          __pyx_t_10 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 366, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           #endif
         } else {
           if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_10 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_10); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 362, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_10); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 366, __pyx_L1_error)
           #else
-          __pyx_t_10 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 362, __pyx_L1_error)
+          __pyx_t_10 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 366, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           #endif
         }
@@ -8786,7 +9015,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 362, __pyx_L1_error)
+            else __PYX_ERR(0, 366, __pyx_L1_error)
           }
           break;
         }
@@ -8798,43 +9027,43 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
         if (unlikely(size != 3)) {
           if (size > 3) __Pyx_RaiseTooManyValuesError(3);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 362, __pyx_L1_error)
+          __PYX_ERR(0, 366, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
           __pyx_t_2 = PyTuple_GET_ITEM(sequence, 0); 
-          __pyx_t_1 = PyTuple_GET_ITEM(sequence, 1); 
-          __pyx_t_7 = PyTuple_GET_ITEM(sequence, 2); 
+          __pyx_t_7 = PyTuple_GET_ITEM(sequence, 1); 
+          __pyx_t_1 = PyTuple_GET_ITEM(sequence, 2); 
         } else {
           __pyx_t_2 = PyList_GET_ITEM(sequence, 0); 
-          __pyx_t_1 = PyList_GET_ITEM(sequence, 1); 
-          __pyx_t_7 = PyList_GET_ITEM(sequence, 2); 
+          __pyx_t_7 = PyList_GET_ITEM(sequence, 1); 
+          __pyx_t_1 = PyList_GET_ITEM(sequence, 2); 
         }
         __Pyx_INCREF(__pyx_t_2);
-        __Pyx_INCREF(__pyx_t_1);
         __Pyx_INCREF(__pyx_t_7);
+        __Pyx_INCREF(__pyx_t_1);
         #else
-        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 366, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_1 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 362, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 362, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 366, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_1 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 366, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
         #endif
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_9 = PyObject_GetIter(__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 362, __pyx_L1_error)
+        __pyx_t_9 = PyObject_GetIter(__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 366, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_18 = Py_TYPE(__pyx_t_9)->tp_iternext;
         index = 0; __pyx_t_2 = __pyx_t_18(__pyx_t_9); if (unlikely(!__pyx_t_2)) goto __pyx_L22_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_2);
-        index = 1; __pyx_t_1 = __pyx_t_18(__pyx_t_9); if (unlikely(!__pyx_t_1)) goto __pyx_L22_unpacking_failed;
-        __Pyx_GOTREF(__pyx_t_1);
-        index = 2; __pyx_t_7 = __pyx_t_18(__pyx_t_9); if (unlikely(!__pyx_t_7)) goto __pyx_L22_unpacking_failed;
+        index = 1; __pyx_t_7 = __pyx_t_18(__pyx_t_9); if (unlikely(!__pyx_t_7)) goto __pyx_L22_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_18(__pyx_t_9), 3) < 0) __PYX_ERR(0, 362, __pyx_L1_error)
+        index = 2; __pyx_t_1 = __pyx_t_18(__pyx_t_9); if (unlikely(!__pyx_t_1)) goto __pyx_L22_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_1);
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_18(__pyx_t_9), 3) < 0) __PYX_ERR(0, 366, __pyx_L1_error)
         __pyx_t_18 = NULL;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         goto __pyx_L23_unpacking_done;
@@ -8842,17 +9071,17 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __pyx_t_18 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 362, __pyx_L1_error)
+        __PYX_ERR(0, 366, __pyx_L1_error)
         __pyx_L23_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_window_half, __pyx_t_2);
       __pyx_t_2 = 0;
-      __Pyx_XDECREF_SET(__pyx_v_atoms, __pyx_t_1);
-      __pyx_t_1 = 0;
-      __Pyx_XDECREF_SET(__pyx_v_distances, __pyx_t_7);
+      __Pyx_XDECREF_SET(__pyx_v_atoms, __pyx_t_7);
       __pyx_t_7 = 0;
+      __Pyx_XDECREF_SET(__pyx_v_distances, __pyx_t_1);
+      __pyx_t_1 = 0;
 
-      /* "membrane.pyx":363
+      /* "membrane.pyx":367
  *             windows = []
  *             for window_half, atoms, distances in slices:
  *                 counter = 0             # <<<<<<<<<<<<<<
@@ -8862,7 +9091,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_int_0);
       __Pyx_XDECREF_SET(__pyx_v_counter, __pyx_int_0);
 
-      /* "membrane.pyx":364
+      /* "membrane.pyx":368
  *             for window_half, atoms, distances in slices:
  *                 counter = 0
  *                 memb_total = 0.0             # <<<<<<<<<<<<<<
@@ -8872,7 +9101,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_float_0_0);
       __Pyx_XDECREF_SET(__pyx_v_memb_total, __pyx_float_0_0);
 
-      /* "membrane.pyx":366
+      /* "membrane.pyx":370
  *                 memb_total = 0.0
  * 
  *                 text = ''             # <<<<<<<<<<<<<<
@@ -8882,7 +9111,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_kp_s__11);
       __Pyx_XDECREF_SET(__pyx_v_text, __pyx_kp_s__11);
 
-      /* "membrane.pyx":368
+      /* "membrane.pyx":372
  *                 text = ''
  * 
  *                 for atom in atoms:             # <<<<<<<<<<<<<<
@@ -8893,85 +9122,52 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
         __pyx_t_10 = __pyx_v_atoms; __Pyx_INCREF(__pyx_t_10); __pyx_t_19 = 0;
         __pyx_t_20 = NULL;
       } else {
-        __pyx_t_19 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_v_atoms); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 368, __pyx_L1_error)
+        __pyx_t_19 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_v_atoms); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 372, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_20 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 368, __pyx_L1_error)
+        __pyx_t_20 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 372, __pyx_L1_error)
       }
       for (;;) {
         if (likely(!__pyx_t_20)) {
           if (likely(PyList_CheckExact(__pyx_t_10))) {
             if (__pyx_t_19 >= PyList_GET_SIZE(__pyx_t_10)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_7 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_19); __Pyx_INCREF(__pyx_t_7); __pyx_t_19++; if (unlikely(0 < 0)) __PYX_ERR(0, 368, __pyx_L1_error)
+            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_19); __Pyx_INCREF(__pyx_t_1); __pyx_t_19++; if (unlikely(0 < 0)) __PYX_ERR(0, 372, __pyx_L1_error)
             #else
-            __pyx_t_7 = PySequence_ITEM(__pyx_t_10, __pyx_t_19); __pyx_t_19++; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 368, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_7);
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_10, __pyx_t_19); __pyx_t_19++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_1);
             #endif
           } else {
             if (__pyx_t_19 >= PyTuple_GET_SIZE(__pyx_t_10)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_7 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_19); __Pyx_INCREF(__pyx_t_7); __pyx_t_19++; if (unlikely(0 < 0)) __PYX_ERR(0, 368, __pyx_L1_error)
+            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_19); __Pyx_INCREF(__pyx_t_1); __pyx_t_19++; if (unlikely(0 < 0)) __PYX_ERR(0, 372, __pyx_L1_error)
             #else
-            __pyx_t_7 = PySequence_ITEM(__pyx_t_10, __pyx_t_19); __pyx_t_19++; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 368, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_7);
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_10, __pyx_t_19); __pyx_t_19++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_1);
             #endif
           }
         } else {
-          __pyx_t_7 = __pyx_t_20(__pyx_t_10);
-          if (unlikely(!__pyx_t_7)) {
+          __pyx_t_1 = __pyx_t_20(__pyx_t_10);
+          if (unlikely(!__pyx_t_1)) {
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 368, __pyx_L1_error)
+              else __PYX_ERR(0, 372, __pyx_L1_error)
             }
             break;
           }
-          __Pyx_GOTREF(__pyx_t_7);
+          __Pyx_GOTREF(__pyx_t_1);
         }
-        __Pyx_XDECREF_SET(__pyx_v_atom, __pyx_t_7);
-        __pyx_t_7 = 0;
+        __Pyx_XDECREF_SET(__pyx_v_atom, __pyx_t_1);
+        __pyx_t_1 = 0;
 
-        /* "membrane.pyx":369
+        /* "membrane.pyx":373
  * 
  *                 for atom in atoms:
  *                     atom_z = atom.get3DPosition()[2]             # <<<<<<<<<<<<<<
  *                     atomML = atom.getLeaflet()
  * 
  */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_get3DPosition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_2 = NULL;
-        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
-          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
-          if (likely(__pyx_t_2)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-            __Pyx_INCREF(__pyx_t_2);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_1, function);
-          }
-        }
-        if (__pyx_t_2) {
-          __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 369, __pyx_L1_error)
-          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        } else {
-          __pyx_t_7 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 369, __pyx_L1_error)
-        }
-        __Pyx_GOTREF(__pyx_t_7);
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_7, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_XDECREF_SET(__pyx_v_atom_z, __pyx_t_1);
-        __pyx_t_1 = 0;
-
-        /* "membrane.pyx":370
- *                 for atom in atoms:
- *                     atom_z = atom.get3DPosition()[2]
- *                     atomML = atom.getLeaflet()             # <<<<<<<<<<<<<<
- * 
- *                     counter += 1
- */
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_getLeaflet); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 370, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_get3DPosition); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 373, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __pyx_t_2 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -8984,50 +9180,83 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
           }
         }
         if (__pyx_t_2) {
-          __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 373, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         } else {
-          __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 373, __pyx_L1_error)
         }
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_XDECREF_SET(__pyx_v_atomML, __pyx_t_1);
-        __pyx_t_1 = 0;
+        __pyx_t_7 = __Pyx_GetItemInt(__pyx_t_1, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 373, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __Pyx_XDECREF_SET(__pyx_v_atom_z, __pyx_t_7);
+        __pyx_t_7 = 0;
 
-        /* "membrane.pyx":372
+        /* "membrane.pyx":374
+ *                 for atom in atoms:
+ *                     atom_z = atom.get3DPosition()[2]
+ *                     atomML = atom.getLeaflet()             # <<<<<<<<<<<<<<
+ * 
+ *                     counter += 1
+ */
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_getLeaflet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        __pyx_t_2 = NULL;
+        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
+          if (likely(__pyx_t_2)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+            __Pyx_INCREF(__pyx_t_2);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_1, function);
+          }
+        }
+        if (__pyx_t_2) {
+          __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 374, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        } else {
+          __pyx_t_7 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 374, __pyx_L1_error)
+        }
+        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __Pyx_XDECREF_SET(__pyx_v_atomML, __pyx_t_7);
+        __pyx_t_7 = 0;
+
+        /* "membrane.pyx":376
  *                     atomML = atom.getLeaflet()
  * 
  *                     counter += 1             # <<<<<<<<<<<<<<
  *                     memb_total += atom_z
  * 
  */
-        __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_counter, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF_SET(__pyx_v_counter, __pyx_t_1);
-        __pyx_t_1 = 0;
+        __pyx_t_7 = __Pyx_PyInt_AddObjC(__pyx_v_counter, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 376, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF_SET(__pyx_v_counter, __pyx_t_7);
+        __pyx_t_7 = 0;
 
-        /* "membrane.pyx":373
+        /* "membrane.pyx":377
  * 
  *                     counter += 1
  *                     memb_total += atom_z             # <<<<<<<<<<<<<<
  * 
  * 
  */
-        __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_memb_total, __pyx_v_atom_z); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 373, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF_SET(__pyx_v_memb_total, __pyx_t_1);
-        __pyx_t_1 = 0;
+        __pyx_t_7 = PyNumber_InPlaceAdd(__pyx_v_memb_total, __pyx_v_atom_z); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 377, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF_SET(__pyx_v_memb_total, __pyx_t_7);
+        __pyx_t_7 = 0;
 
-        /* "membrane.pyx":376
+        /* "membrane.pyx":380
  * 
  * 
  *                     text += '{0} '.format(atom.getNumber())             # <<<<<<<<<<<<<<
  * 
  *                 if counter > 0:
  */
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0_2, __pyx_n_s_format); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 376, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_getNumber); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 376, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0_2, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 380, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_atom, __pyx_n_s_getNumber); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 380, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __pyx_t_21 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_9))) {
@@ -9040,66 +9269,66 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
           }
         }
         if (__pyx_t_21) {
-          __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_21); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 376, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_21); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 380, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
         } else {
-          __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 376, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 380, __pyx_L1_error)
         }
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __pyx_t_9 = NULL;
-        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
-          __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_7);
+        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+          __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_1);
           if (likely(__pyx_t_9)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
             __Pyx_INCREF(__pyx_t_9);
             __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_7, function);
+            __Pyx_DECREF_SET(__pyx_t_1, function);
           }
         }
         if (!__pyx_t_9) {
-          __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 380, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_GOTREF(__pyx_t_7);
         } else {
           #if CYTHON_FAST_PYCALL
-          if (PyFunction_Check(__pyx_t_7)) {
+          if (PyFunction_Check(__pyx_t_1)) {
             PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_2};
-            __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
+            __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 380, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-            __Pyx_GOTREF(__pyx_t_1);
+            __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           } else
           #endif
           #if CYTHON_FAST_PYCCALL
-          if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
+          if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
             PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_2};
-            __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
+            __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 380, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-            __Pyx_GOTREF(__pyx_t_1);
+            __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           } else
           #endif
           {
-            __pyx_t_21 = PyTuple_New(1+1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 376, __pyx_L1_error)
+            __pyx_t_21 = PyTuple_New(1+1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 380, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_21);
             __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_21, 0, __pyx_t_9); __pyx_t_9 = NULL;
             __Pyx_GIVEREF(__pyx_t_2);
             PyTuple_SET_ITEM(__pyx_t_21, 0+1, __pyx_t_2);
             __pyx_t_2 = 0;
-            __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_21, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_1);
+            __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_21, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 380, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
           }
         }
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_7 = PyNumber_InPlaceAdd(__pyx_v_text, __pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 376, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __Pyx_DECREF_SET(__pyx_v_text, __pyx_t_7);
-        __pyx_t_7 = 0;
+        __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_text, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 380, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF_SET(__pyx_v_text, __pyx_t_1);
+        __pyx_t_1 = 0;
 
-        /* "membrane.pyx":368
+        /* "membrane.pyx":372
  *                 text = ''
  * 
  *                 for atom in atoms:             # <<<<<<<<<<<<<<
@@ -9109,74 +9338,74 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       }
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-      /* "membrane.pyx":378
+      /* "membrane.pyx":382
  *                     text += '{0} '.format(atom.getNumber())
  * 
  *                 if counter > 0:             # <<<<<<<<<<<<<<
  *                     memb_average = memb_total / counter
  *                     thickness_value = abs(memb_average - self.getHalfZ())
  */
-      __pyx_t_10 = PyObject_RichCompare(__pyx_v_counter, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 378, __pyx_L1_error)
-      __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely(__pyx_t_16 < 0)) __PYX_ERR(0, 378, __pyx_L1_error)
+      __pyx_t_10 = PyObject_RichCompare(__pyx_v_counter, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 382, __pyx_L1_error)
+      __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely(__pyx_t_16 < 0)) __PYX_ERR(0, 382, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_16) {
 
-        /* "membrane.pyx":379
+        /* "membrane.pyx":383
  * 
  *                 if counter > 0:
  *                     memb_average = memb_total / counter             # <<<<<<<<<<<<<<
  *                     thickness_value = abs(memb_average - self.getHalfZ())
  *                     thickness_value = round(thickness_value, 3)
  */
-        __pyx_t_10 = __Pyx_PyNumber_Divide(__pyx_v_memb_total, __pyx_v_counter); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 379, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyNumber_Divide(__pyx_v_memb_total, __pyx_v_counter); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 383, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_XDECREF_SET(__pyx_v_memb_average, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "membrane.pyx":380
+        /* "membrane.pyx":384
  *                 if counter > 0:
  *                     memb_average = memb_total / counter
  *                     thickness_value = abs(memb_average - self.getHalfZ())             # <<<<<<<<<<<<<<
  *                     thickness_value = round(thickness_value, 3)
  *                     self.saveThickness(window_half, thickness_value, leaflet)
  */
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getHalfZ); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 380, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_1 = NULL;
-        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
-          __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_7);
-          if (likely(__pyx_t_1)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-            __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getHalfZ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        __pyx_t_7 = NULL;
+        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_1);
+          if (likely(__pyx_t_7)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+            __Pyx_INCREF(__pyx_t_7);
             __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_7, function);
+            __Pyx_DECREF_SET(__pyx_t_1, function);
           }
         }
-        if (__pyx_t_1) {
-          __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 380, __pyx_L1_error)
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        if (__pyx_t_7) {
+          __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 384, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         } else {
-          __pyx_t_10 = __Pyx_PyObject_CallNoArg(__pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 380, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 384, __pyx_L1_error)
         }
         __Pyx_GOTREF(__pyx_t_10);
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_7 = PyNumber_Subtract(__pyx_v_memb_average, __pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 380, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __pyx_t_1 = PyNumber_Subtract(__pyx_v_memb_average, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __pyx_t_10 = __Pyx_PyNumber_Absolute(__pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 380, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyNumber_Absolute(__pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 384, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_XDECREF_SET(__pyx_v_thickness_value, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "membrane.pyx":381
+        /* "membrane.pyx":385
  *                     memb_average = memb_total / counter
  *                     thickness_value = abs(memb_average - self.getHalfZ())
  *                     thickness_value = round(thickness_value, 3)             # <<<<<<<<<<<<<<
  *                     self.saveThickness(window_half, thickness_value, leaflet)
  *                     #print window_half, thickness_value, leaflet, memb_average, self.getHalfZ()
  */
-        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 381, __pyx_L1_error)
+        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 385, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_INCREF(__pyx_v_thickness_value);
         __Pyx_GIVEREF(__pyx_v_thickness_value);
@@ -9184,28 +9413,28 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
         __Pyx_INCREF(__pyx_int_3);
         __Pyx_GIVEREF(__pyx_int_3);
         PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_int_3);
-        __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_10, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 381, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 385, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __Pyx_DECREF_SET(__pyx_v_thickness_value, __pyx_t_7);
-        __pyx_t_7 = 0;
+        __Pyx_DECREF_SET(__pyx_v_thickness_value, __pyx_t_1);
+        __pyx_t_1 = 0;
 
-        /* "membrane.pyx":382
+        /* "membrane.pyx":386
  *                     thickness_value = abs(memb_average - self.getHalfZ())
  *                     thickness_value = round(thickness_value, 3)
  *                     self.saveThickness(window_half, thickness_value, leaflet)             # <<<<<<<<<<<<<<
  *                     #print window_half, thickness_value, leaflet, memb_average, self.getHalfZ()
  *                 else:
  */
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_saveThickness); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 382, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_saveThickness); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 386, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_1 = NULL;
+        __pyx_t_7 = NULL;
         __pyx_t_8 = 0;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
-          __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_10);
-          if (likely(__pyx_t_1)) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_10);
+          if (likely(__pyx_t_7)) {
             PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_10);
-            __Pyx_INCREF(__pyx_t_1);
+            __Pyx_INCREF(__pyx_t_7);
             __Pyx_INCREF(function);
             __Pyx_DECREF_SET(__pyx_t_10, function);
             __pyx_t_8 = 1;
@@ -9213,25 +9442,25 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
         }
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_10)) {
-          PyObject *__pyx_temp[4] = {__pyx_t_1, __pyx_v_window_half, __pyx_v_thickness_value, __pyx_v_leaflet};
-          __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 382, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __Pyx_GOTREF(__pyx_t_7);
+          PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_v_window_half, __pyx_v_thickness_value, __pyx_v_leaflet};
+          __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 386, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_1);
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
-          PyObject *__pyx_temp[4] = {__pyx_t_1, __pyx_v_window_half, __pyx_v_thickness_value, __pyx_v_leaflet};
-          __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 382, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __Pyx_GOTREF(__pyx_t_7);
+          PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_v_window_half, __pyx_v_thickness_value, __pyx_v_leaflet};
+          __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 386, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_1);
         } else
         #endif
         {
-          __pyx_t_21 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 382, __pyx_L1_error)
+          __pyx_t_21 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 386, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_21);
-          if (__pyx_t_1) {
-            __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_21, 0, __pyx_t_1); __pyx_t_1 = NULL;
+          if (__pyx_t_7) {
+            __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_21, 0, __pyx_t_7); __pyx_t_7 = NULL;
           }
           __Pyx_INCREF(__pyx_v_window_half);
           __Pyx_GIVEREF(__pyx_v_window_half);
@@ -9242,14 +9471,14 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
           __Pyx_INCREF(__pyx_v_leaflet);
           __Pyx_GIVEREF(__pyx_v_leaflet);
           PyTuple_SET_ITEM(__pyx_t_21, 2+__pyx_t_8, __pyx_v_leaflet);
-          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_21, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 382, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_7);
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_21, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 386, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
         }
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "membrane.pyx":378
+        /* "membrane.pyx":382
  *                     text += '{0} '.format(atom.getNumber())
  * 
  *                 if counter > 0:             # <<<<<<<<<<<<<<
@@ -9259,7 +9488,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
         goto __pyx_L26;
       }
 
-      /* "membrane.pyx":385
+      /* "membrane.pyx":389
  *                     #print window_half, thickness_value, leaflet, memb_average, self.getHalfZ()
  *                 else:
  *                     thickness_value = "NaN"             # <<<<<<<<<<<<<<
@@ -9272,33 +9501,33 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       }
       __pyx_L26:;
 
-      /* "membrane.pyx":386
+      /* "membrane.pyx":390
  *                 else:
  *                     thickness_value = "NaN"
  *                 windows.append(window_half)             # <<<<<<<<<<<<<<
  * 
  *                 if printnatoms:
  */
-      __pyx_t_22 = __Pyx_PyList_Append(__pyx_v_windows, __pyx_v_window_half); if (unlikely(__pyx_t_22 == ((int)-1))) __PYX_ERR(0, 386, __pyx_L1_error)
+      __pyx_t_22 = __Pyx_PyList_Append(__pyx_v_windows, __pyx_v_window_half); if (unlikely(__pyx_t_22 == ((int)-1))) __PYX_ERR(0, 390, __pyx_L1_error)
 
-      /* "membrane.pyx":388
+      /* "membrane.pyx":392
  *                 windows.append(window_half)
  * 
  *                 if printnatoms:             # <<<<<<<<<<<<<<
  *                     output += ' {0} {1} '.format(thickness_value, counter)
  *                 else:
  */
-      __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_v_printnatoms); if (unlikely(__pyx_t_16 < 0)) __PYX_ERR(0, 388, __pyx_L1_error)
+      __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_v_printnatoms); if (unlikely(__pyx_t_16 < 0)) __PYX_ERR(0, 392, __pyx_L1_error)
       if (__pyx_t_16) {
 
-        /* "membrane.pyx":389
+        /* "membrane.pyx":393
  * 
  *                 if printnatoms:
  *                     output += ' {0} {1} '.format(thickness_value, counter)             # <<<<<<<<<<<<<<
  *                 else:
  *                     output += ' {0} '.format(thickness_value)
  */
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0_1, __pyx_n_s_format); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 389, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0_1, __pyx_n_s_format); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 393, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_21 = NULL;
         __pyx_t_8 = 0;
@@ -9315,43 +9544,43 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_10)) {
           PyObject *__pyx_temp[3] = {__pyx_t_21, __pyx_v_thickness_value, __pyx_v_counter};
-          __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 389, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 393, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_21); __pyx_t_21 = 0;
-          __Pyx_GOTREF(__pyx_t_7);
+          __Pyx_GOTREF(__pyx_t_1);
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
           PyObject *__pyx_temp[3] = {__pyx_t_21, __pyx_v_thickness_value, __pyx_v_counter};
-          __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 389, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 393, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_21); __pyx_t_21 = 0;
-          __Pyx_GOTREF(__pyx_t_7);
+          __Pyx_GOTREF(__pyx_t_1);
         } else
         #endif
         {
-          __pyx_t_1 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 389, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_1);
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 393, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_7);
           if (__pyx_t_21) {
-            __Pyx_GIVEREF(__pyx_t_21); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_21); __pyx_t_21 = NULL;
+            __Pyx_GIVEREF(__pyx_t_21); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_21); __pyx_t_21 = NULL;
           }
           __Pyx_INCREF(__pyx_v_thickness_value);
           __Pyx_GIVEREF(__pyx_v_thickness_value);
-          PyTuple_SET_ITEM(__pyx_t_1, 0+__pyx_t_8, __pyx_v_thickness_value);
+          PyTuple_SET_ITEM(__pyx_t_7, 0+__pyx_t_8, __pyx_v_thickness_value);
           __Pyx_INCREF(__pyx_v_counter);
           __Pyx_GIVEREF(__pyx_v_counter);
-          PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_8, __pyx_v_counter);
-          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_1, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 389, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_7);
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+          PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_8, __pyx_v_counter);
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 393, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __pyx_t_10 = PyNumber_InPlaceAdd(__pyx_v_output, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 389, __pyx_L1_error)
+        __pyx_t_10 = PyNumber_InPlaceAdd(__pyx_v_output, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 393, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF_SET(__pyx_v_output, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "membrane.pyx":388
+        /* "membrane.pyx":392
  *                 windows.append(window_half)
  * 
  *                 if printnatoms:             # <<<<<<<<<<<<<<
@@ -9361,7 +9590,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
         goto __pyx_L27;
       }
 
-      /* "membrane.pyx":391
+      /* "membrane.pyx":395
  *                     output += ' {0} {1} '.format(thickness_value, counter)
  *                 else:
  *                     output += ' {0} '.format(thickness_value)             # <<<<<<<<<<<<<<
@@ -9369,60 +9598,60 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  *             if not os.path.isfile(outputfile):
  */
       /*else*/ {
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0, __pyx_n_s_format); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 391, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_1 = NULL;
-        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
-          __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_7);
-          if (likely(__pyx_t_1)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-            __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 395, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        __pyx_t_7 = NULL;
+        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_1);
+          if (likely(__pyx_t_7)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+            __Pyx_INCREF(__pyx_t_7);
             __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_7, function);
+            __Pyx_DECREF_SET(__pyx_t_1, function);
           }
         }
-        if (!__pyx_t_1) {
-          __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_thickness_value); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 391, __pyx_L1_error)
+        if (!__pyx_t_7) {
+          __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_thickness_value); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 395, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
         } else {
           #if CYTHON_FAST_PYCALL
-          if (PyFunction_Check(__pyx_t_7)) {
-            PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_v_thickness_value};
-            __pyx_t_10 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 391, __pyx_L1_error)
-            __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+          if (PyFunction_Check(__pyx_t_1)) {
+            PyObject *__pyx_temp[2] = {__pyx_t_7, __pyx_v_thickness_value};
+            __pyx_t_10 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 395, __pyx_L1_error)
+            __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
             __Pyx_GOTREF(__pyx_t_10);
           } else
           #endif
           #if CYTHON_FAST_PYCCALL
-          if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
-            PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_v_thickness_value};
-            __pyx_t_10 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 391, __pyx_L1_error)
-            __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+          if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
+            PyObject *__pyx_temp[2] = {__pyx_t_7, __pyx_v_thickness_value};
+            __pyx_t_10 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 395, __pyx_L1_error)
+            __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
             __Pyx_GOTREF(__pyx_t_10);
           } else
           #endif
           {
-            __pyx_t_21 = PyTuple_New(1+1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 391, __pyx_L1_error)
+            __pyx_t_21 = PyTuple_New(1+1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 395, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_21);
-            __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_21, 0, __pyx_t_1); __pyx_t_1 = NULL;
+            __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_21, 0, __pyx_t_7); __pyx_t_7 = NULL;
             __Pyx_INCREF(__pyx_v_thickness_value);
             __Pyx_GIVEREF(__pyx_v_thickness_value);
             PyTuple_SET_ITEM(__pyx_t_21, 0+1, __pyx_v_thickness_value);
-            __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_21, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 391, __pyx_L1_error)
+            __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_21, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 395, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
             __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
           }
         }
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_7 = PyNumber_InPlaceAdd(__pyx_v_output, __pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 391, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_output, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 395, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __Pyx_DECREF_SET(__pyx_v_output, __pyx_t_7);
-        __pyx_t_7 = 0;
+        __Pyx_DECREF_SET(__pyx_v_output, __pyx_t_1);
+        __pyx_t_1 = 0;
       }
       __pyx_L27:;
 
-      /* "membrane.pyx":362
+      /* "membrane.pyx":366
  *             output_natoms = ''
  *             windows = []
  *             for window_half, atoms, distances in slices:             # <<<<<<<<<<<<<<
@@ -9432,70 +9661,70 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "membrane.pyx":393
+    /* "membrane.pyx":397
  *                     output += ' {0} '.format(thickness_value)
  * 
  *             if not os.path.isfile(outputfile):             # <<<<<<<<<<<<<<
  *                 new_output = 'time '
  *                 for i in windows:
  */
-    __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_os); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 393, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 393, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_isfile); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 393, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_isfile); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __pyx_t_10 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
-      __pyx_t_10 = PyMethod_GET_SELF(__pyx_t_7);
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+      __pyx_t_10 = PyMethod_GET_SELF(__pyx_t_1);
       if (likely(__pyx_t_10)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
         __Pyx_INCREF(__pyx_t_10);
         __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_7, function);
+        __Pyx_DECREF_SET(__pyx_t_1, function);
       }
     }
     if (!__pyx_t_10) {
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_outputfile); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 393, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_outputfile); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     } else {
       #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_7)) {
+      if (PyFunction_Check(__pyx_t_1)) {
         PyObject *__pyx_temp[2] = {__pyx_t_10, __pyx_v_outputfile};
-        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 393, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_GOTREF(__pyx_t_3);
       } else
       #endif
       #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
+      if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
         PyObject *__pyx_temp[2] = {__pyx_t_10, __pyx_v_outputfile};
-        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 393, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_GOTREF(__pyx_t_3);
       } else
       #endif
       {
-        __pyx_t_21 = PyTuple_New(1+1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 393, __pyx_L1_error)
+        __pyx_t_21 = PyTuple_New(1+1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 397, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_21);
         __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_21, 0, __pyx_t_10); __pyx_t_10 = NULL;
         __Pyx_INCREF(__pyx_v_outputfile);
         __Pyx_GIVEREF(__pyx_v_outputfile);
         PyTuple_SET_ITEM(__pyx_t_21, 0+1, __pyx_v_outputfile);
-        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_21, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 393, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_21, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
       }
     }
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_16 < 0)) __PYX_ERR(0, 393, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_16 < 0)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_5 = ((!__pyx_t_16) != 0);
     if (__pyx_t_5) {
 
-      /* "membrane.pyx":394
+      /* "membrane.pyx":398
  * 
  *             if not os.path.isfile(outputfile):
  *                 new_output = 'time '             # <<<<<<<<<<<<<<
@@ -9505,7 +9734,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_kp_s_time);
       __pyx_v_new_output = __pyx_kp_s_time;
 
-      /* "membrane.pyx":395
+      /* "membrane.pyx":399
  *             if not os.path.isfile(outputfile):
  *                 new_output = 'time '
  *                 for i in windows:             # <<<<<<<<<<<<<<
@@ -9516,24 +9745,24 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       for (;;) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_3)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_7 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_7); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 395, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 399, __pyx_L1_error)
         #else
-        __pyx_t_7 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 395, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 399, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
         #endif
-        __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_7);
-        __pyx_t_7 = 0;
+        __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
+        __pyx_t_1 = 0;
 
-        /* "membrane.pyx":396
+        /* "membrane.pyx":400
  *                 new_output = 'time '
  *                 for i in windows:
  *                     new_output += '{0} '.format(round(i, 3))             # <<<<<<<<<<<<<<
  *                 output = new_output + '\n' + output
  * 
  */
-        __pyx_t_21 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0_2, __pyx_n_s_format); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 396, __pyx_L1_error)
+        __pyx_t_21 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_0_2, __pyx_n_s_format); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 400, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_21);
-        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 396, __pyx_L1_error)
+        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 400, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_INCREF(__pyx_v_i);
         __Pyx_GIVEREF(__pyx_v_i);
@@ -9541,8 +9770,8 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
         __Pyx_INCREF(__pyx_int_3);
         __Pyx_GIVEREF(__pyx_int_3);
         PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_int_3);
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
+        __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_10, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 400, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_10 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_21))) {
@@ -9555,48 +9784,48 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
           }
         }
         if (!__pyx_t_10) {
-          __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_t_21, __pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 396, __pyx_L1_error)
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __Pyx_GOTREF(__pyx_t_7);
+          __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_21, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 400, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_1);
         } else {
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_21)) {
-            PyObject *__pyx_temp[2] = {__pyx_t_10, __pyx_t_1};
-            __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_21, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 396, __pyx_L1_error)
+            PyObject *__pyx_temp[2] = {__pyx_t_10, __pyx_t_7};
+            __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_21, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 400, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-            __Pyx_GOTREF(__pyx_t_7);
-            __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+            __Pyx_GOTREF(__pyx_t_1);
+            __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           } else
           #endif
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_21)) {
-            PyObject *__pyx_temp[2] = {__pyx_t_10, __pyx_t_1};
-            __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_21, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 396, __pyx_L1_error)
+            PyObject *__pyx_temp[2] = {__pyx_t_10, __pyx_t_7};
+            __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_21, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 400, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-            __Pyx_GOTREF(__pyx_t_7);
-            __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+            __Pyx_GOTREF(__pyx_t_1);
+            __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           } else
           #endif
           {
-            __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 396, __pyx_L1_error)
+            __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 400, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_10); __pyx_t_10 = NULL;
-            __Pyx_GIVEREF(__pyx_t_1);
-            PyTuple_SET_ITEM(__pyx_t_2, 0+1, __pyx_t_1);
-            __pyx_t_1 = 0;
-            __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_21, __pyx_t_2, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 396, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_7);
+            __Pyx_GIVEREF(__pyx_t_7);
+            PyTuple_SET_ITEM(__pyx_t_2, 0+1, __pyx_t_7);
+            __pyx_t_7 = 0;
+            __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_21, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 400, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_1);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           }
         }
         __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
-        __pyx_t_21 = PyNumber_InPlaceAdd(__pyx_v_new_output, __pyx_t_7); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 396, __pyx_L1_error)
+        __pyx_t_21 = PyNumber_InPlaceAdd(__pyx_v_new_output, __pyx_t_1); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 400, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_21);
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF_SET(__pyx_v_new_output, __pyx_t_21);
         __pyx_t_21 = 0;
 
-        /* "membrane.pyx":395
+        /* "membrane.pyx":399
  *             if not os.path.isfile(outputfile):
  *                 new_output = 'time '
  *                 for i in windows:             # <<<<<<<<<<<<<<
@@ -9606,22 +9835,22 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "membrane.pyx":397
+      /* "membrane.pyx":401
  *                 for i in windows:
  *                     new_output += '{0} '.format(round(i, 3))
  *                 output = new_output + '\n' + output             # <<<<<<<<<<<<<<
  * 
  *             return output
  */
-      __pyx_t_3 = PyNumber_Add(__pyx_v_new_output, __pyx_kp_s__16); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
+      __pyx_t_3 = PyNumber_Add(__pyx_v_new_output, __pyx_kp_s__16); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 401, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_21 = PyNumber_Add(__pyx_t_3, __pyx_v_output); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 397, __pyx_L1_error)
+      __pyx_t_21 = PyNumber_Add(__pyx_t_3, __pyx_v_output); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 401, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_21);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF_SET(__pyx_v_output, __pyx_t_21);
       __pyx_t_21 = 0;
 
-      /* "membrane.pyx":393
+      /* "membrane.pyx":397
  *                     output += ' {0} '.format(thickness_value)
  * 
  *             if not os.path.isfile(outputfile):             # <<<<<<<<<<<<<<
@@ -9630,7 +9859,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  */
     }
 
-    /* "membrane.pyx":399
+    /* "membrane.pyx":403
  *                 output = new_output + '\n' + output
  * 
  *             return output             # <<<<<<<<<<<<<<
@@ -9642,7 +9871,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
     __pyx_r = __pyx_v_output;
     goto __pyx_L0;
 
-    /* "membrane.pyx":322
+    /* "membrane.pyx":325
  *             max_window = float(parameters[3])
  *             min_window = float(parameters[2])
  *         if nargs_insertion >= 2:             # <<<<<<<<<<<<<<
@@ -9651,7 +9880,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  */
   }
 
-  /* "membrane.pyx":310
+  /* "membrane.pyx":313
  *         return output
  * 
  *     def getThickness(self, CoI, leaflet, box,             # <<<<<<<<<<<<<<
@@ -9682,6 +9911,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
   __Pyx_XDECREF(__pyx_v_ouput_radius);
   __Pyx_XDECREF(__pyx_v_membrane);
   __Pyx_XDECREF(__pyx_v_dists2Protein);
+  __Pyx_XDECREF(__pyx_v_membrane_atoms_sorted);
   __Pyx_XDECREF(__pyx_v_slices);
   __Pyx_XDECREF(__pyx_v_f);
   __Pyx_XDECREF(__pyx_v_output);
@@ -9706,7 +9936,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "membrane.pyx":401
+/* "membrane.pyx":405
  *             return output
  * 
  *     def saveThickness(self, window, thickness, leaflet):             # <<<<<<<<<<<<<<
@@ -9715,9 +9945,9 @@ static PyObject *__pyx_pf_8membrane_8Membrane_33getThickness(CYTHON_UNUSED PyObj
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8membrane_8Membrane_36saveThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_8membrane_8Membrane_36saveThickness = {"saveThickness", (PyCFunction)__pyx_pw_8membrane_8Membrane_36saveThickness, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_8membrane_8Membrane_36saveThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8membrane_8Membrane_38saveThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_8membrane_8Membrane_38saveThickness = {"saveThickness", (PyCFunction)__pyx_pw_8membrane_8Membrane_38saveThickness, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_8membrane_8Membrane_38saveThickness(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_window = 0;
   PyObject *__pyx_v_thickness = 0;
@@ -9752,23 +9982,23 @@ static PyObject *__pyx_pw_8membrane_8Membrane_36saveThickness(PyObject *__pyx_se
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_window)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("saveThickness", 1, 4, 4, 1); __PYX_ERR(0, 401, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("saveThickness", 1, 4, 4, 1); __PYX_ERR(0, 405, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_thickness)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("saveThickness", 1, 4, 4, 2); __PYX_ERR(0, 401, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("saveThickness", 1, 4, 4, 2); __PYX_ERR(0, 405, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_leaflet)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("saveThickness", 1, 4, 4, 3); __PYX_ERR(0, 401, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("saveThickness", 1, 4, 4, 3); __PYX_ERR(0, 405, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "saveThickness") < 0)) __PYX_ERR(0, 401, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "saveThickness") < 0)) __PYX_ERR(0, 405, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -9785,20 +10015,20 @@ static PyObject *__pyx_pw_8membrane_8Membrane_36saveThickness(PyObject *__pyx_se
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("saveThickness", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 401, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("saveThickness", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 405, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("membrane.Membrane.saveThickness", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8membrane_8Membrane_35saveThickness(__pyx_self, __pyx_v_self, __pyx_v_window, __pyx_v_thickness, __pyx_v_leaflet);
+  __pyx_r = __pyx_pf_8membrane_8Membrane_37saveThickness(__pyx_self, __pyx_v_self, __pyx_v_window, __pyx_v_thickness, __pyx_v_leaflet);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_window, PyObject *__pyx_v_thickness, PyObject *__pyx_v_leaflet) {
+static PyObject *__pyx_pf_8membrane_8Membrane_37saveThickness(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_window, PyObject *__pyx_v_thickness, PyObject *__pyx_v_leaflet) {
   PyObject *__pyx_v_dictionary = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -9810,29 +10040,29 @@ static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyOb
   int __pyx_t_6;
   __Pyx_RefNannySetupContext("saveThickness", 0);
 
-  /* "membrane.pyx":402
+  /* "membrane.pyx":406
  * 
  *     def saveThickness(self, window, thickness, leaflet):
  *         if leaflet == 'top':             # <<<<<<<<<<<<<<
  *             dictionary = self._thickness_top
  *         else:
  */
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_leaflet, __pyx_n_s_top, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 402, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_leaflet, __pyx_n_s_top, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 406, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "membrane.pyx":403
+    /* "membrane.pyx":407
  *     def saveThickness(self, window, thickness, leaflet):
  *         if leaflet == 'top':
  *             dictionary = self._thickness_top             # <<<<<<<<<<<<<<
  *         else:
  *             dictionary = self._thickness_bottom
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_thickness_top); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 403, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_thickness_top); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_dictionary = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "membrane.pyx":402
+    /* "membrane.pyx":406
  * 
  *     def saveThickness(self, window, thickness, leaflet):
  *         if leaflet == 'top':             # <<<<<<<<<<<<<<
@@ -9842,7 +10072,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyOb
     goto __pyx_L3;
   }
 
-  /* "membrane.pyx":405
+  /* "membrane.pyx":409
  *             dictionary = self._thickness_top
  *         else:
  *             dictionary = self._thickness_bottom             # <<<<<<<<<<<<<<
@@ -9850,21 +10080,21 @@ static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyOb
  *         if window in dictionary.keys():
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_thickness_bottom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 405, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_thickness_bottom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 409, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_dictionary = __pyx_t_2;
     __pyx_t_2 = 0;
   }
   __pyx_L3:;
 
-  /* "membrane.pyx":407
+  /* "membrane.pyx":411
  *             dictionary = self._thickness_bottom
  * 
  *         if window in dictionary.keys():             # <<<<<<<<<<<<<<
  *             dictionary[window].append(thickness)
  *         else:
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_dictionary, __pyx_n_s_keys); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_dictionary, __pyx_n_s_keys); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 411, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -9877,31 +10107,31 @@ static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyOb
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 411, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 411, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_window, __pyx_t_2, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_window, __pyx_t_2, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = (__pyx_t_1 != 0);
   if (__pyx_t_5) {
 
-    /* "membrane.pyx":408
+    /* "membrane.pyx":412
  * 
  *         if window in dictionary.keys():
  *             dictionary[window].append(thickness)             # <<<<<<<<<<<<<<
  *         else:
  *             dictionary[window] = [thickness]
  */
-    __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_dictionary, __pyx_v_window); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_dictionary, __pyx_v_window); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 412, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_v_thickness); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 408, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_v_thickness); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 412, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "membrane.pyx":407
+    /* "membrane.pyx":411
  *             dictionary = self._thickness_bottom
  * 
  *         if window in dictionary.keys():             # <<<<<<<<<<<<<<
@@ -9911,7 +10141,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyOb
     goto __pyx_L4;
   }
 
-  /* "membrane.pyx":410
+  /* "membrane.pyx":414
  *             dictionary[window].append(thickness)
  *         else:
  *             dictionary[window] = [thickness]             # <<<<<<<<<<<<<<
@@ -9919,17 +10149,17 @@ static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyOb
  *     def calcThicknessAvg(self):
  */
   /*else*/ {
-    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 410, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 414, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_v_thickness);
     __Pyx_GIVEREF(__pyx_v_thickness);
     PyList_SET_ITEM(__pyx_t_2, 0, __pyx_v_thickness);
-    if (unlikely(PyObject_SetItem(__pyx_v_dictionary, __pyx_v_window, __pyx_t_2) < 0)) __PYX_ERR(0, 410, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_v_dictionary, __pyx_v_window, __pyx_t_2) < 0)) __PYX_ERR(0, 414, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_L4:;
 
-  /* "membrane.pyx":401
+  /* "membrane.pyx":405
  *             return output
  * 
  *     def saveThickness(self, window, thickness, leaflet):             # <<<<<<<<<<<<<<
@@ -9953,7 +10183,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "membrane.pyx":412
+/* "membrane.pyx":416
  *             dictionary[window] = [thickness]
  * 
  *     def calcThicknessAvg(self):             # <<<<<<<<<<<<<<
@@ -9962,20 +10192,20 @@ static PyObject *__pyx_pf_8membrane_8Membrane_35saveThickness(CYTHON_UNUSED PyOb
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8membrane_8Membrane_38calcThicknessAvg(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_8membrane_8Membrane_38calcThicknessAvg = {"calcThicknessAvg", (PyCFunction)__pyx_pw_8membrane_8Membrane_38calcThicknessAvg, METH_O, 0};
-static PyObject *__pyx_pw_8membrane_8Membrane_38calcThicknessAvg(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_8membrane_8Membrane_40calcThicknessAvg(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_8membrane_8Membrane_40calcThicknessAvg = {"calcThicknessAvg", (PyCFunction)__pyx_pw_8membrane_8Membrane_40calcThicknessAvg, METH_O, 0};
+static PyObject *__pyx_pw_8membrane_8Membrane_40calcThicknessAvg(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("calcThicknessAvg (wrapper)", 0);
-  __pyx_r = __pyx_pf_8membrane_8Membrane_37calcThicknessAvg(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8membrane_8Membrane_39calcThicknessAvg(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_8membrane_8Membrane_39calcThicknessAvg(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_avgs_both = NULL;
   PyObject *__pyx_v_windows_both = NULL;
   PyObject *__pyx_v_thickness_dict = NULL;
@@ -10001,42 +10231,42 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
   PyObject *__pyx_t_11 = NULL;
   __Pyx_RefNannySetupContext("calcThicknessAvg", 0);
 
-  /* "membrane.pyx":413
+  /* "membrane.pyx":417
  * 
  *     def calcThicknessAvg(self):
  *         avgs_both = []             # <<<<<<<<<<<<<<
  *         windows_both = []
  * 
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 413, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 417, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_avgs_both = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "membrane.pyx":414
+  /* "membrane.pyx":418
  *     def calcThicknessAvg(self):
  *         avgs_both = []
  *         windows_both = []             # <<<<<<<<<<<<<<
  * 
  *         for thickness_dict in (self._thickness_top, self._thickness_bottom):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 414, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 418, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_windows_both = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "membrane.pyx":416
+  /* "membrane.pyx":420
  *         windows_both = []
  * 
  *         for thickness_dict in (self._thickness_top, self._thickness_bottom):             # <<<<<<<<<<<<<<
  *             avgs = []
  *             windows = []
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_thickness_top); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 416, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_thickness_top); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_thickness_bottom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 416, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_thickness_bottom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 416, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -10049,46 +10279,46 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
   for (;;) {
     if (__pyx_t_4 >= 2) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 416, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 420, __pyx_L1_error)
     #else
-    __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 416, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 420, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_thickness_dict, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "membrane.pyx":417
+    /* "membrane.pyx":421
  * 
  *         for thickness_dict in (self._thickness_top, self._thickness_bottom):
  *             avgs = []             # <<<<<<<<<<<<<<
  *             windows = []
  * 
  */
-    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 417, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 421, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_XDECREF_SET(__pyx_v_avgs, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "membrane.pyx":418
+    /* "membrane.pyx":422
  *         for thickness_dict in (self._thickness_top, self._thickness_bottom):
  *             avgs = []
  *             windows = []             # <<<<<<<<<<<<<<
  * 
  *             window_list = thickness_dict.keys()
  */
-    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 418, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 422, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_XDECREF_SET(__pyx_v_windows, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "membrane.pyx":420
+    /* "membrane.pyx":424
  *             windows = []
  * 
  *             window_list = thickness_dict.keys()             # <<<<<<<<<<<<<<
  *             window_list.sort()
  *             for window in window_list:
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_thickness_dict, __pyx_n_s_keys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 420, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_thickness_dict, __pyx_n_s_keys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 424, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_5 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -10101,24 +10331,24 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 420, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 424, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 420, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 424, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF_SET(__pyx_v_window_list, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "membrane.pyx":421
+    /* "membrane.pyx":425
  * 
  *             window_list = thickness_dict.keys()
  *             window_list.sort()             # <<<<<<<<<<<<<<
  *             for window in window_list:
  *                 total = 0
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_window_list, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 421, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_window_list, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 425, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_5 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -10131,16 +10361,16 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 421, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 425, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 421, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 425, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "membrane.pyx":422
+    /* "membrane.pyx":426
  *             window_list = thickness_dict.keys()
  *             window_list.sort()
  *             for window in window_list:             # <<<<<<<<<<<<<<
@@ -10151,26 +10381,26 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
       __pyx_t_3 = __pyx_v_window_list; __Pyx_INCREF(__pyx_t_3); __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_6 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_window_list); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 422, __pyx_L1_error)
+      __pyx_t_6 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_window_list); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 426, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 422, __pyx_L1_error)
+      __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 426, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_7)) {
         if (likely(PyList_CheckExact(__pyx_t_3))) {
           if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 422, __pyx_L1_error)
+          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 426, __pyx_L1_error)
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 422, __pyx_L1_error)
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 426, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         } else {
           if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 422, __pyx_L1_error)
+          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 426, __pyx_L1_error)
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 422, __pyx_L1_error)
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 426, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         }
@@ -10180,7 +10410,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 422, __pyx_L1_error)
+            else __PYX_ERR(0, 426, __pyx_L1_error)
           }
           break;
         }
@@ -10189,7 +10419,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
       __Pyx_XDECREF_SET(__pyx_v_window, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "membrane.pyx":423
+      /* "membrane.pyx":427
  *             window_list.sort()
  *             for window in window_list:
  *                 total = 0             # <<<<<<<<<<<<<<
@@ -10199,7 +10429,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
       __Pyx_INCREF(__pyx_int_0);
       __Pyx_XDECREF_SET(__pyx_v_total, __pyx_int_0);
 
-      /* "membrane.pyx":424
+      /* "membrane.pyx":428
  *             for window in window_list:
  *                 total = 0
  *                 npoints = 0             # <<<<<<<<<<<<<<
@@ -10209,31 +10439,31 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
       __Pyx_INCREF(__pyx_int_0);
       __Pyx_XDECREF_SET(__pyx_v_npoints, __pyx_int_0);
 
-      /* "membrane.pyx":425
+      /* "membrane.pyx":429
  *                 total = 0
  *                 npoints = 0
  *                 windows.append(window)             # <<<<<<<<<<<<<<
  *                 for point in thickness_dict[window]:
  *                     npoints += 1
  */
-      __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_windows, __pyx_v_window); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 425, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_windows, __pyx_v_window); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 429, __pyx_L1_error)
 
-      /* "membrane.pyx":426
+      /* "membrane.pyx":430
  *                 npoints = 0
  *                 windows.append(window)
  *                 for point in thickness_dict[window]:             # <<<<<<<<<<<<<<
  *                     npoints += 1
  *                     total += point
  */
-      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v_thickness_dict, __pyx_v_window); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 426, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v_thickness_dict, __pyx_v_window); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 430, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
         __pyx_t_5 = __pyx_t_1; __Pyx_INCREF(__pyx_t_5); __pyx_t_9 = 0;
         __pyx_t_10 = NULL;
       } else {
-        __pyx_t_9 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 426, __pyx_L1_error)
+        __pyx_t_9 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 430, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_10 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 426, __pyx_L1_error)
+        __pyx_t_10 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 430, __pyx_L1_error)
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       for (;;) {
@@ -10241,17 +10471,17 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
           if (likely(PyList_CheckExact(__pyx_t_5))) {
             if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_5)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 426, __pyx_L1_error)
+            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 430, __pyx_L1_error)
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 426, __pyx_L1_error)
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 430, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             #endif
           } else {
             if (__pyx_t_9 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 426, __pyx_L1_error)
+            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 430, __pyx_L1_error)
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 426, __pyx_L1_error)
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 430, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             #endif
           }
@@ -10261,7 +10491,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 426, __pyx_L1_error)
+              else __PYX_ERR(0, 430, __pyx_L1_error)
             }
             break;
           }
@@ -10270,31 +10500,31 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
         __Pyx_XDECREF_SET(__pyx_v_point, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "membrane.pyx":427
+        /* "membrane.pyx":431
  *                 windows.append(window)
  *                 for point in thickness_dict[window]:
  *                     npoints += 1             # <<<<<<<<<<<<<<
  *                     total += point
  *                 avgs.append(total / npoints)
  */
-        __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_npoints, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 427, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_npoints, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 431, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF_SET(__pyx_v_npoints, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "membrane.pyx":428
+        /* "membrane.pyx":432
  *                 for point in thickness_dict[window]:
  *                     npoints += 1
  *                     total += point             # <<<<<<<<<<<<<<
  *                 avgs.append(total / npoints)
  * 
  */
-        __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_total, __pyx_v_point); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 428, __pyx_L1_error)
+        __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_total, __pyx_v_point); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 432, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF_SET(__pyx_v_total, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "membrane.pyx":426
+        /* "membrane.pyx":430
  *                 npoints = 0
  *                 windows.append(window)
  *                 for point in thickness_dict[window]:             # <<<<<<<<<<<<<<
@@ -10304,19 +10534,19 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "membrane.pyx":429
+      /* "membrane.pyx":433
  *                     npoints += 1
  *                     total += point
  *                 avgs.append(total / npoints)             # <<<<<<<<<<<<<<
  * 
  *             avgs_both.append(avgs)
  */
-      __pyx_t_5 = __Pyx_PyNumber_Divide(__pyx_v_total, __pyx_v_npoints); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 429, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyNumber_Divide(__pyx_v_total, __pyx_v_npoints); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 433, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_avgs, __pyx_t_5); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 429, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_avgs, __pyx_t_5); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 433, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "membrane.pyx":422
+      /* "membrane.pyx":426
  *             window_list = thickness_dict.keys()
  *             window_list.sort()
  *             for window in window_list:             # <<<<<<<<<<<<<<
@@ -10326,25 +10556,25 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "membrane.pyx":431
+    /* "membrane.pyx":435
  *                 avgs.append(total / npoints)
  * 
  *             avgs_both.append(avgs)             # <<<<<<<<<<<<<<
  *             windows_both.append(windows)
  * 
  */
-    __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_avgs_both, __pyx_v_avgs); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 431, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_avgs_both, __pyx_v_avgs); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 435, __pyx_L1_error)
 
-    /* "membrane.pyx":432
+    /* "membrane.pyx":436
  * 
  *             avgs_both.append(avgs)
  *             windows_both.append(windows)             # <<<<<<<<<<<<<<
  * 
  *         return avgs_both[0], windows_both[0], avgs_both[1], windows_both[1]
  */
-    __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_windows_both, __pyx_v_windows); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 432, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_windows_both, __pyx_v_windows); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 436, __pyx_L1_error)
 
-    /* "membrane.pyx":416
+    /* "membrane.pyx":420
  *         windows_both = []
  * 
  *         for thickness_dict in (self._thickness_top, self._thickness_bottom):             # <<<<<<<<<<<<<<
@@ -10354,21 +10584,21 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "membrane.pyx":434
+  /* "membrane.pyx":438
  *             windows_both.append(windows)
  * 
  *         return avgs_both[0], windows_both[0], avgs_both[1], windows_both[1]             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_avgs_both, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_avgs_both, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_windows_both, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 434, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_windows_both, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_GetItemInt_List(__pyx_v_avgs_both, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 434, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetItemInt_List(__pyx_v_avgs_both, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_windows_both, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 434, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_windows_both, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_11 = PyTuple_New(4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 434, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_2);
@@ -10386,7 +10616,7 @@ static PyObject *__pyx_pf_8membrane_8Membrane_37calcThicknessAvg(CYTHON_UNUSED P
   __pyx_t_11 = 0;
   goto __pyx_L0;
 
-  /* "membrane.pyx":412
+  /* "membrane.pyx":416
  *             dictionary[window] = [thickness]
  * 
  *     def calcThicknessAvg(self):             # <<<<<<<<<<<<<<
@@ -13091,16 +13321,16 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_Membrane_getLeafletAtoms, __pyx_k_Membrane_getLeafletAtoms, sizeof(__pyx_k_Membrane_getLeafletAtoms), 0, 0, 1, 1},
   {&__pyx_n_s_Membrane_getOtherLeaflet, __pyx_k_Membrane_getOtherLeaflet, sizeof(__pyx_k_Membrane_getOtherLeaflet), 0, 0, 1, 1},
   {&__pyx_n_s_Membrane_getReferenceML2CoIDista, __pyx_k_Membrane_getReferenceML2CoIDista, sizeof(__pyx_k_Membrane_getReferenceML2CoIDista), 0, 0, 1, 1},
-  {&__pyx_n_s_Membrane_getReferenceML2CoIDista_2, __pyx_k_Membrane_getReferenceML2CoIDista_2, sizeof(__pyx_k_Membrane_getReferenceML2CoIDista_2), 0, 0, 1, 1},
   {&__pyx_n_s_Membrane_getSimpleThickness, __pyx_k_Membrane_getSimpleThickness, sizeof(__pyx_k_Membrane_getSimpleThickness), 0, 0, 1, 1},
   {&__pyx_n_s_Membrane_getSlices, __pyx_k_Membrane_getSlices, sizeof(__pyx_k_Membrane_getSlices), 0, 0, 1, 1},
   {&__pyx_n_s_Membrane_getThickness, __pyx_k_Membrane_getThickness, sizeof(__pyx_k_Membrane_getThickness), 0, 0, 1, 1},
   {&__pyx_n_s_Membrane_saveThickness, __pyx_k_Membrane_saveThickness, sizeof(__pyx_k_Membrane_saveThickness), 0, 0, 1, 1},
   {&__pyx_n_s_Membrane_setHalfZ, __pyx_k_Membrane_setHalfZ, sizeof(__pyx_k_Membrane_setHalfZ), 0, 0, 1, 1},
   {&__pyx_n_s_Membrane_setLeafletsOrder, __pyx_k_Membrane_setLeafletsOrder, sizeof(__pyx_k_Membrane_setLeafletsOrder), 0, 0, 1, 1},
+  {&__pyx_n_s_Membrane_sortAtomsByDistance, __pyx_k_Membrane_sortAtomsByDistance, sizeof(__pyx_k_Membrane_sortAtomsByDistance), 0, 0, 1, 1},
+  {&__pyx_n_s_Membrane_sortAtomsByDistance_loc, __pyx_k_Membrane_sortAtomsByDistance_loc, sizeof(__pyx_k_Membrane_sortAtomsByDistance_loc), 0, 0, 1, 1},
   {&__pyx_n_s_NaN, __pyx_k_NaN, sizeof(__pyx_k_NaN), 0, 0, 1, 1},
   {&__pyx_kp_u_Non_native_byte_order_not_suppor, __pyx_k_Non_native_byte_order_not_suppor, sizeof(__pyx_k_Non_native_byte_order_not_suppor), 0, 1, 0, 0},
-  {&__pyx_n_s_PYXgetAllAtomsMinDist2, __pyx_k_PYXgetAllAtomsMinDist2, sizeof(__pyx_k_PYXgetAllAtomsMinDist2), 0, 0, 1, 1},
   {&__pyx_kp_s_Please_decrease_the_cutoff_input, __pyx_k_Please_decrease_the_cutoff_input, sizeof(__pyx_k_Please_decrease_the_cutoff_input), 0, 0, 1, 0},
   {&__pyx_n_s_RuntimeError, __pyx_k_RuntimeError, sizeof(__pyx_k_RuntimeError), 0, 0, 1, 1},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
@@ -13256,6 +13486,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_setLeafletsOrder, __pyx_k_setLeafletsOrder, sizeof(__pyx_k_setLeafletsOrder), 0, 0, 1, 1},
   {&__pyx_n_s_slices, __pyx_k_slices, sizeof(__pyx_k_slices), 0, 0, 1, 1},
   {&__pyx_n_s_sort, __pyx_k_sort, sizeof(__pyx_k_sort), 0, 0, 1, 1},
+  {&__pyx_n_s_sortAtomsByDistance, __pyx_k_sortAtomsByDistance, sizeof(__pyx_k_sortAtomsByDistance), 0, 0, 1, 1},
+  {&__pyx_n_s_staticmethod, __pyx_k_staticmethod, sizeof(__pyx_k_staticmethod), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_text, __pyx_k_text, sizeof(__pyx_k_text), 0, 0, 1, 1},
   {&__pyx_n_s_thickness, __pyx_k_thickness, sizeof(__pyx_k_thickness), 0, 0, 1, 1},
@@ -13291,11 +13523,12 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(0, 122, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 152, __pyx_L1_error)
-  __pyx_builtin_round = __Pyx_GetBuiltinName(__pyx_n_s_round); if (!__pyx_builtin_round) __PYX_ERR(0, 196, __pyx_L1_error)
-  __pyx_builtin_IOError = __Pyx_GetBuiltinName(__pyx_n_s_IOError); if (!__pyx_builtin_IOError) __PYX_ERR(0, 266, __pyx_L1_error)
-  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 357, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_builtin_round = __Pyx_GetBuiltinName(__pyx_n_s_round); if (!__pyx_builtin_round) __PYX_ERR(0, 199, __pyx_L1_error)
+  __pyx_builtin_IOError = __Pyx_GetBuiltinName(__pyx_n_s_IOError); if (!__pyx_builtin_IOError) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 361, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 229, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(1, 810, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 1000, __pyx_L1_error)
@@ -13330,113 +13563,113 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "membrane.pyx":266
+  /* "membrane.pyx":269
  * 
  *         if counter_one + counter_two == 0:
  *             raise IOError('Please decrease the cutoff input value.')             # <<<<<<<<<<<<<<
  * 
  *         # Get outter layer lipids half membrane z value
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_Please_decrease_the_cutoff_input); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_Please_decrease_the_cutoff_input); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 269, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "membrane.pyx":273
+  /* "membrane.pyx":276
  * 
  *         if oneML_z < twoML_z:
  *             self.setLeafletsOrder('one', 'bottom')             # <<<<<<<<<<<<<<
  *             self.setLeafletsOrder('two', 'top')
  *         else:
  */
-  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_n_s_one, __pyx_n_s_bottom); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 273, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_n_s_one, __pyx_n_s_bottom); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "membrane.pyx":274
+  /* "membrane.pyx":277
  *         if oneML_z < twoML_z:
  *             self.setLeafletsOrder('one', 'bottom')
  *             self.setLeafletsOrder('two', 'top')             # <<<<<<<<<<<<<<
  *         else:
  *             self.setLeafletsOrder('one', 'top')
  */
-  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_n_s_two, __pyx_n_s_top); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_n_s_two, __pyx_n_s_top); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "membrane.pyx":276
+  /* "membrane.pyx":279
  *             self.setLeafletsOrder('two', 'top')
  *         else:
  *             self.setLeafletsOrder('one', 'top')             # <<<<<<<<<<<<<<
  *             self.setLeafletsOrder('two', 'bottom')
  * 
  */
-  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_n_s_one, __pyx_n_s_top); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 276, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_n_s_one, __pyx_n_s_top); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "membrane.pyx":277
+  /* "membrane.pyx":280
  *         else:
  *             self.setLeafletsOrder('one', 'top')
  *             self.setLeafletsOrder('two', 'bottom')             # <<<<<<<<<<<<<<
  * 
  *         half_membrane_z = (oneML_z + twoML_z) / 2
  */
-  __pyx_tuple__8 = PyTuple_Pack(2, __pyx_n_s_two, __pyx_n_s_bottom); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(2, __pyx_n_s_two, __pyx_n_s_bottom); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 280, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "membrane.pyx":287
+  /* "membrane.pyx":290
  *         cdef float topZ, bottomZ
  * 
  *         topAtoms = self.getLeafletAtoms('one')             # <<<<<<<<<<<<<<
  *         bottomAtoms = self.getLeafletAtoms('two')
  * 
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_n_s_one); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_n_s_one); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 290, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "membrane.pyx":288
+  /* "membrane.pyx":291
  * 
  *         topAtoms = self.getLeafletAtoms('one')
  *         bottomAtoms = self.getLeafletAtoms('two')             # <<<<<<<<<<<<<<
  * 
  *         topZ = 0
  */
-  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_n_s_two); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_n_s_two); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "membrane.pyx":357
+  /* "membrane.pyx":361
  *             #    f.write(text)
  * 
  *             with open("log.txt", 'a') as f:             # <<<<<<<<<<<<<<
  *                 f.write('\n####')
  *             output = ''
  */
-  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_kp_s_log_txt, __pyx_n_s_a); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 357, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_kp_s_log_txt, __pyx_n_s_a); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
 
-  /* "membrane.pyx":358
+  /* "membrane.pyx":362
  * 
  *             with open("log.txt", 'a') as f:
  *                 f.write('\n####')             # <<<<<<<<<<<<<<
  *             output = ''
  *             output_natoms = ''
  */
-  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_s__13); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 358, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_s__13); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 362, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
 
-  /* "membrane.pyx":357
+  /* "membrane.pyx":361
  *             #    f.write(text)
  * 
  *             with open("log.txt", 'a') as f:             # <<<<<<<<<<<<<<
  *                 f.write('\n####')
  *             output = ''
  */
-  __pyx_tuple__15 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 357, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
 
@@ -13688,82 +13921,94 @@ static int __Pyx_InitCachedConstants(void) {
  *         atoms_distances = []
  *         membAtoms = self.getLeafletAtoms(self._closestLeaflet)
  */
-  __pyx_tuple__50 = PyTuple_Pack(8, __pyx_n_s_self, __pyx_n_s_atoms_distances, __pyx_n_s_membAtoms, __pyx_n_s_membAtom, __pyx_n_s_distance, __pyx_n_s_membrane_atoms_sorted, __pyx_n_s_i, __pyx_n_s_atom); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_tuple__50 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_atoms_distances, __pyx_n_s_membAtoms, __pyx_n_s_membAtom, __pyx_n_s_distance); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__50);
   __Pyx_GIVEREF(__pyx_tuple__50);
-  __pyx_codeobj__51 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__50, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_getReferenceML2CoIDistanceSorted, 114, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__51)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_codeobj__51 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__50, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_getReferenceML2CoIDistanceSorted, 114, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__51)) __PYX_ERR(0, 114, __pyx_L1_error)
 
-  /* "membrane.pyx":129
+  /* "membrane.pyx":123
+ * 
+ *     @staticmethod
+ *     def sortAtomsByDistance(membAtoms, atoms_distances):             # <<<<<<<<<<<<<<
+ *         membrane_atoms_sorted = []
+ *         for i, atom in enumerate(membAtoms):
+ */
+  __pyx_tuple__52 = PyTuple_Pack(5, __pyx_n_s_membAtoms, __pyx_n_s_atoms_distances, __pyx_n_s_membrane_atoms_sorted, __pyx_n_s_i, __pyx_n_s_atom); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__52);
+  __Pyx_GIVEREF(__pyx_tuple__52);
+  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__52, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_sortAtomsByDistance, 123, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(0, 123, __pyx_L1_error)
+
+  /* "membrane.pyx":132
  * 
  * 
  *     def getSlices(self, window_size, window_step,             # <<<<<<<<<<<<<<
  *                   min_window, max_window, membrane_atoms_sorted):
  *         cdef int natoms
  */
-  __pyx_tuple__52 = PyTuple_Pack(20, __pyx_n_s_self, __pyx_n_s_window_size, __pyx_n_s_window_step, __pyx_n_s_min_window, __pyx_n_s_max_window, __pyx_n_s_membrane_atoms_sorted, __pyx_n_s_natoms, __pyx_n_s_distance, __pyx_n_s_window_begin, __pyx_n_s_window_end, __pyx_n_s_window_half, __pyx_n_s_tmp_window, __pyx_n_s_atoms_2, __pyx_n_s_atom_i, __pyx_n_s_atom, __pyx_n_s_new_tmp_window, __pyx_n_s_new_atoms, __pyx_n_s_i, __pyx_n_s_window_end_converted, __pyx_n_s_max_window_converted); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(0, 129, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__52);
-  __Pyx_GIVEREF(__pyx_tuple__52);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(6, 0, 20, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__52, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_getSlices, 129, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_tuple__54 = PyTuple_Pack(20, __pyx_n_s_self, __pyx_n_s_window_size, __pyx_n_s_window_step, __pyx_n_s_min_window, __pyx_n_s_max_window, __pyx_n_s_membrane_atoms_sorted, __pyx_n_s_natoms, __pyx_n_s_distance, __pyx_n_s_window_begin, __pyx_n_s_window_end, __pyx_n_s_window_half, __pyx_n_s_tmp_window, __pyx_n_s_atoms_2, __pyx_n_s_atom_i, __pyx_n_s_atom, __pyx_n_s_new_tmp_window, __pyx_n_s_new_atoms, __pyx_n_s_i, __pyx_n_s_window_end_converted, __pyx_n_s_max_window_converted); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__54);
+  __Pyx_GIVEREF(__pyx_tuple__54);
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(6, 0, 20, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_getSlices, 132, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 132, __pyx_L1_error)
 
-  /* "membrane.pyx":225
+  /* "membrane.pyx":228
  *             max_window_converted = int(max_window * 1000)
  * 
  *     def calcHalfMembraneZ(self, protein, parameters, box):             # <<<<<<<<<<<<<<
  *         """
  *         """
  */
-  __pyx_tuple__53 = PyTuple_Pack(20, __pyx_n_s_self, __pyx_n_s_protein, __pyx_n_s_parameters, __pyx_n_s_box, __pyx_n_s_atom_i, __pyx_n_s_counter_one, __pyx_n_s_counter_two, __pyx_n_s_distance, __pyx_n_s_cutoff, __pyx_n_s_total_one, __pyx_n_s_total_two, __pyx_n_s_oneML_z, __pyx_n_s_twoML_z, __pyx_n_s_half_membrane_z, __pyx_n_s_nargs_insertion, __pyx_n_s_membrane, __pyx_n_s_dists2Protein, __pyx_n_s_natoms, __pyx_n_s_atom, __pyx_n_s_z); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 225, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__53);
-  __Pyx_GIVEREF(__pyx_tuple__53);
-  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(4, 0, 20, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_calcHalfMembraneZ, 225, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __pyx_tuple__55 = PyTuple_Pack(20, __pyx_n_s_self, __pyx_n_s_protein, __pyx_n_s_parameters, __pyx_n_s_box, __pyx_n_s_atom_i, __pyx_n_s_counter_one, __pyx_n_s_counter_two, __pyx_n_s_distance, __pyx_n_s_cutoff, __pyx_n_s_total_one, __pyx_n_s_total_two, __pyx_n_s_oneML_z, __pyx_n_s_twoML_z, __pyx_n_s_half_membrane_z, __pyx_n_s_nargs_insertion, __pyx_n_s_membrane, __pyx_n_s_dists2Protein, __pyx_n_s_natoms, __pyx_n_s_atom, __pyx_n_s_z); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__55);
+  __Pyx_GIVEREF(__pyx_tuple__55);
+  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(4, 0, 20, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_calcHalfMembraneZ, 228, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 228, __pyx_L1_error)
 
-  /* "membrane.pyx":283
+  /* "membrane.pyx":286
  *         self.setHalfZ(half_membrane_z)
  * 
  *     def getSimpleThickness(self, outputnameThickness):             # <<<<<<<<<<<<<<
  *         cdef int ntop, nbottom
  *         cdef float topZ, bottomZ
  */
-  __pyx_tuple__55 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_outputnameThickness, __pyx_n_s_ntop, __pyx_n_s_nbottom, __pyx_n_s_topZ, __pyx_n_s_bottomZ, __pyx_n_s_topAtoms, __pyx_n_s_bottomAtoms, __pyx_n_s_atom, __pyx_n_s_z, __pyx_n_s_output); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 283, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__55);
-  __Pyx_GIVEREF(__pyx_tuple__55);
-  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(2, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_getSimpleThickness, 283, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 283, __pyx_L1_error)
+  __pyx_tuple__57 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_outputnameThickness, __pyx_n_s_ntop, __pyx_n_s_nbottom, __pyx_n_s_topZ, __pyx_n_s_bottomZ, __pyx_n_s_topAtoms, __pyx_n_s_bottomAtoms, __pyx_n_s_atom, __pyx_n_s_z, __pyx_n_s_output); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__57);
+  __Pyx_GIVEREF(__pyx_tuple__57);
+  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(2, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_getSimpleThickness, 286, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 286, __pyx_L1_error)
 
-  /* "membrane.pyx":310
+  /* "membrane.pyx":313
  *         return output
  * 
  *     def getThickness(self, CoI, leaflet, box,             # <<<<<<<<<<<<<<
  *                      parameters, outputfile, printnatoms):
  *         box_x = box[0]
  */
-  __pyx_tuple__57 = PyTuple_Pack(37, __pyx_n_s_self, __pyx_n_s_CoI, __pyx_n_s_leaflet, __pyx_n_s_box, __pyx_n_s_parameters, __pyx_n_s_outputfile, __pyx_n_s_printnatoms, __pyx_n_s_box_x, __pyx_n_s_box_y, __pyx_n_s_box_z, __pyx_n_s_box_size, __pyx_n_s_nargs_insertion, __pyx_n_s_max_window, __pyx_n_s_min_window, __pyx_n_s_window_step, __pyx_n_s_window_size, __pyx_n_s_ouput_radius, __pyx_n_s_membrane, __pyx_n_s_dists2Protein, __pyx_n_s_slices, __pyx_n_s_f, __pyx_n_s_output, __pyx_n_s_output_natoms, __pyx_n_s_windows, __pyx_n_s_window_half, __pyx_n_s_atoms_2, __pyx_n_s_distances, __pyx_n_s_counter, __pyx_n_s_memb_total, __pyx_n_s_text, __pyx_n_s_atom, __pyx_n_s_atom_z, __pyx_n_s_atomML, __pyx_n_s_memb_average, __pyx_n_s_thickness_value, __pyx_n_s_new_output, __pyx_n_s_i); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 310, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__57);
-  __Pyx_GIVEREF(__pyx_tuple__57);
-  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(7, 0, 37, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_getThickness, 310, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __pyx_tuple__59 = PyTuple_Pack(38, __pyx_n_s_self, __pyx_n_s_CoI, __pyx_n_s_leaflet, __pyx_n_s_box, __pyx_n_s_parameters, __pyx_n_s_outputfile, __pyx_n_s_printnatoms, __pyx_n_s_box_x, __pyx_n_s_box_y, __pyx_n_s_box_z, __pyx_n_s_box_size, __pyx_n_s_nargs_insertion, __pyx_n_s_max_window, __pyx_n_s_min_window, __pyx_n_s_window_step, __pyx_n_s_window_size, __pyx_n_s_ouput_radius, __pyx_n_s_membrane, __pyx_n_s_dists2Protein, __pyx_n_s_membrane_atoms_sorted, __pyx_n_s_slices, __pyx_n_s_f, __pyx_n_s_output, __pyx_n_s_output_natoms, __pyx_n_s_windows, __pyx_n_s_window_half, __pyx_n_s_atoms_2, __pyx_n_s_distances, __pyx_n_s_counter, __pyx_n_s_memb_total, __pyx_n_s_text, __pyx_n_s_atom, __pyx_n_s_atom_z, __pyx_n_s_atomML, __pyx_n_s_memb_average, __pyx_n_s_thickness_value, __pyx_n_s_new_output, __pyx_n_s_i); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__59);
+  __Pyx_GIVEREF(__pyx_tuple__59);
+  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(7, 0, 38, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_getThickness, 313, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 313, __pyx_L1_error)
 
-  /* "membrane.pyx":401
+  /* "membrane.pyx":405
  *             return output
  * 
  *     def saveThickness(self, window, thickness, leaflet):             # <<<<<<<<<<<<<<
  *         if leaflet == 'top':
  *             dictionary = self._thickness_top
  */
-  __pyx_tuple__59 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_window, __pyx_n_s_thickness, __pyx_n_s_leaflet, __pyx_n_s_dictionary); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 401, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__59);
-  __Pyx_GIVEREF(__pyx_tuple__59);
-  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(4, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_saveThickness, 401, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_tuple__61 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_window, __pyx_n_s_thickness, __pyx_n_s_leaflet, __pyx_n_s_dictionary); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 405, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__61);
+  __Pyx_GIVEREF(__pyx_tuple__61);
+  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(4, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_saveThickness, 405, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 405, __pyx_L1_error)
 
-  /* "membrane.pyx":412
+  /* "membrane.pyx":416
  *             dictionary[window] = [thickness]
  * 
  *     def calcThicknessAvg(self):             # <<<<<<<<<<<<<<
  *         avgs_both = []
  *         windows_both = []
  */
-  __pyx_tuple__61 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_avgs_both, __pyx_n_s_windows_both, __pyx_n_s_thickness_dict, __pyx_n_s_avgs, __pyx_n_s_windows, __pyx_n_s_window_list, __pyx_n_s_window, __pyx_n_s_total, __pyx_n_s_npoints, __pyx_n_s_point); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 412, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__61);
-  __Pyx_GIVEREF(__pyx_tuple__61);
-  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(1, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_calcThicknessAvg, 412, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 412, __pyx_L1_error)
+  __pyx_tuple__63 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_avgs_both, __pyx_n_s_windows_both, __pyx_n_s_thickness_dict, __pyx_n_s_avgs, __pyx_n_s_windows, __pyx_n_s_window_list, __pyx_n_s_window, __pyx_n_s_total, __pyx_n_s_npoints, __pyx_n_s_point); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(0, 416, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__63);
+  __Pyx_GIVEREF(__pyx_tuple__63);
+  __pyx_codeobj__64 = (PyObject*)__Pyx_PyCode_New(1, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__63, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_membrane_pyx, __pyx_n_s_calcThicknessAvg, 416, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__64)) __PYX_ERR(0, 416, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -13824,7 +14069,7 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_8membrane___pyx_scope_struct__getSlices) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_8membrane___pyx_scope_struct__getSlices) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
   __pyx_type_8membrane___pyx_scope_struct__getSlices.tp_print = 0;
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_8membrane___pyx_scope_struct__getSlices.tp_dictoffset && __pyx_type_8membrane___pyx_scope_struct__getSlices.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_8membrane___pyx_scope_struct__getSlices.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
@@ -13954,6 +14199,7 @@ static int __pyx_pymod_exec_membrane(PyObject *__pyx_pyinit_module)
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannyDeclarations
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m && __pyx_m == __pyx_pyinit_module) return 0;
@@ -14067,7 +14313,7 @@ if (!__Pyx_RefNanny) {
  * cimport numpy as np
  * import os             # <<<<<<<<<<<<<<
  * from atom import Atom
- * from membit_module import PYXgetAllAtomsMinDist2
+ * from membit_module import getAllAtomsMinDist2
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -14078,7 +14324,7 @@ if (!__Pyx_RefNanny) {
  * cimport numpy as np
  * import os
  * from atom import Atom             # <<<<<<<<<<<<<<
- * from membit_module import PYXgetAllAtomsMinDist2
+ * from membit_module import getAllAtomsMinDist2
  * from atomcollections import AtomCollections
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
@@ -14098,27 +14344,27 @@ if (!__Pyx_RefNanny) {
   /* "membrane.pyx":5
  * import os
  * from atom import Atom
- * from membit_module import PYXgetAllAtomsMinDist2             # <<<<<<<<<<<<<<
+ * from membit_module import getAllAtomsMinDist2             # <<<<<<<<<<<<<<
  * from atomcollections import AtomCollections
  * 
  */
   __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_n_s_PYXgetAllAtomsMinDist2);
-  __Pyx_GIVEREF(__pyx_n_s_PYXgetAllAtomsMinDist2);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_PYXgetAllAtomsMinDist2);
+  __Pyx_INCREF(__pyx_n_s_getAllAtomsMinDist2);
+  __Pyx_GIVEREF(__pyx_n_s_getAllAtomsMinDist2);
+  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_getAllAtomsMinDist2);
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_membit_module, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_PYXgetAllAtomsMinDist2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_getAllAtomsMinDist2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_PYXgetAllAtomsMinDist2, __pyx_t_2) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_getAllAtomsMinDist2, __pyx_t_2) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "membrane.pyx":6
  * from atom import Atom
- * from membit_module import PYXgetAllAtomsMinDist2
+ * from membit_module import getAllAtomsMinDist2
  * from atomcollections import AtomCollections             # <<<<<<<<<<<<<<
  * 
  * class Membrane(AtomCollections):
@@ -14307,82 +14553,105 @@ if (!__Pyx_RefNanny) {
  *         atoms_distances = []
  *         membAtoms = self.getLeafletAtoms(self._closestLeaflet)
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_25getReferenceML2CoIDistanceSorted, 0, __pyx_n_s_Membrane_getReferenceML2CoIDista_2, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__51)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_25getReferenceML2CoIDistanceSorted, 0, __pyx_n_s_Membrane_getReferenceML2CoIDista, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__51)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_getReferenceML2CoIDistanceSorted, __pyx_t_4) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "membrane.pyx":129
+  /* "membrane.pyx":123
+ * 
+ *     @staticmethod
+ *     def sortAtomsByDistance(membAtoms, atoms_distances):             # <<<<<<<<<<<<<<
+ *         membrane_atoms_sorted = []
+ *         for i, atom in enumerate(membAtoms):
+ */
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_27sortAtomsByDistance, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_Membrane_sortAtomsByDistance, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__53)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+
+  /* "membrane.pyx":122
+ *         return self.sortAtomsByDistance(membAtoms, atoms_distances)
+ * 
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def sortAtomsByDistance(membAtoms, atoms_distances):
+ *         membrane_atoms_sorted = []
+ */
+  __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_sortAtomsByDistance, __pyx_t_5) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "membrane.pyx":132
  * 
  * 
  *     def getSlices(self, window_size, window_step,             # <<<<<<<<<<<<<<
  *                   min_window, max_window, membrane_atoms_sorted):
  *         cdef int natoms
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_27getSlices, 0, __pyx_n_s_Membrane_getSlices, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 129, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_getSlices, __pyx_t_4) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_29getSlices, 0, __pyx_n_s_Membrane_getSlices, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_getSlices, __pyx_t_5) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "membrane.pyx":225
+  /* "membrane.pyx":228
  *             max_window_converted = int(max_window * 1000)
  * 
  *     def calcHalfMembraneZ(self, protein, parameters, box):             # <<<<<<<<<<<<<<
  *         """
  *         """
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_30calcHalfMembraneZ, 0, __pyx_n_s_Membrane_calcHalfMembraneZ, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 225, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_calcHalfMembraneZ, __pyx_t_4) < 0) __PYX_ERR(0, 225, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_32calcHalfMembraneZ, 0, __pyx_n_s_Membrane_calcHalfMembraneZ, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_calcHalfMembraneZ, __pyx_t_5) < 0) __PYX_ERR(0, 228, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "membrane.pyx":283
+  /* "membrane.pyx":286
  *         self.setHalfZ(half_membrane_z)
  * 
  *     def getSimpleThickness(self, outputnameThickness):             # <<<<<<<<<<<<<<
  *         cdef int ntop, nbottom
  *         cdef float topZ, bottomZ
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_32getSimpleThickness, 0, __pyx_n_s_Membrane_getSimpleThickness, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 283, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_getSimpleThickness, __pyx_t_4) < 0) __PYX_ERR(0, 283, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_34getSimpleThickness, 0, __pyx_n_s_Membrane_getSimpleThickness, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_getSimpleThickness, __pyx_t_5) < 0) __PYX_ERR(0, 286, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "membrane.pyx":310
+  /* "membrane.pyx":313
  *         return output
  * 
  *     def getThickness(self, CoI, leaflet, box,             # <<<<<<<<<<<<<<
  *                      parameters, outputfile, printnatoms):
  *         box_x = box[0]
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_34getThickness, 0, __pyx_n_s_Membrane_getThickness, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 310, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_getThickness, __pyx_t_4) < 0) __PYX_ERR(0, 310, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_36getThickness, 0, __pyx_n_s_Membrane_getThickness, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_getThickness, __pyx_t_5) < 0) __PYX_ERR(0, 313, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "membrane.pyx":401
+  /* "membrane.pyx":405
  *             return output
  * 
  *     def saveThickness(self, window, thickness, leaflet):             # <<<<<<<<<<<<<<
  *         if leaflet == 'top':
  *             dictionary = self._thickness_top
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_36saveThickness, 0, __pyx_n_s_Membrane_saveThickness, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 401, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_saveThickness, __pyx_t_4) < 0) __PYX_ERR(0, 401, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_38saveThickness, 0, __pyx_n_s_Membrane_saveThickness, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 405, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_saveThickness, __pyx_t_5) < 0) __PYX_ERR(0, 405, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "membrane.pyx":412
+  /* "membrane.pyx":416
  *             dictionary[window] = [thickness]
  * 
  *     def calcThicknessAvg(self):             # <<<<<<<<<<<<<<
  *         avgs_both = []
  *         windows_both = []
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_38calcThicknessAvg, 0, __pyx_n_s_Membrane_calcThicknessAvg, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 412, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_calcThicknessAvg, __pyx_t_4) < 0) __PYX_ERR(0, 412, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8membrane_8Membrane_40calcThicknessAvg, 0, __pyx_n_s_Membrane_calcThicknessAvg, NULL, __pyx_n_s_membrane, __pyx_d, ((PyObject *)__pyx_codeobj__64)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 416, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_calcThicknessAvg, __pyx_t_5) < 0) __PYX_ERR(0, 416, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "membrane.pyx":8
  * from atomcollections import AtomCollections
@@ -14391,10 +14660,10 @@ if (!__Pyx_RefNanny) {
  *     def __init__(self):
  *         AtomCollections.__init__(self)
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_Membrane, __pyx_t_1, __pyx_t_3, NULL, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 8, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Membrane, __pyx_t_4) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_Membrane, __pyx_t_1, __pyx_t_3, NULL, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Membrane, __pyx_t_5) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -14425,6 +14694,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
   if (__pyx_m) {
     if (__pyx_d) {
       __Pyx_AddTraceback("init membrane", 0, __pyx_lineno, __pyx_filename);

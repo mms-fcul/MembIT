@@ -134,6 +134,6 @@ cpdef getAllAtomsMinDist2(moleculeAtoms, membraneAtoms, box, criteria):
         membAtoms_y[atom_i] = y
         membAtoms_z[atom_i] = z
 
-        return PYXgetAllAtomsMinDist2(molAtoms_x, molAtoms_y, molAtoms_z,
-                                      membAtoms_x, membAtoms_y, membAtoms_z,
-                                      box, criteria, membraneAtoms, moleculeAtoms)
+    return PYXgetAllAtomsMinDist2(molAtoms_x, molAtoms_y, molAtoms_z,
+                                  membAtoms_x, membAtoms_y, membAtoms_z,
+                                  box, criteria, membraneAtoms, moleculeAtoms)

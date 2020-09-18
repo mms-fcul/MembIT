@@ -2,7 +2,7 @@ import numpy as np
 cimport numpy as np
 import os
 from atom import Atom
-from membit_module import PYXgetAllAtomsMinDist2
+from membit_module import getAllAtomsMinDist2
 from atomcollections import AtomCollections
 
 class Membrane(AtomCollections):
@@ -117,7 +117,10 @@ class Membrane(AtomCollections):
         for membAtom in membAtoms:
             distance = membAtom.getDistance2CoI() ** 0.5
             atoms_distances.append(distance)
+        return self.sortAtomsByDistance(membAtoms, atoms_distances)
 
+    @staticmethod
+    def sortAtomsByDistance(membAtoms, atoms_distances):
         membrane_atoms_sorted = []
         for i, atom in enumerate(membAtoms):
             membrane_atoms_sorted.append((membAtoms[i], atoms_distances[i]))
@@ -236,7 +239,7 @@ class Membrane(AtomCollections):
         # Get lipids beyond a specified 2D cutoff
         protein = protein.getAtoms()
         membrane = self.getAtoms()
-        dists2Protein = self.getAllAtomsMinDist2(protein, membrane, box, 2)
+        dists2Protein = getAllAtomsMinDist2(protein, membrane, box, 2)
         natoms = len(membrane)
 
         #for atom_i in range(natoms):
@@ -339,11 +342,12 @@ class Membrane(AtomCollections):
             CoI = CoI.getAtomsInLeaflet(leaflet)
             membrane = self.getLeafletAtoms(leaflet)
 
-            dists2Protein = self.getAllAtomsMinDist2(CoI, membrane, box, 2)
+            dists2Protein = getAllAtomsMinDist2(CoI, membrane, box, 2)
+            membrane_atoms_sorted = self.sortAtomsByDistance(membrane, dists2Protein)
 
             slices = self.getSlices(window_size, window_step,
                                     min_window, max_window,
-                                    dists2Protein, membrane)
+                                    membrane_atoms_sorted)
 
             #with open('slices', 'w') as f:
             #    text = ''

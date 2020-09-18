@@ -127,8 +127,6 @@ class Protein(AtomCollections):
             windows = []
             for window_half, atoms, distances in slices:
                 natoms = len(atoms)
-
-
                 if natoms == 0 and 'noNaN' in parameters[-1]:
                     nclosest_atoms = parameters[-1].strip('noNaN')
                     if len(nclosest_atoms) == 0:

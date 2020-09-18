@@ -94,6 +94,9 @@ parser.add_argument('-distance', help='All distances between the membrane and th
 parser.add_argument('-printnatoms', help='Adds a column to the insertion output with the '
                     'number of membrane atoms reported', required=False, default=False, action='store_true')
 
+parser.add_argument('-printclosestleaflet', help='Adds a column to the insertion output with the '
+                    'membrane leaflet chosen as reference', required=False, default=False, action='store_true')
+
 
 args = parser.parse_args()
 
@@ -278,6 +281,9 @@ class Trajectory:
                                                    self._box,
                                                    outputnameInsertion,
                                                    self)
+
+                if args.printclosestleaflet:
+                    insertion = '{0} {1}'.format(insertion, self._membrane._closestLeaflet)
 
                 # Save to Output
                 self.saveOutput(outputnameInsertion, insertion)
