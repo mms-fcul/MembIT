@@ -56,6 +56,12 @@ parser.add_argument('-thickness', help='Thickness parameters:\n'
                     ' of the center of the membrane, since it should only include "bulk" membrane atoms.\n'
                     '      (the default is 0, thus including all membrane atoms)\n', required=False,
                     metavar='window step', default=None, nargs='+')
+parser.add_argument('-deformation', help='The deformation flag replaces the thickness command (required) output profile with the local deformation profile\n'
+                    'for each monolayer. The performed calculation uses the bulk lipids (>cutoff radius) to define the bulk monolayer\n'
+                    'half-thickness. The local deformation is defined by the difference between the bulk thickness and the annulus thickness\n'
+                    'for each trajectory frame.\n'
+                    'Example:\n'
+                    'python membit.py -f example.pdb -n template.ndx -o out -thickness 1 1 0 40 15 -deformation\n',  required=False, default=False, action='store_true')
 parser.add_argument('-insertion', help='Insertion paramenters:\n'
                     '<type> or <window> <step> <min> <max> <noNaN|min><nclosest>\n'
                     'type - closest (insertion to closest membrane atom)\n'
@@ -118,7 +124,7 @@ args = parser.parse_args()
 
 class Trajectory:
     def __init__(self, trajfile, indexfile, distance_criteria,
-                 outputfile, thickness, simplethickness,
+                 outputfile, thickness, deformation, simplethickness,
                  insertion, printnatoms):
         """Instanciates a Trajectory object and checks some input the
         consistency of the input arguments
@@ -128,6 +134,7 @@ class Trajectory:
         indexfile
         outputfile
         thickness
+        deformation
         insertion
 
         Ensures:
@@ -146,6 +153,7 @@ class Trajectory:
 
         self._printnatoms = printnatoms
         self._thickness = thickness
+        self._deformation = deformation
         self._simplethickness = simplethickness
 
         if thickness and simplethickness:
@@ -304,7 +312,7 @@ class Trajectory:
                                                          self._box,
                                                          self._thickness,
                                                          outputnameThicknessTop,
-                                                         self._printnatoms)
+                                                         self._printnatoms,self._deformation)
 
                 # Calculate the Thickness for ML2
                 thicknessBottom = self._membrane.getThickness(self._CoI,
@@ -312,7 +320,7 @@ class Trajectory:
                                                          self._box,
                                                          self._thickness,
                                                          outputnameThicknessBottom,
-                                                         self._printnatoms)
+                                                         self._printnatoms, self._deformation)
                 self._CoI.clearLeafletAtoms()
                 # Save the Outputs
                 self.saveOutput(outputnameThicknessTop, thicknessTop)
@@ -506,6 +514,7 @@ if __name__ == '__main__':
 
     simplethickness = args.simplethickness
     thickness = args.thickness
+    deformation = args.deformation
     insertion = args.insertion
 
     distance_criteria = args.distance
@@ -513,7 +522,7 @@ if __name__ == '__main__':
     printnatoms = args.printnatoms
 
     traj = Trajectory(trajfile, indexfile, distance_criteria,
-                      outputfile, thickness, simplethickness,
+                      outputfile, thickness, deformation, simplethickness,
                       insertion, printnatoms)
 
     traj.analyseTrajectory()
