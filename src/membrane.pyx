@@ -23,6 +23,8 @@ class Membrane(AtomCollections):
 
         self._thickness_top = {}
         self._thickness_bottom = {}
+        self._thickness_bulk = None
+
 
     def addAtom(self, number, leaflet):
         newAtom = Atom(number)
@@ -271,7 +273,14 @@ class Membrane(AtomCollections):
         # Get outter layer lipids half membrane z value
         oneML_z = total_one / counter_one
         twoML_z = total_two / counter_two
+        
 
+        half_membrane_z = (oneML_z + twoML_z) / 2
+
+        bulk = abs(oneML_z - half_membrane_z)
+        self._thickness_bulk = bulk
+        
+        #print("Bulk=",bulk, oneML_z)
         if oneML_z < twoML_z:
             self.setLeafletsOrder('one', 'bottom')
             self.setLeafletsOrder('two', 'top')
@@ -279,7 +288,8 @@ class Membrane(AtomCollections):
             self.setLeafletsOrder('one', 'top')
             self.setLeafletsOrder('two', 'bottom')
 
-        half_membrane_z = (oneML_z + twoML_z) / 2
+
+
 
         self.setHalfZ(half_membrane_z)
 
@@ -311,7 +321,7 @@ class Membrane(AtomCollections):
         return output
 
     def getThickness(self, CoI, leaflet, box,
-                     parameters, outputfile, printnatoms):
+                     parameters, outputfile, printnatoms, deformation):
         box_x = box[0]
         box_y = box[1]
         box_z = box[2]
@@ -380,9 +390,13 @@ class Membrane(AtomCollections):
                     text += '{0} '.format(atom.getNumber())
 
                 if counter > 0:
+                    
                     memb_average = memb_total / counter
                     thickness_value = abs(memb_average - self.getHalfZ())
                     thickness_value = round(thickness_value, 3)
+                    if deformation:
+                        bulk = self._thickness_bulk
+                        thickness_value     = round(thickness_value - bulk, 3)
                     self.saveThickness(window_half, thickness_value, leaflet)
                     #print window_half, thickness_value, leaflet, memb_average, self.getHalfZ()
                 else:
@@ -392,7 +406,7 @@ class Membrane(AtomCollections):
                 if printnatoms:
                     output += ' {0} {1} '.format(thickness_value, counter)
                 else:
-                    output += ' {0} '.format(thickness_value)
+                    output += '{0} '.format(thickness_value)
 
             if not os.path.isfile(outputfile):
                 new_output = 'time '
