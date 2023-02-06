@@ -15,7 +15,7 @@ class AtomCollections:
         return self._atoms
 
     def getAtoms(self):
-        return list(self._atoms.values())
+        return self._atoms.values()
 
     def getSize(self):
         counter = 0

@@ -183,8 +183,8 @@ class Trajectory:
                 if nargs_insertion == 1:
                     self._insertion_window = insertion[0]
                 else:
-                    print('Warning: Extra arguments have been '\
-                        'submitted and will be ignored')
+                    print 'Warning: Extra arguments have been '\
+                        'submitted and will be ignored'
 
             elif insertion[0] == 'zero':
                 if nargs_insertion == 2:
@@ -194,8 +194,8 @@ class Trajectory:
                                   'membrane requires the definition of a cutoff '
                                   'beyond which bulk properties are assumed.')
                 else:
-                    print('Warning: Extra arguments have been '\
-                        'submitted and will be ignored')
+                    print 'Warning: Extra arguments have been '\
+                        'submitted and will be ignored'
 
             else:
                 if nargs_insertion < 2:

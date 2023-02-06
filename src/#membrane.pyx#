@@ -435,7 +435,7 @@ class Membrane(AtomCollections):
             avgs = []
             windows = []
 
-            window_list = list(thickness_dict.keys())
+            window_list = thickness_dict.keys()
             window_list.sort()
             for window in window_list:
                 total = 0
