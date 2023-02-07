@@ -8,53 +8,53 @@ import os
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
                                  description='\n'
-                                 'Script to perform insertion and thickness calculations on '
-                                 ' lipid bilayer systems')
+                                 'This tool calculates solute/membrane properties such as local deformations, bilayer/monolayer thickness, '
+                                 'residue insertion and distance to the membrane center. It requires a processed trajectory (.pdb file) and a GROMACS-like index file.\n'
+                                 'The .pdb file must contain the molecule of interest (i.e. protein, peptide, drug) and the membrane '
+                                 'lipids represented as either the phosphorus (P) atoms or the phosphate groups (P+O atoms).\n' 
+                                 'All calculations in this script require the following inputs:  \n')
 parser.add_argument('-f', help='PDB trajectory file',
                     required=True, metavar='traj.pdb')
 
 # Protein distancia minima a todos os atomos - so para thickness
 # Center_of_Interest centro geometrico - so para insertion
-parser.add_argument('-n', help='Required groups in the index file: \n'
-                    'Protein - includes all atoms from the inserting molecule.\n'
-                    '          it is used to determine which membrane atoms will\n'
-                    '          be considered bulk membrane for the thickness calculations\n'
+parser.add_argument('-n', help='Index file for the PDB trajectory. The index file requires the following groups: \n'
+                    'Protein - includes all atoms from the molecule of interest (any solute).\n'
+                    '          It is used to determine which membrane atoms will\n'
+                    '          be considered bulk membrane for thickness calculations\n'
                     '          and also insertion calculations relative to the center of the membrane("zero")\n'
-                    'Center_of_Interest - includes all atoms of the inserting molecule\n'
-                    '          group (residue, motif, atom, etc) whose geometric center will \n'
-                    '          be the reference for the insertion calculations. \n'
-                    '          In thickness calculations all atoms of this index group \n'
-                    '          will be used. \n'
-                    'Monolayer1 - all atoms from one of the monolayers\n'
-                    'Monolayer2 - all atoms from the other monolayer',
+                    'Center_of_Interest - includes the groups of atoms whose properties will be analysed. It can be the whole molecule\n'
+                    '          group or a given residue, motif, atom, etc.. For thickness calculations, all atoms are considered used. \n'
+                    '          For insertion calculations, the geometric center is applied. \n'
+                    'Monolayer1 - all phosphorus (P) atoms or the phosphate (P+O) group for one of the leaflets\n'
+                    'Monolayer2 - all phosphorus (P) atoms or the phosphate (P+O) group for the other leaflet',
                     required=True, metavar='index.ndx')
 parser.add_argument('-o', help='Ouput identifier name\n'
-                    'Ex: -o analysis -> filaname if -insertion = analysis_insertion.xvg\n'
-                    '                -> filaname if -thickness = analysis_thickness.xvg',
+                    'Ex: -o analysis -> if -insertion then the output filename = analysis_insertion.xvg\n'
+                    '                -> if -thickness then the output filename = analysis_thickness.xvg',
                     required=False, metavar='analysis', default='')
 
 parser.add_argument('-simplethickness',
-                    help='Reports a difference between the average z of both leaflets\n',
+                    help='This flag reports the difference between the average z coordinates of both leaflets\n',
                     required=False, action='store_true')
 
 # min max are optional and by default it should use the minimum distance to P
 #and the maximum distance to P, accordingly
 parser.add_argument('-thickness', help='Thickness parameters:\n'
                     ''
-                    'All window related distances are 2D minimum distances\n'
-                    'from the Membrane atoms to the Center_of_Interest Atoms.\n'
-                    'The thickness is defined as the difference between the z coordinate average of '
-                    'Monolayer1 and Monolayer2 atoms within a given xy window.\n'
+                    'The standard thickness function calculates the difference between \n' 
+                    'the average in z coordinates of both monolayers within a user-defined xy radius (annulus).\n'
+                    'The function requires the following arguments to define an annulus: \n'
                     '<window_size> <window_step> <window_min> <window_max> <cutoff>\n'
-                    'window_size - output window size in Angstrom\n'
-                    'window_step - moving window step in Angstrom\n'
-                    'window_min - minimum distance between Membrane and Center_of_Interest to be considered\n'
-                    '      (the default is 0)\n'
-                    'window_max - maximum distance between Membrane and Center_of_Interest to be considered\n'
-                    '      (the default is the box size in xy)\n'
-                    'cutoff - membrane lipids within this cutoff will be ignored from the calculation'
-                    ' of the center of the membrane, since it should only include "bulk" membrane atoms.\n'
-                    '      (the default is 0, thus including all membrane atoms)\n', required=False,
+                    'window_size - distance in Angstrom between the two radii that define the annulus around the CoI \n'
+                    'window_step - moving window step in Angstrom that encompasses different lipids along a distance from the molecule of interest. \n'
+                    'window_min  - the minimum window distance from the CoI to start the thickness calculations \n'
+                    '              The default is 0)\n'
+                    'window_max - the maximum window distance to the CoI to end the thickness calculations \n'
+                    '             The default is the box size in xy)\n'
+                    'cutoff - Distance value from the CoI to distinguish bulk membrane lipids (> cutoff value) from local perturbed lipids (< cutoff value).\n'
+                    '         The perturbed lipids are not considered for thickness calculations. \n'
+                    '         The default is 0, thus including all membrane atoms)\n', required=False,
                     metavar='window step', default=None, nargs='+')
 parser.add_argument('-deformation', help='The deformation flag replaces the thickness command (required) output profile with the local deformation profile\n'
                     'for each monolayer. The performed calculation uses the bulk lipids (>cutoff radius) to define the bulk monolayer\n'
@@ -62,38 +62,36 @@ parser.add_argument('-deformation', help='The deformation flag replaces the thic
                     'for each trajectory frame.\n'
                     'Example:\n'
                     'python membit.py -f example.pdb -n template.ndx -o out -thickness 1 1 0 40 15 -deformation\n',  required=False, default=False, action='store_true')
-parser.add_argument('-insertion', help='Insertion paramenters:\n'
-                    '<type> or <window> <window_step> <window_min> <window_max> <noNaN|min><nclosest>\n'
-                    'type - closest (insertion to closest membrane atom)\n'
-                    '       average (insertion to average membrane z position)\n'
-                    '       zero    (insertion to the center of the "bulk" membrane)\n'
-                    '               requires a cutoff from which a bulk membrane is considered\n'
-                    'All window related distances are 2D minimum distances\n'
-                    'from the Membrane atoms to the geometric center of Center_of_Interest atoms.\n'
-                    'The insertion is defined as the difference between the z coordinates of said'
-                    ' geometric center and the average of the closest Monolayer atoms within a '
-                    'given xy window.\n'
-                    'window_size - output window size in Angstrom\n'
-                    'window_step - moving window step in Angstrom\n'
-                    'window_min - minimum distance between Membrane and Center_of_Interest to be considered\n'
-                    '      (the default is 0)\n'
-                    'window_max - maximum distance between Membrane and Center_of_Interest to be considered\n'
-                    '      (the default is box_size in xy)\n'
-                    'noNaN - replaces NaN output entries where there are no membranes atoms in a \n'
-                    '        specific window with the insertion relative to the closest atom \n'
-                    'min - instead of noNaN the "min" option may be chosen. in this case the number of atoms \n'
-                    '      specified in nclosest defines the minimum number of membrane atoms to be used in \n'
-                    '      the insertion calculation. While noNaN is only trigger when there are no atoms \n'
-                    '      within a given radius, min is always used.'
-                    'window_min, window_max and noNaN|min are optional\n'
+parser.add_argument('-insertion', help='The insertion function calculates the membrane insertion of a center of interest. It is defined by the difference \n'
+                    'between the geometric center of the CoI and a reference. Two main modes are available: generic or user-defined. \n'
+                    'The generic module encompasses three possible options: -closest,-average and -zero.'
+                    '- closest - the CoI insertion is calculated relative to the z position of the closest membrane atom \n'
+                    '- average - the CoI insertion is calculated relative to the average z position of the closest leaflet atoms \n'
+                    '- zero    - the CoI insertion is calculated relative to the "bulk" membrane center. This calculation \n'
+                    '            requires an additional cutoff parameter from which the bulk membrane is defined. \n'
+                    'All window related distances are 2D minimum distances between the Membrane atoms to the CoI atoms geometric center. \n'
+                    'The user-defined insertion mode is defined as the difference between the CoI geometric center \n'
+                    'and the average Z coordinates of the closest Monolayer within a given xy window.\n'
+                    'window_size - distance in Angstrom between the two radii that define the annulus around the CoI \n'
+                    'window_step - moving window step in Angstrom that encompasses different lipids along a distance from the molecule of interest. \n'
+                    'window_min  - the minimum window distance from the CoI to start the thickness calculations \n'
+                    '              The default is 0)\n'
+                    'window_max - the maximum window distance to the CoI to end the thickness calculations \n'
+                    'noNaN - this flag replaces NaN output entries that occur when no membranes atoms are found within the \n'
+                    '        specified cut off by calculating the CoI insertion relative to the closest atom \n'
+                    'min - similar to the noNaN option. However this flag requires a minimum number of atoms \n'
+                    '      to be considered in the insertion calculation. An important distinction: \n'
+                    ' noNaN only considers the closest atom when no atoms are found within the defined radius. \n'
+                    ' Meanwhile, for the min flag, the user-defined minimum number of atoms is always considered.'
+                    ' The window_min, window_max and noNaN/min flags are optional. \n'
                     'nclosest - this argument can only be used with noNaN or min. It specifies the number of \n'
-                    '           the closest membrane atoms to include in the calculation \n'
-                    '           (if there is no membrane atom in a specific cutoff). ', required=False,
+                    '           closest membrane atoms included in the calculation \n'
+                    '           Only if no membrane atom are within the specified cutoff. ', required=False,
                     metavar='closest', default=None, nargs='+')
 
-parser.add_argument('-distance', help='All distances between the membrane and the center_of_interest \n'
-                    'will be calculated using 2 or 3 dimensions. The default is 3. \n'
-                    'This is only for insertion, thickness is always 2D.'
+parser.add_argument('-distance', help='All distances between the membrane and the CoI \n'
+                    'will be calculated using 2 or 3 dimensions. The default is 3D. \n'
+                    'The 3D default only applies to insertion calculations. The thickness calculations are always 2D.'
                     'The choice of the closest membrane leaflet is based solely on the 3D distances.',
                     choices=['3D', '2D'], required=False, default='3D')
 
