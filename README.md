@@ -35,7 +35,7 @@ One can choose between three insertion definitions:
 Reports the thickness of each Monolayer.
 This thickness is reported according to the radial distance between
 the protein and the membrane atoms.
-The thickness is defined as the difference between the z coordinate
+The thickness is defined as the difference between the z-coordinate
 average of Monolayer1 and Monolayer2 atoms within a given xy window.
 
 ### Simplethickness
@@ -46,3 +46,6 @@ Reports a difference between the average z of both leaflets
 ```
 membit.py -f test.pdb -n index.ndx -thickness 10 0.1
 ```
+
+## Reference Citation:
+Please cite the paper: https://doi.org/10.1142/S2737416523500254
