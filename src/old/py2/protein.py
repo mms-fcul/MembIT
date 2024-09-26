@@ -185,7 +185,7 @@ class Protein(AtomCollections):
             counter += 1
 
         positions = 0
-        for i in list(self._atoms.values()):
+        for i in self._atoms.values():
             try:
                 i.get3DPosition()
                 positions += 1
