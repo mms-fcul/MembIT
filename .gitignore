@@ -3,13 +3,13 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Build artifacts
-build/
-*.so
-
 # Local environments
 .venv*/
 venv/
+
+# Build outputs
+build/
+*.so
 
 # Logs
 *.log
