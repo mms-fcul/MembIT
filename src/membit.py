@@ -45,19 +45,25 @@ parser.add_argument('-thickness', help='Thickness parameters:\n'
                     'from the Membrane atoms to the Center_of_Interest Atoms.\n'
                     'The thickness is defined as the difference between the z coordinate average of '
                     'Monolayer1 and Monolayer2 atoms within a given xy window.\n'
-                    '<window_size> <window_step> <min> <max> <cutoff>\n'
+                    '<window_size> <window_step> <window_min> <window_max> <cutoff>\n'
                     'window_size - output window size in Angstrom\n'
                     'window_step - moving window step in Angstrom\n'
-                    'min - minimum distance between Membrane and Center_of_Interest to be considered\n'
+                    'window_min - minimum distance between Membrane and Center_of_Interest to be considered\n'
                     '      (the default is 0)\n'
-                    'max - maximum distance between Membrane and Center_of_Interest to be considered\n'
+                    'window_max - maximum distance between Membrane and Center_of_Interest to be considered\n'
                     '      (the default is the box size in xy)\n'
                     'cutoff - membrane lipids within this cutoff will be ignored from the calculation'
                     ' of the center of the membrane, since it should only include "bulk" membrane atoms.\n'
                     '      (the default is 0, thus including all membrane atoms)\n', required=False,
                     metavar='window step', default=None, nargs='+')
+parser.add_argument('-deformation', help='The deformation flag replaces the thickness command (required) output profile with the local deformation profile\n'
+                    'for each monolayer. The performed calculation uses the bulk lipids (>cutoff radius) to define the bulk monolayer\n'
+                    'half-thickness. The local deformation is defined by the difference between the bulk thickness and the annulus thickness\n'
+                    'for each trajectory frame.\n'
+                    'Example:\n'
+                    'python membit.py -f example.pdb -n template.ndx -o out -thickness 1 1 0 40 15 -deformation\n',  required=False, default=False, action='store_true')
 parser.add_argument('-insertion', help='Insertion paramenters:\n'
-                    '<type> or <window> <step> <min> <max> <noNaN|min><nclosest>\n'
+                    '<type> or <window> <window_step> <window_min> <window_max> <noNaN|min><nclosest>\n'
                     'type - closest (insertion to closest membrane atom)\n'
                     '       average (insertion to average membrane z position)\n'
                     '       zero    (insertion to the center of the "bulk" membrane)\n'
@@ -69,20 +75,20 @@ parser.add_argument('-insertion', help='Insertion paramenters:\n'
                     'given xy window.\n'
                     'window_size - output window size in Angstrom\n'
                     'window_step - moving window step in Angstrom\n'
-                    'min - minimum distance between Membrane and Center_of_Interest to be considered\n'
+                    'window_min - minimum distance between Membrane and Center_of_Interest to be considered\n'
                     '      (the default is 0)\n'
-                    'max - maximum distance between Membrane and Center_of_Interest to be considered\n'
+                    'window_max - maximum distance between Membrane and Center_of_Interest to be considered\n'
                     '      (the default is box_size in xy)\n'
-                    'noNaN - replaces NaN output entries where there are no membranes atoms in the \n'
-                    '        specified cut off with the insertion relative to the closest atom \n'
+                    'noNaN - replaces NaN output entries where there are no membranes atoms in a \n'
+                    '        specific window with the insertion relative to the closest atom \n'
                     'min - instead of noNaN the "min" option may be chosen. in this case the number of atoms \n'
                     '      specified in nclosest defines the minimum number of membrane atoms to be used in \n'
                     '      the insertion calculation. While noNaN is only trigger when there are no atoms \n'
                     '      within a given radius, min is always used.'
-                    'min, max and noNaN|min are optional\n'
+                    'window_min, window_max and noNaN|min are optional\n'
                     'nclosest - this argument can only be used with noNaN or min. It specifies the number of \n'
                     '           the closest membrane atoms to include in the calculation \n'
-                    '           (if there is no membrane atom within the specified cutoff). ', required=False,
+                    '           (if there is no membrane atom in a specific cutoff). ', required=False,
                     metavar='closest', default=None, nargs='+')
 
 parser.add_argument('-distance', help='All distances between the membrane and the center_of_interest \n'
@@ -118,7 +124,7 @@ args = parser.parse_args()
 
 class Trajectory:
     def __init__(self, trajfile, indexfile, distance_criteria,
-                 outputfile, thickness, simplethickness,
+                 outputfile, thickness, deformation, simplethickness,
                  insertion, printnatoms):
         """Instanciates a Trajectory object and checks some input the
         consistency of the input arguments
@@ -128,6 +134,7 @@ class Trajectory:
         indexfile
         outputfile
         thickness
+        deformation
         insertion
 
         Ensures:
@@ -146,6 +153,7 @@ class Trajectory:
 
         self._printnatoms = printnatoms
         self._thickness = thickness
+        self._deformation = deformation
         self._simplethickness = simplethickness
 
         if thickness and simplethickness:
@@ -175,8 +183,8 @@ class Trajectory:
                 if nargs_insertion == 1:
                     self._insertion_window = insertion[0]
                 else:
-                    print 'Warning: Extra arguments have been '\
-                        'submitted and will be ignored'
+                    print('Warning: Extra arguments have been '\
+                        'submitted and will be ignored')
 
             elif insertion[0] == 'zero':
                 if nargs_insertion == 2:
@@ -186,8 +194,8 @@ class Trajectory:
                                   'membrane requires the definition of a cutoff '
                                   'beyond which bulk properties are assumed.')
                 else:
-                    print 'Warning: Extra arguments have been '\
-                        'submitted and will be ignored'
+                    print('Warning: Extra arguments have been '\
+                        'submitted and will be ignored')
 
             else:
                 if nargs_insertion < 2:
@@ -304,7 +312,7 @@ class Trajectory:
                                                          self._box,
                                                          self._thickness,
                                                          outputnameThicknessTop,
-                                                         self._printnatoms)
+                                                         self._printnatoms,self._deformation)
 
                 # Calculate the Thickness for ML2
                 thicknessBottom = self._membrane.getThickness(self._CoI,
@@ -312,7 +320,7 @@ class Trajectory:
                                                          self._box,
                                                          self._thickness,
                                                          outputnameThicknessBottom,
-                                                         self._printnatoms)
+                                                         self._printnatoms, self._deformation)
                 self._CoI.clearLeafletAtoms()
                 # Save the Outputs
                 self.saveOutput(outputnameThicknessTop, thicknessTop)
@@ -506,6 +514,7 @@ if __name__ == '__main__':
 
     simplethickness = args.simplethickness
     thickness = args.thickness
+    deformation = args.deformation
     insertion = args.insertion
 
     distance_criteria = args.distance
@@ -513,7 +522,7 @@ if __name__ == '__main__':
     printnatoms = args.printnatoms
 
     traj = Trajectory(trajfile, indexfile, distance_criteria,
-                      outputfile, thickness, simplethickness,
+                      outputfile, thickness, deformation, simplethickness,
                       insertion, printnatoms)
 
     traj.analyseTrajectory()
