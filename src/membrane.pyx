@@ -368,8 +368,6 @@ class Membrane(AtomCollections):
             #            text += '{} {}\n'.format(window_half, 0)
             #    f.write(text)
 
-            with open("log.txt", 'a') as f:
-                f.write('\n####')
             output = ''
             output_natoms = ''
             windows = []
