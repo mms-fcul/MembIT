@@ -1,6 +1,8 @@
 #! /usr/bin/python
 
 import argparse
+import time
+from contextlib import contextmanager
 from protein import Protein
 from membrane import Membrane
 from atom import Atom
@@ -124,6 +126,10 @@ parser.add_argument('-printnatoms', help='Adds a column to the insertion output 
 parser.add_argument('-printclosestleaflet', help='Adds a column to the insertion output with the '
                     'membrane leaflet chosen as reference', required=False, default=False, action='store_true')
 
+parser.add_argument('--profile-timing',
+                    help='Print a timing summary at the end of the run. This is intended for performance debugging; it does not change calculated outputs.',
+                    required=False, default=False, action='store_true')
+
 
 args = parser.parse_args()
 
@@ -146,7 +152,7 @@ args = parser.parse_args()
 class Trajectory:
     def __init__(self, trajfile, indexfile, structurefile, traj_format,
                  distance_criteria, outputfile, thickness, deformation,
-                 simplethickness, insertion, printnatoms):
+                 simplethickness, insertion, printnatoms, profile_timing=False):
         """Instanciates a Trajectory object and checks some input the
         consistency of the input arguments
 
@@ -162,6 +168,30 @@ class Trajectory:
         The input arguments are correctly assigned to the attributes,
         considering the help messages provided to the user
         """
+
+        # ------------------------------------------------------------------
+        # Optional profiling support
+        # ------------------------------------------------------------------
+        # ``--profile-timing`` is intentionally read-only: it records timing
+        # information but does not alter calculations, output files, or data
+        # flow.  Keeping this instrumentation inside Trajectory makes it easy
+        # to profile both the original PDB reader and the new MDAnalysis reader
+        # with the same command-line flag.
+        self._profileTimingEnabled = profile_timing
+
+        # Accumulated wall-clock seconds per labelled code section.  A normal
+        # dict preserves insertion order in modern Python, which keeps the
+        # final report stable and readable.
+        self._profileTimings = {}
+
+        # Number of times each labelled section was entered.  For example,
+        # ``trajectory_reader_frame`` should match the number of analysed
+        # frames, while ``mda_universe_init`` should normally be called once.
+        self._profileCounts = {}
+
+        # Frame counter used only for the profiling report.  The actual MembIT
+        # calculations still use the trajectory time stored in ``self._curtime``.
+        self._profileFrameCounter = 0
 
         self._trajfile = trajfile
         self._indexfile = indexfile
@@ -242,7 +272,11 @@ class Trajectory:
         self._CoI = Protein()
         self._membrane = Membrane()
 
-        self.loadIndex()
+        # Index loading is usually small compared with trajectory analysis, but
+        # it is measured separately because future full-system indexes may be
+        # substantially larger than the reduced PDB indexes used so far.
+        with self._profileSection('load_index'):
+            self.loadIndex()
 
         proteinCounter = 0
         coiCounter = 0
@@ -272,116 +306,221 @@ class Trajectory:
                           'provided you use the -thickness or -insertion '
                           'arguments respectively')
 
+    @contextmanager
+    def _profileSection(self, label):
+        """Measure wall time for a named code section when profiling is enabled.
+
+        The method is deliberately lightweight and safe to leave around normal
+        production code.  When ``--profile-timing`` is not used, the context
+        manager simply yields without recording anything.  This avoids changing
+        the behavior or output of existing MembIT workflows.
+        """
+        if not self._profileTimingEnabled:
+            yield
+            return
+
+        start = time.perf_counter()
+        try:
+            yield
+        finally:
+            elapsed = time.perf_counter() - start
+            self._profileTimings[label] = self._profileTimings.get(label, 0.0) + elapsed
+            self._profileCounts[label] = self._profileCounts.get(label, 0) + 1
+
+    def _printProfileTimingReport(self):
+        """Print a compact timing table for performance debugging.
+
+        The report is printed only when ``--profile-timing`` is enabled.  It is
+        sent to standard output so it can be captured easily with shell
+        redirection or ``tee`` in the local benchmarking scripts.
+        """
+        if not self._profileTimingEnabled:
+            return
+
+        total = self._profileTimings.get('total_wall_clock', 0.0)
+        if total <= 0.0:
+            total = sum(self._profileTimings.values())
+
+        print('')
+        print('MembIT timing profile')
+        print('=====================')
+        print('Trajectory file : {0}'.format(self._trajfile))
+        print('Structure file  : {0}'.format(self._structurefile if self._structurefile else 'None'))
+        print('Reader format   : {0}'.format(self._traj_format))
+        print('Frames analysed : {0}'.format(self._profileFrameCounter))
+        print('')
+        print('{0:<36s} {1:>12s} {2:>10s} {3:>12s}'.format('section', 'seconds', 'calls', 'percent'))
+        print('{0:<36s} {1:>12s} {2:>10s} {3:>12s}'.format('-' * 36, '-' * 12, '-' * 10, '-' * 12))
+
+        for label, seconds in self._profileTimings.items():
+            calls = self._profileCounts.get(label, 1)
+            percent = (100.0 * seconds / total) if total > 0.0 else 0.0
+            print('{0:<36s} {1:12.6f} {2:10d} {3:11.2f}%'.format(label, seconds, calls, percent))
+
+        print('')
+        print('Notes:')
+        print('  trajectory_reader_frame measures the time spent obtaining and populating one frame before analysis.')
+        print('  frame_analysis_total measures the insertion/thickness/deformation calculations after a frame is loaded.')
+        print('  Some nested sections overlap by design, so percentages are diagnostic rather than additive.')
+
     def getInsertionOutput(self):
         return self._insertionOutput
 
     def analyseTrajectory(self):
-        def createOutputFile(filename):
-            outputname = self.getOutputName(filename)
-            os.system('rm -f {0}'.format(outputname))
-            return outputname
+        """Run the selected MembIT analyses over every trajectory frame.
 
-        traj = self.loadTrajectory()
+        The original implementation used a simple ``for frame in traj`` loop.
+        For profiling, the loop is written explicitly with ``next()`` so that
+        the time spent by the trajectory reader can be measured separately from
+        the time spent by the analysis calculations.  With profiling disabled,
+        the behavior and generated XVG files remain unchanged.
+        """
+        with self._profileSection('total_wall_clock'):
+            def createOutputFile(filename):
+                outputname = self.getOutputName(filename)
+                os.system('rm -f {0}'.format(outputname))
+                return outputname
 
-        if self._insertion:
-            outputnameInsertion = createOutputFile("insertion")
+            with self._profileSection('trajectory_reader_create'):
+                traj = self.loadTrajectory()
+                traj_iter = iter(traj)
 
-        if self._thickness:
-            outputnameThicknessTop    = createOutputFile("thicknessTop")
-            outputnameThicknessAvg1 = createOutputFile("thicknessTop_avg")
-            outputnameThicknessBottom    = createOutputFile("thicknessBottom")
-            outputnameThicknessAvg2 = createOutputFile("thicknessBottom_avg")
-
-        if self._simplethickness:
-            outputnameThickness = createOutputFile("thickness")
-
-        for frame in traj:
             if self._insertion:
-                # Calculate geometric center of Center_of_Interest
-                self._CoI.calcCenter()
-
-                if 'zero' == self._insertion[0]:
-                    # Calculate the Membrane Half Z
-                    self._membrane.calcHalfMembraneZ(self._protein,
-                                                     (0, 0, 0, 0,
-                                                      self._insertion[1]),
-                                                     self._box)
-                else:
-                    # Choose leaflet
-                    self._membrane.chooseClosestLeaflet(self._CoI,
-                                                        self._box,
-                                                        self._distance_criteria)
-
-
-                # Calculate insertion
-                insertion = self._CoI.getInsertion(self._membrane,
-                                                   self._insertion,
-                                                   self._box,
-                                                   outputnameInsertion,
-                                                   self)
-
-                if args.printclosestleaflet:
-                    insertion = '{0} {1}'.format(insertion, self._membrane._closestLeaflet)
-
-                # Save to Output
-                self.saveOutput(outputnameInsertion, insertion)
+                outputnameInsertion = createOutputFile("insertion")
 
             if self._thickness:
-                # Calculate the Membrane Half Z
-                self._membrane.calcHalfMembraneZ(self._protein,
-                                                self._thickness,
-                                                self._box)
-
-                # Attribution of the Protein atoms to membrane
-                # leaflets ('bottom' and 'top')
-                self._CoI.calcAtomsClosestML(self._membrane)
-
-                # Calculate the Thickness for ML1
-                thicknessTop = self._membrane.getThickness(self._CoI,
-                                                         'top',
-                                                         self._box,
-                                                         self._thickness,
-                                                         outputnameThicknessTop,
-                                                         self._printnatoms,self._deformation)
-
-                # Calculate the Thickness for ML2
-                thicknessBottom = self._membrane.getThickness(self._CoI,
-                                                         'bottom',
-                                                         self._box,
-                                                         self._thickness,
-                                                         outputnameThicknessBottom,
-                                                         self._printnatoms, self._deformation)
-                self._CoI.clearLeafletAtoms()
-                # Save the Outputs
-                self.saveOutput(outputnameThicknessTop, thicknessTop)
-                self.saveOutput(outputnameThicknessBottom, thicknessBottom)
+                outputnameThicknessTop = createOutputFile("thicknessTop")
+                outputnameThicknessAvg1 = createOutputFile("thicknessTop_avg")
+                outputnameThicknessBottom = createOutputFile("thicknessBottom")
+                outputnameThicknessAvg2 = createOutputFile("thicknessBottom_avg")
 
             if self._simplethickness:
-                # Calculate the Membrane Thickness
-                thickness = self._membrane.getSimpleThickness(outputnameThickness)
+                outputnameThickness = createOutputFile("thickness")
 
-                # Save the Outputs
-                self.saveOutput(outputnameThickness, thickness)
+            while True:
+                # ``next(traj_iter)`` performs the reader-specific frame work:
+                # PDB parsing up to the next TER record, or MDAnalysis frame
+                # advance plus MembIT Atom population for XTC/TRR/DCD/NC.
+                # Measuring it separately shows whether the bottleneck is input
+                # handling or the actual membrane analysis.
+                with self._profileSection('trajectory_reader_frame'):
+                    try:
+                        next(traj_iter)
+                    except StopIteration:
+                        break
 
-        # Write to Output
-        if self._insertion:
-            self.writeOutput(outputnameInsertion)
+                self._profileFrameCounter += 1
 
-        if self._thickness:
-            self.writeOutput(outputnameThicknessTop)
-            self.writeOutput(outputnameThicknessBottom)
+                with self._profileSection('frame_analysis_total'):
+                    if self._insertion:
+                        with self._profileSection('insertion_total'):
+                            # Calculate geometric center of Center_of_Interest.
+                            with self._profileSection('insertion_calc_center'):
+                                self._CoI.calcCenter()
 
-            avgs_top, windows_top,\
-                avgs_bottom, windows_bottom = self._membrane.calcThicknessAvg()
+                            if 'zero' == self._insertion[0]:
+                                # Calculate the Membrane Half Z.
+                                with self._profileSection('insertion_calc_half_z'):
+                                    self._membrane.calcHalfMembraneZ(self._protein,
+                                                                     (0, 0, 0, 0,
+                                                                      self._insertion[1]),
+                                                                     self._box)
+                            else:
+                                # Choose the closest leaflet used as insertion reference.
+                                with self._profileSection('insertion_choose_leaflet'):
+                                    self._membrane.chooseClosestLeaflet(self._CoI,
+                                                                        self._box,
+                                                                        self._distance_criteria)
 
-            self.writeAvgOutput(outputnameThicknessAvg1, avgs_top,
-                                windows_top)
-            self.writeAvgOutput(outputnameThicknessAvg2, avgs_bottom,
-                                windows_bottom)
+                            # Calculate insertion.
+                            with self._profileSection('insertion_calculation'):
+                                insertion = self._CoI.getInsertion(self._membrane,
+                                                                   self._insertion,
+                                                                   self._box,
+                                                                   outputnameInsertion,
+                                                                   self)
 
-        if self._simplethickness:
-            self.writeOutput(outputnameThickness)
+                            if args.printclosestleaflet:
+                                insertion = '{0} {1}'.format(insertion, self._membrane._closestLeaflet)
 
+                            # Save to in-memory output buffer.
+                            with self._profileSection('save_insertion_output'):
+                                self.saveOutput(outputnameInsertion, insertion)
+
+                    if self._thickness:
+                        with self._profileSection('thickness_total'):
+                            # Calculate the membrane reference plane / bulk half-thickness.
+                            with self._profileSection('thickness_calc_half_z'):
+                                self._membrane.calcHalfMembraneZ(self._protein,
+                                                                 self._thickness,
+                                                                 self._box)
+
+                            # Attribute Center_of_Interest atoms to membrane leaflets
+                            # ('bottom' and 'top') before calculating local profiles.
+                            with self._profileSection('thickness_assign_coi_leaflets'):
+                                self._CoI.calcAtomsClosestML(self._membrane)
+
+                            # Calculate the thickness/deformation profile for ML1.
+                            with self._profileSection('thickness_top_calculation'):
+                                thicknessTop = self._membrane.getThickness(self._CoI,
+                                                                           'top',
+                                                                           self._box,
+                                                                           self._thickness,
+                                                                           outputnameThicknessTop,
+                                                                           self._printnatoms,
+                                                                           self._deformation)
+
+                            # Calculate the thickness/deformation profile for ML2.
+                            with self._profileSection('thickness_bottom_calculation'):
+                                thicknessBottom = self._membrane.getThickness(self._CoI,
+                                                                              'bottom',
+                                                                              self._box,
+                                                                              self._thickness,
+                                                                              outputnameThicknessBottom,
+                                                                              self._printnatoms,
+                                                                              self._deformation)
+
+                            self._CoI.clearLeafletAtoms()
+
+                            # Save the outputs to the in-memory buffers.  Files are
+                            # written only after all frames are processed, matching
+                            # the original MembIT behavior.
+                            with self._profileSection('save_thickness_output'):
+                                self.saveOutput(outputnameThicknessTop, thicknessTop)
+                                self.saveOutput(outputnameThicknessBottom, thicknessBottom)
+
+                    if self._simplethickness:
+                        with self._profileSection('simplethickness_total'):
+                            # Calculate the Membrane Thickness.
+                            thickness = self._membrane.getSimpleThickness(outputnameThickness)
+
+                            # Save the output to the in-memory buffer.
+                            self.saveOutput(outputnameThickness, thickness)
+
+            # Write accumulated outputs to disk.  This is measured separately
+            # because very long trajectories may spend non-trivial time writing
+            # large XVG tables.
+            with self._profileSection('write_output_total'):
+                if self._insertion:
+                    self.writeOutput(outputnameInsertion)
+
+                if self._thickness:
+                    self.writeOutput(outputnameThicknessTop)
+                    self.writeOutput(outputnameThicknessBottom)
+
+                    with self._profileSection('thickness_average_calculation'):
+                        avgs_top, windows_top,\
+                            avgs_bottom, windows_bottom = self._membrane.calcThicknessAvg()
+
+                    self.writeAvgOutput(outputnameThicknessAvg1, avgs_top,
+                                        windows_top)
+                    self.writeAvgOutput(outputnameThicknessAvg2, avgs_bottom,
+                                        windows_bottom)
+
+                if self._simplethickness:
+                    self.writeOutput(outputnameThickness)
+
+        self._printProfileTimingReport()
 
     def loadIndex(self):
         with open(self._indexfile) as f:
@@ -535,18 +674,20 @@ class Trajectory:
                 'Use -s structure.gro or -s structure.tpr.'.format(self._traj_format.upper())
             )
 
-        try:
-            import MDAnalysis as mda
-        except ImportError as exc:
-            raise ImportError(
-                'Reading {0} trajectories requires MDAnalysis. Install it with: '
-                'python -m pip install MDAnalysis'.format(self._traj_format.upper())
-            ) from exc
+        with self._profileSection('mda_import'):
+            try:
+                import MDAnalysis as mda
+            except ImportError as exc:
+                raise ImportError(
+                    'Reading {0} trajectories requires MDAnalysis. Install it with: '
+                    'python -m pip install MDAnalysis'.format(self._traj_format.upper())
+                ) from exc
 
         # MDAnalysis combines the topology/structure file and the trajectory
         # into one Universe.  Coordinates are updated in-place as we iterate
         # through universe.trajectory, so selected Atom objects can be cached.
-        universe = mda.Universe(self._structurefile, self._trajfile)
+        with self._profileSection('mda_universe_init'):
+            universe = mda.Universe(self._structurefile, self._trajfile)
 
         proteinAtoms = self._protein.getAtomsNumbers()
         CoIAtoms = self._CoI.getAtomsNumbers()
@@ -555,17 +696,18 @@ class Trajectory:
 
         # Cache only the atoms requested in the MembIT index.  This avoids a
         # Python-level scan over every atom in a full system for every frame.
-        atoms_by_number = {}
-        natoms = len(universe.atoms)
-        for number in sorted(required_numbers, key=lambda value: int(value)):
-            atom_index = int(number) - 1
-            if atom_index < 0 or atom_index >= natoms:
-                raise IOError(
-                    'Index atom number {0} is outside the structure atom range 1..{1}. '
-                    'For MDAnalysis/XTC input, MembIT index files must use 1-based '
-                    'structure atom numbers, matching GROMACS .ndx convention.'.format(number, natoms)
-                )
-            atoms_by_number[number] = universe.atoms[atom_index]
+        with self._profileSection('mda_atom_cache'):
+            atoms_by_number = {}
+            natoms = len(universe.atoms)
+            for number in sorted(required_numbers, key=lambda value: int(value)):
+                atom_index = int(number) - 1
+                if atom_index < 0 or atom_index >= natoms:
+                    raise IOError(
+                        'Index atom number {0} is outside the structure atom range 1..{1}. '
+                        'For MDAnalysis/XTC input, MembIT index files must use 1-based '
+                        'structure atom numbers, matching GROMACS .ndx convention.'.format(number, natoms)
+                    )
+                atoms_by_number[number] = universe.atoms[atom_index]
 
         for ts in universe.trajectory:
             if ts.dimensions is None or len(ts.dimensions) < 3:
@@ -579,24 +721,31 @@ class Trajectory:
             # behavior so PDB and XTC paths can be compared directly.
             self._curtime = int(float(ts.time))
 
-            for number, atom in atoms_by_number.items():
-                x, y, z = atom.position
-                atype = atom.name
-                residue = getattr(atom.residue, 'resname', '')
+            # This block is the current compatibility bridge between MDAnalysis
+            # and the legacy MembIT object model.  It is intentionally profiled
+            # as its own section because it is a prime candidate for future
+            # optimization: the current implementation updates one Atom object
+            # at a time, preserving behavior before we attempt bulk updates.
+            with self._profileSection('mda_populate_membit_atoms'):
+                for number, atom in atoms_by_number.items():
+                    x, y, z = atom.position
+                    atype = atom.name
+                    residue = getattr(atom.residue, 'resname', '')
 
-                if number in proteinAtoms:
-                    self._protein.addProperties(number, atype, residue, float(x), float(y), float(z))
+                    if number in proteinAtoms:
+                        self._protein.addProperties(number, atype, residue, float(x), float(y), float(z))
 
-                if number in CoIAtoms:
-                    self._CoI.addProperties(number, atype, residue, float(x), float(y), float(z))
+                    if number in CoIAtoms:
+                        self._CoI.addProperties(number, atype, residue, float(x), float(y), float(z))
 
-                elif number in membraneAtoms:
-                    self._membrane.addProperties(number, atype, residue, float(x), float(y), float(z))
+                    elif number in membraneAtoms:
+                        self._membrane.addProperties(number, atype, residue, float(x), float(y), float(z))
 
-            if not self._CoI.IndexandTrajAtomsMatch():
-                raise IOError('Index file not correct. CoI group atoms in the index do not match the trajectory file')
-            if not self._protein.IndexandTrajAtomsMatch():
-                raise IOError('Index file not correct. Protein group atoms in the index do not match the trajectory file')
+            with self._profileSection('trajectory_index_match_checks'):
+                if not self._CoI.IndexandTrajAtomsMatch():
+                    raise IOError('Index file not correct. CoI group atoms in the index do not match the trajectory file')
+                if not self._protein.IndexandTrajAtomsMatch():
+                    raise IOError('Index file not correct. Protein group atoms in the index do not match the trajectory file')
 
             yield
 
@@ -679,9 +828,10 @@ if __name__ == '__main__':
     distance_criteria = args.distance
 
     printnatoms = args.printnatoms
+    profile_timing = args.profile_timing
 
     traj = Trajectory(trajfile, indexfile, structurefile, traj_format,
                       distance_criteria, outputfile, thickness, deformation,
-                      simplethickness, insertion, printnatoms)
+                      simplethickness, insertion, printnatoms, profile_timing)
 
     traj.analyseTrajectory()
