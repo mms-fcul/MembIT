@@ -5,13 +5,34 @@ from protein import Protein
 from membrane import Membrane
 from atom import Atom
 import os
+from pathlib import Path
+
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
                                  description='\n'
                                  'Script to perform insertion and thickness calculations on '
                                  ' lipid bilayer systems')
-parser.add_argument('-f', help='PDB trajectory file',
-                    required=True, metavar='traj.pdb')
+# ``-f`` remains the main trajectory argument so old PDB commands keep working.
+# New binary trajectory formats such as XTC are detected from this file name
+# unless the user overrides detection with ``--format``.
+parser.add_argument('-f', help='Trajectory file. PDB is supported natively; XTC/TRR/DCD/NC require -s/--structure and MDAnalysis.',
+                    required=True, metavar='traj.pdb|traj.xtc')
+
+# GROMACS XTC files contain coordinates but do not contain atom names, residue
+# names, or enough topology information for MembIT to map index numbers to
+# atoms.  MDAnalysis therefore needs a matching structure/topology file.
+# This option is intentionally optional so legacy PDB-only usage remains:
+#     python membit.py -f traj.pdb -n index.ndx ...
+parser.add_argument('-s', '--structure',
+                    help='Structure/topology file required for non-PDB trajectories, e.g. GRO or TPR when -f is XTC.',
+                    required=False, metavar='structure.gro|structure.tpr', default=None)
+
+# Auto-detection is convenient for day-to-day use, while an explicit format is
+# useful for debugging, unusual file extensions, or scripted regression tests.
+parser.add_argument('-format', '--format',
+                    help='Trajectory format. Default: auto-detect from -f extension.',
+                    choices=['auto', 'pdb', 'xtc', 'trr', 'dcd', 'nc'],
+                    required=False, default='auto')
 
 # Protein distancia minima a todos os atomos - so para thickness
 # Center_of_Interest centro geometrico - so para insertion
@@ -123,9 +144,9 @@ args = parser.parse_args()
 # slice1 average_thickness                  FILE2
 
 class Trajectory:
-    def __init__(self, trajfile, indexfile, distance_criteria,
-                 outputfile, thickness, deformation, simplethickness,
-                 insertion, printnatoms):
+    def __init__(self, trajfile, indexfile, structurefile, traj_format,
+                 distance_criteria, outputfile, thickness, deformation,
+                 simplethickness, insertion, printnatoms):
         """Instanciates a Trajectory object and checks some input the
         consistency of the input arguments
 
@@ -142,8 +163,17 @@ class Trajectory:
         considering the help messages provided to the user
         """
 
-        self._trajfile   = trajfile
-        self._indexfile  = indexfile
+        self._trajfile = trajfile
+        self._indexfile = indexfile
+
+        # ``structurefile`` is ignored by the native PDB reader.  It is only
+        # required for MDAnalysis-backed formats because binary trajectories do
+        # not carry atom/residue metadata by themselves.
+        self._structurefile = structurefile
+
+        # Store the resolved format once at construction time so the rest of
+        # the code can simply dispatch to the correct reader.
+        self._traj_format = self._detectTrajectoryFormat(trajfile, traj_format)
         self._distance_criteria = distance_criteria
 
         if outputfile:
@@ -390,7 +420,49 @@ class Trajectory:
                         elif addTo == 'monolayer2':
                             self._membrane.addAtom(atomNumber, 'two')
 
+
+    @staticmethod
+    def _detectTrajectoryFormat(trajfile, traj_format):
+        """Return the trajectory reader to use.
+
+        The historical MembIT workflow uses PDB trajectories, so PDB remains
+        the default behavior whenever ``-f`` ends in ``.pdb``.  Other supported
+        extensions are read through MDAnalysis.  This keeps the old parser and
+        output behavior isolated from the new XTC support.
+        """
+        if traj_format != 'auto':
+            return traj_format.lower()
+
+        suffix = Path(trajfile).suffix.lower().lstrip('.')
+        if suffix in ('pdb', 'ent'):
+            return 'pdb'
+        if suffix in ('xtc', 'trr', 'dcd', 'nc'):
+            return suffix
+
+        raise IOError(
+            'Could not auto-detect trajectory format from extension {0!r}. '
+            'Use --format pdb or --format xtc.'.format(Path(trajfile).suffix)
+        )
+
     def loadTrajectory(self):
+        """Yield frames from the selected trajectory reader.
+
+        The analysis code below this method expects the Protein, CoI and
+        Membrane atom containers to be populated for the current frame before a
+        bare ``yield`` happens.  Both readers follow that contract, which keeps
+        the insertion/thickness/deformation calculations unchanged.
+        """
+        if self._traj_format == 'pdb':
+            return self.loadPDBTrajectory()
+        return self.loadMDAnalysisTrajectory()
+
+    def loadPDBTrajectory(self):
+        """Native PDB trajectory reader used by the original MembIT workflow.
+
+        This code is deliberately kept as close as possible to the legacy
+        implementation.  That makes it easier to verify that adding XTC support
+        has not changed existing PDB behavior.
+        """
         def readLine(line):
             atype    = line[12:16].strip()
             residue  = line[23:26]
@@ -442,6 +514,91 @@ class Trajectory:
                                       'not match the trajectory file')
 
                     yield
+
+
+    def loadMDAnalysisTrajectory(self):
+        """Read XTC/TRR/DCD/NC trajectories through MDAnalysis.
+
+        Atom-number convention for this reader:
+            index atom number N -> MDAnalysis atom with zero-based index N - 1
+
+        In practice this means the MembIT index must use the same 1-based atom
+        numbering as the structure/topology file supplied with ``-s``.  For a
+        full-system XTC plus full-system TPR/GRO, use a full-system MembIT index.
+        For a reduced XTC/GRO containing only Protein+Phos atoms, use an index
+        generated for that reduced structure.  Do not mix reduced-PDB numbering
+        with a full-system XTC unless the numbers have been remapped.
+        """
+        if not self._structurefile:
+            raise IOError(
+                'A structure/topology file is required for {0} trajectories. '
+                'Use -s structure.gro or -s structure.tpr.'.format(self._traj_format.upper())
+            )
+
+        try:
+            import MDAnalysis as mda
+        except ImportError as exc:
+            raise ImportError(
+                'Reading {0} trajectories requires MDAnalysis. Install it with: '
+                'python -m pip install MDAnalysis'.format(self._traj_format.upper())
+            ) from exc
+
+        # MDAnalysis combines the topology/structure file and the trajectory
+        # into one Universe.  Coordinates are updated in-place as we iterate
+        # through universe.trajectory, so selected Atom objects can be cached.
+        universe = mda.Universe(self._structurefile, self._trajfile)
+
+        proteinAtoms = self._protein.getAtomsNumbers()
+        CoIAtoms = self._CoI.getAtomsNumbers()
+        membraneAtoms = self._membrane.getAtomsNumbers()
+        required_numbers = set(proteinAtoms) | set(CoIAtoms) | set(membraneAtoms)
+
+        # Cache only the atoms requested in the MembIT index.  This avoids a
+        # Python-level scan over every atom in a full system for every frame.
+        atoms_by_number = {}
+        natoms = len(universe.atoms)
+        for number in sorted(required_numbers, key=lambda value: int(value)):
+            atom_index = int(number) - 1
+            if atom_index < 0 or atom_index >= natoms:
+                raise IOError(
+                    'Index atom number {0} is outside the structure atom range 1..{1}. '
+                    'For MDAnalysis/XTC input, MembIT index files must use 1-based '
+                    'structure atom numbers, matching GROMACS .ndx convention.'.format(number, natoms)
+                )
+            atoms_by_number[number] = universe.atoms[atom_index]
+
+        for ts in universe.trajectory:
+            if ts.dimensions is None or len(ts.dimensions) < 3:
+                raise IOError('Trajectory frame has no unit-cell dimensions; MembIT requires box vectors.')
+
+            # MDAnalysis reports GROMACS-like coordinate files in Angstrom, which
+            # is the unit expected by the existing MembIT calculations.
+            self._box = float(ts.dimensions[0]), float(ts.dimensions[1]), float(ts.dimensions[2])
+
+            # Existing XVG output stores time as an integer.  Preserve that
+            # behavior so PDB and XTC paths can be compared directly.
+            self._curtime = int(float(ts.time))
+
+            for number, atom in atoms_by_number.items():
+                x, y, z = atom.position
+                atype = atom.name
+                residue = getattr(atom.residue, 'resname', '')
+
+                if number in proteinAtoms:
+                    self._protein.addProperties(number, atype, residue, float(x), float(y), float(z))
+
+                if number in CoIAtoms:
+                    self._CoI.addProperties(number, atype, residue, float(x), float(y), float(z))
+
+                elif number in membraneAtoms:
+                    self._membrane.addProperties(number, atype, residue, float(x), float(y), float(z))
+
+            if not self._CoI.IndexandTrajAtomsMatch():
+                raise IOError('Index file not correct. CoI group atoms in the index do not match the trajectory file')
+            if not self._protein.IndexandTrajAtomsMatch():
+                raise IOError('Index file not correct. Protein group atoms in the index do not match the trajectory file')
+
+            yield
 
     def getOutputName(self, prefix):
         if self._outputfile:
@@ -510,6 +667,8 @@ class Trajectory:
 if __name__ == '__main__':
     trajfile = args.f
     indexfile = args.n
+    structurefile = args.structure
+    traj_format = args.format
     outputfile = args.o
 
     simplethickness = args.simplethickness
@@ -521,8 +680,8 @@ if __name__ == '__main__':
 
     printnatoms = args.printnatoms
 
-    traj = Trajectory(trajfile, indexfile, distance_criteria,
-                      outputfile, thickness, deformation, simplethickness,
-                      insertion, printnatoms)
+    traj = Trajectory(trajfile, indexfile, structurefile, traj_format,
+                      distance_criteria, outputfile, thickness, deformation,
+                      simplethickness, insertion, printnatoms)
 
     traj.analyseTrajectory()
