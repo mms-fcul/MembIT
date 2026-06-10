@@ -667,6 +667,29 @@ class Trajectory:
         For a reduced XTC/GRO containing only Protein+Phos atoms, use an index
         generated for that reduced structure.  Do not mix reduced-PDB numbering
         with a full-system XTC unless the numbers have been remapped.
+
+        Performance note
+        ----------------
+        The first profiled XTC implementation spent most of its extra runtime
+        in ``mda_populate_membit_atoms``.  The slow path was not the membrane
+        calculation itself; it was the compatibility bridge that copied
+        coordinates from MDAnalysis Atom objects into the legacy MembIT Atom
+        containers every frame.
+
+        This optimized reader therefore performs all static work once before the
+        trajectory loop:
+
+            * validate index atom numbers against the structure atom count;
+            * convert 1-based GROMACS/MembIT numbers to 0-based MDAnalysis
+              indices;
+            * cache atom names and residue names;
+            * build one update-record list per MembIT collection.
+
+        Inside the frame loop, the code only reads the frame coordinate array
+        and updates MembIT containers from cached records.  This keeps the old
+        object model and output behavior intact, but avoids repeated MDAnalysis
+        Atom property access, repeated integer conversion, and repeated group
+        membership checks for every frame.
         """
         if not self._structurefile:
             raise IOError(
@@ -685,20 +708,39 @@ class Trajectory:
 
         # MDAnalysis combines the topology/structure file and the trajectory
         # into one Universe.  Coordinates are updated in-place as we iterate
-        # through universe.trajectory, so selected Atom objects can be cached.
+        # through universe.trajectory.
         with self._profileSection('mda_universe_init'):
             universe = mda.Universe(self._structurefile, self._trajfile)
 
-        proteinAtoms = self._protein.getAtomsNumbers()
-        CoIAtoms = self._CoI.getAtomsNumbers()
-        membraneAtoms = self._membrane.getAtomsNumbers()
-        required_numbers = set(proteinAtoms) | set(CoIAtoms) | set(membraneAtoms)
+        # Convert frequently used index containers to sets.  The legacy PDB
+        # reader still uses the historical containers directly, but the XTC path
+        # performs many membership checks while preparing update records.  Sets
+        # make that one-time preparation explicit and cheap.
+        proteinAtoms = set(self._protein.getAtomsNumbers())
+        CoIAtoms = set(self._CoI.getAtomsNumbers())
+        membraneAtoms = set(self._membrane.getAtomsNumbers())
+        required_numbers = proteinAtoms | CoIAtoms | membraneAtoms
 
-        # Cache only the atoms requested in the MembIT index.  This avoids a
-        # Python-level scan over every atom in a full system for every frame.
+        # ``update_records`` are the main optimization introduced here.
+        #
+        # Each record is a tuple:
+        #     (atom_number, atom_type, residue_name, mda_index)
+        #
+        # All fields except the coordinates are static over a normal trajectory,
+        # so they are read once here instead of being pulled from MDAnalysis Atom
+        # objects for every frame.  The separate lists preserve the previous
+        # update logic:
+        #
+        #     if number in Protein: update Protein
+        #     if number in CoI:     update CoI
+        #     elif number in Membrane: update Membrane
+        #
+        # In particular, this preserves the old ``CoI`` versus ``Membrane``
+        # precedence for any atom number that might appear in both groups.
         with self._profileSection('mda_atom_cache'):
-            atoms_by_number = {}
             natoms = len(universe.atoms)
+            metadata_by_number = {}
+
             for number in sorted(required_numbers, key=lambda value: int(value)):
                 atom_index = int(number) - 1
                 if atom_index < 0 or atom_index >= natoms:
@@ -707,7 +749,20 @@ class Trajectory:
                         'For MDAnalysis/XTC input, MembIT index files must use 1-based '
                         'structure atom numbers, matching GROMACS .ndx convention.'.format(number, natoms)
                     )
-                atoms_by_number[number] = universe.atoms[atom_index]
+
+                atom = universe.atoms[atom_index]
+                atype = atom.name
+                residue = getattr(atom.residue, 'resname', '')
+
+                metadata_by_number[number] = (number, atype, residue, atom_index)
+
+            protein_update_records = [metadata_by_number[number]
+                                      for number in sorted(proteinAtoms, key=lambda value: int(value))]
+            coi_update_records = [metadata_by_number[number]
+                                  for number in sorted(CoIAtoms, key=lambda value: int(value))]
+            membrane_update_records = [metadata_by_number[number]
+                                       for number in sorted(membraneAtoms - CoIAtoms,
+                                                            key=lambda value: int(value))]
 
         for ts in universe.trajectory:
             if ts.dimensions is None or len(ts.dimensions) < 3:
@@ -721,25 +776,27 @@ class Trajectory:
             # behavior so PDB and XTC paths can be compared directly.
             self._curtime = int(float(ts.time))
 
-            # This block is the current compatibility bridge between MDAnalysis
-            # and the legacy MembIT object model.  It is intentionally profiled
-            # as its own section because it is a prime candidate for future
-            # optimization: the current implementation updates one Atom object
-            # at a time, preserving behavior before we attempt bulk updates.
+            # Fast coordinate bridge:
+            #
+            # ``ts.positions`` is the coordinate array for the current frame.
+            # Using it directly avoids the costly per-atom ``atom.position``
+            # property access that the baseline XTC reader used.  The records
+            # built above already contain the MDAnalysis array row and the static
+            # metadata needed by MembIT's legacy ``addProperties`` methods.
             with self._profileSection('mda_populate_membit_atoms'):
-                for number, atom in atoms_by_number.items():
-                    x, y, z = atom.position
-                    atype = atom.name
-                    residue = getattr(atom.residue, 'resname', '')
+                positions = ts.positions
 
-                    if number in proteinAtoms:
-                        self._protein.addProperties(number, atype, residue, float(x), float(y), float(z))
+                for number, atype, residue, atom_index in protein_update_records:
+                    x, y, z = positions[atom_index]
+                    self._protein.addProperties(number, atype, residue, float(x), float(y), float(z))
 
-                    if number in CoIAtoms:
-                        self._CoI.addProperties(number, atype, residue, float(x), float(y), float(z))
+                for number, atype, residue, atom_index in coi_update_records:
+                    x, y, z = positions[atom_index]
+                    self._CoI.addProperties(number, atype, residue, float(x), float(y), float(z))
 
-                    elif number in membraneAtoms:
-                        self._membrane.addProperties(number, atype, residue, float(x), float(y), float(z))
+                for number, atype, residue, atom_index in membrane_update_records:
+                    x, y, z = positions[atom_index]
+                    self._membrane.addProperties(number, atype, residue, float(x), float(y), float(z))
 
             with self._profileSection('trajectory_index_match_checks'):
                 if not self._CoI.IndexandTrajAtomsMatch():
