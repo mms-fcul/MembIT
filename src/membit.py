@@ -130,6 +130,11 @@ parser.add_argument('--profile-timing',
                     help='Print a timing summary at the end of the run. This is intended for performance debugging; it does not change calculated outputs.',
                     required=False, default=False, action='store_true')
 
+parser.add_argument('--diagnose-index',
+                    help='Print an index/topology diagnostic report and exit before trajectory analysis. '
+                         'This is useful for checking whether a MembIT index matches a PDB/GRO/TPR structure, especially for full-system XTC runs.',
+                    required=False, default=False, action='store_true')
+
 
 args = parser.parse_args()
 
@@ -152,7 +157,7 @@ args = parser.parse_args()
 class Trajectory:
     def __init__(self, trajfile, indexfile, structurefile, traj_format,
                  distance_criteria, outputfile, thickness, deformation,
-                 simplethickness, insertion, printnatoms, profile_timing=False):
+                 simplethickness, insertion, printnatoms, profile_timing=False, diagnose_index=False):
         """Instanciates a Trajectory object and checks some input the
         consistency of the input arguments
 
@@ -192,6 +197,13 @@ class Trajectory:
         # Frame counter used only for the profiling report.  The actual MembIT
         # calculations still use the trajectory time stored in ``self._curtime``.
         self._profileFrameCounter = 0
+
+        # Index/topology diagnostic support.  These reports are intentionally
+        # read-only: they do not change selections or calculated outputs.
+        self._diagnoseIndexOnly = diagnose_index
+        self._indexDiagnostics = None
+        self._indexDiagnosticWarnings = []
+        self._recommendedMembraneMarkerAtoms = set(['O31', 'P31', 'O32', 'O33', 'O34'])
 
         self._trajfile = trajfile
         self._indexfile = indexfile
@@ -363,6 +375,224 @@ class Trajectory:
         print('  frame_analysis_total measures the insertion/thickness/deformation calculations after a frame is loaded.')
         print('  Some nested sections overlap by design, so percentages are diagnostic rather than additive.')
 
+    def _getGroupAtomNumbers(self):
+        """Return MembIT index groups as plain lists of atom numbers.
+
+        The legacy Protein/Membrane classes own the actual data structures.  This
+        helper exposes the group membership in one place so diagnostics can be
+        produced without changing calculation logic.
+        """
+        return {
+            'Protein': list(self._protein.getAtomsNumbers()),
+            'Center_of_Interest': list(self._CoI.getAtomsNumbers()),
+            'Monolayer1': list(self._membrane.getLeafletAtoms('one')),
+            'Monolayer2': list(self._membrane.getLeafletAtoms('two')),
+        }
+
+    def _topCounts(self, values, limit=12):
+        counts = {}
+        for value in values:
+            counts[value] = counts.get(value, 0) + 1
+        return sorted(counts.items(), key=lambda item: (-item[1], str(item[0])))[:limit]
+
+    def _formatTopCounts(self, counts):
+        if not counts:
+            return 'none'
+        return ', '.join('{0}:{1}'.format(name, count) for name, count in counts)
+
+    def _guessIndexNumberingIssue(self, diagnostics):
+        """Generate human-readable warnings for common index/topology mistakes."""
+        warnings = []
+        groups = diagnostics.get('groups', {})
+        structure_natoms = diagnostics.get('structure_natoms')
+        traj_format = diagnostics.get('trajectory_format')
+
+        protein = groups.get('Protein', {})
+        mono1 = groups.get('Monolayer1', {})
+        mono2 = groups.get('Monolayer2', {})
+
+        marker_atoms = self._recommendedMembraneMarkerAtoms
+        marker_text = ', '.join(sorted(marker_atoms))
+
+        for name in ['Monolayer1', 'Monolayer2']:
+            group = groups.get(name, {})
+            count = group.get('count', 0)
+            marker_count = group.get('recommended_marker_count', 0)
+            if count > 0:
+                marker_fraction = float(marker_count) / float(count)
+                if marker_count == 0:
+                    warnings.append(
+                        '{0} contains no common phosphate/headgroup marker atoms ({1}). '
+                        'For thickness/deformation calculations, monolayer groups should usually contain leaflet marker atoms, not all lipid/tail atoms.'.format(name, marker_text)
+                    )
+                elif marker_fraction < 0.50:
+                    warnings.append(
+                        '{0} contains only {1}/{2} common phosphate/headgroup marker atoms ({3:.1f}%). '
+                        'This is suspicious for thickness/deformation calculations unless you intentionally use a different membrane marker definition.'.format(
+                            name, marker_count, count, 100.0 * marker_fraction)
+                    )
+
+        # A very common mistake in direct full-system XTC testing is to reuse an
+        # index made for a reduced Protein+Phos trajectory.  Such indexes often
+        # look like: Protein = 1..N, membrane atoms immediately after N.  This is
+        # valid for the reduced structure, but wrong for the full-system topology.
+        protein_max = protein.get('max')
+        mono1_min = mono1.get('min')
+        mono2_min = mono2.get('min')
+        if (traj_format != 'pdb' and structure_natoms and protein_max and
+                mono1_min and mono2_min and min(mono1_min, mono2_min) >= protein_max + 1):
+            warnings.append(
+                'The membrane atom numbers start immediately after the Protein group, while the structure contains {0} atoms. '
+                'For a full-system XTC/GRO/TPR this often means a reduced Protein+membrane-marker index is being reused with the full-system trajectory. '
+                'Generate a new GROMACS .ndx against the same full-system structure/topology supplied with -s.'.format(structure_natoms)
+            )
+
+        return warnings
+
+    def _buildIndexDiagnosticsFromMetadata(self, metadata_by_number, structure_natoms=None):
+        """Build a diagnostic summary using structure/topology atom metadata."""
+        diagnostics = {
+            'trajectory_file': self._trajfile,
+            'structure_file': self._structurefile,
+            'index_file': self._indexfile,
+            'trajectory_format': self._traj_format,
+            'structure_natoms': structure_natoms,
+            'recommended_marker_atoms': sorted(self._recommendedMembraneMarkerAtoms),
+            'groups': {},
+        }
+
+        for group_name, numbers in self._getGroupAtomNumbers().items():
+            atom_names = []
+            residue_names = []
+            missing = []
+            int_numbers = []
+
+            for number in numbers:
+                try:
+                    int_numbers.append(int(number))
+                except Exception:
+                    pass
+
+                metadata = metadata_by_number.get(number)
+                if metadata is None:
+                    metadata = metadata_by_number.get(str(number))
+
+                if metadata is None:
+                    missing.append(number)
+                    continue
+
+                # metadata tuple: (atom_number, atom_type, residue_name, mda_index)
+                atom_names.append(metadata[1])
+                residue_names.append(metadata[2])
+
+            marker_count = sum(1 for name in atom_names if name in self._recommendedMembraneMarkerAtoms)
+            diagnostics['groups'][group_name] = {
+                'count': len(numbers),
+                'min': min(int_numbers) if int_numbers else None,
+                'max': max(int_numbers) if int_numbers else None,
+                'missing_metadata_count': len(missing),
+                'recommended_marker_count': marker_count,
+                'top_atom_names': self._topCounts(atom_names),
+                'top_residue_names': self._topCounts(residue_names),
+            }
+
+        diagnostics['warnings'] = self._guessIndexNumberingIssue(diagnostics)
+        return diagnostics
+
+    def _formatIndexDiagnosticReport(self, title='MembIT index/topology diagnostic report'):
+        diagnostics = self._indexDiagnostics
+        if diagnostics is None:
+            return '{0}\nNo topology-aware diagnostic information is available yet. For PDB input, use a matching PDB/index. For XTC/TRR/DCD/NC input, provide -s structure.gro or -s structure.tpr.'.format(title)
+
+        lines = []
+        lines.append(title)
+        lines.append('=' * len(title))
+        lines.append('Trajectory file : {0}'.format(diagnostics.get('trajectory_file')))
+        lines.append('Structure file  : {0}'.format(diagnostics.get('structure_file')))
+        lines.append('Index file      : {0}'.format(diagnostics.get('index_file')))
+        lines.append('Reader format   : {0}'.format(diagnostics.get('trajectory_format')))
+        if diagnostics.get('structure_natoms') is not None:
+            lines.append('Structure atoms : {0}'.format(diagnostics.get('structure_natoms')))
+        lines.append('Marker atoms checked for membrane sanity: {0}'.format(', '.join(diagnostics.get('recommended_marker_atoms', []))))
+        lines.append('')
+        lines.append('{0:<20s} {1:>8s} {2:>10s} {3:>10s} {4:>12s}'.format('group', 'count', 'min', 'max', 'marker_atoms'))
+        lines.append('{0:<20s} {1:>8s} {2:>10s} {3:>10s} {4:>12s}'.format('-' * 20, '-' * 8, '-' * 10, '-' * 10, '-' * 12))
+
+        for group_name in ['Protein', 'Center_of_Interest', 'Monolayer1', 'Monolayer2']:
+            group = diagnostics.get('groups', {}).get(group_name, {})
+            lines.append('{0:<20s} {1:8d} {2:>10s} {3:>10s} {4:12d}'.format(
+                group_name,
+                group.get('count', 0),
+                str(group.get('min')),
+                str(group.get('max')),
+                group.get('recommended_marker_count', 0)))
+            lines.append('  atom names : {0}'.format(self._formatTopCounts(group.get('top_atom_names', []))))
+            lines.append('  residues   : {0}'.format(self._formatTopCounts(group.get('top_residue_names', []))))
+
+        warnings = diagnostics.get('warnings', [])
+        if warnings:
+            lines.append('')
+            lines.append('Potential problems detected:')
+            for warning in warnings:
+                lines.append('  - {0}'.format(warning))
+
+        lines.append('')
+        lines.append('Guidance:')
+        lines.append('  - For direct full-system XTC/TRR runs, generate the MembIT .ndx with GROMACS against the same full-system GRO/TPR supplied with -s.')
+        lines.append('  - Do not reuse an index generated for a reduced Protein+Phos trajectory with a full-system trajectory unless atom numbers have been remapped.')
+        lines.append('  - For thickness/deformation, Monolayer1 and Monolayer2 should normally contain leaflet marker atoms such as phosphate/headgroup atoms, not complete lipid atom clouds.')
+        lines.append('  - If your force field uses different marker atom names, verify them with gmx make_ndx/select and generate Monolayer1/Monolayer2 accordingly.')
+
+        return '\n'.join(lines)
+
+    def _raiseWithIndexDiagnostics(self, exc, context):
+        message = []
+        message.append(str(exc))
+        message.append('')
+        message.append('MembIT failed while calculating {0}.'.format(context))
+        message.append('This can happen when the membrane groups in the index are not suitable for the requested calculation, or when the index atom numbering does not match the trajectory/structure.')
+        message.append('')
+        message.append(self._formatIndexDiagnosticReport('Index/topology diagnostic at failure'))
+        raise IOError('\n'.join(message)) from exc
+
+    def diagnoseIndexAndExit(self):
+        """Build and print topology-aware index diagnostics, then exit."""
+        if self._traj_format == 'pdb':
+            # The native PDB reader can validate exact atoms only while reading a
+            # frame.  Keep the message explicit rather than pretending to have
+            # topology metadata.
+            print(self._formatIndexDiagnosticReport())
+            return
+
+        if not self._structurefile:
+            raise IOError('--diagnose-index for {0} input requires -s structure.gro or -s structure.tpr'.format(self._traj_format.upper()))
+
+        try:
+            import MDAnalysis as mda
+        except ImportError as exc:
+            raise ImportError('Index diagnostics for {0} trajectories require MDAnalysis.'.format(self._traj_format.upper())) from exc
+
+        universe = mda.Universe(self._structurefile, self._trajfile)
+        group_numbers = self._getGroupAtomNumbers()
+        required_numbers = set()
+        for numbers in group_numbers.values():
+            required_numbers.update(numbers)
+
+        metadata_by_number = {}
+        natoms = len(universe.atoms)
+        for number in sorted(required_numbers, key=lambda value: int(value)):
+            atom_index = int(number) - 1
+            if atom_index < 0 or atom_index >= natoms:
+                raise IOError(
+                    'Index atom number {0} is outside the structure atom range 1..{1}. '
+                    'Generate the index against the same structure/topology supplied with -s.'.format(number, natoms)
+                )
+            atom = universe.atoms[atom_index]
+            metadata_by_number[number] = (number, atom.name, getattr(atom.residue, 'resname', ''), atom_index)
+
+        self._indexDiagnostics = self._buildIndexDiagnosticsFromMetadata(metadata_by_number, structure_natoms=natoms)
+        print(self._formatIndexDiagnosticReport())
+
     def getInsertionOutput(self):
         return self._insertionOutput
 
@@ -421,10 +651,13 @@ class Trajectory:
                             if 'zero' == self._insertion[0]:
                                 # Calculate the Membrane Half Z.
                                 with self._profileSection('insertion_calc_half_z'):
-                                    self._membrane.calcHalfMembraneZ(self._protein,
-                                                                     (0, 0, 0, 0,
-                                                                      self._insertion[1]),
-                                                                     self._box)
+                                    try:
+                                        self._membrane.calcHalfMembraneZ(self._protein,
+                                                                         (0, 0, 0, 0,
+                                                                          self._insertion[1]),
+                                                                         self._box)
+                                    except (IOError, OSError) as exc:
+                                        self._raiseWithIndexDiagnostics(exc, 'insertion zero/bulk membrane reference')
                             else:
                                 # Choose the closest leaflet used as insertion reference.
                                 with self._profileSection('insertion_choose_leaflet'):
@@ -451,9 +684,12 @@ class Trajectory:
                         with self._profileSection('thickness_total'):
                             # Calculate the membrane reference plane / bulk half-thickness.
                             with self._profileSection('thickness_calc_half_z'):
-                                self._membrane.calcHalfMembraneZ(self._protein,
-                                                                 self._thickness,
-                                                                 self._box)
+                                try:
+                                    self._membrane.calcHalfMembraneZ(self._protein,
+                                                                     self._thickness,
+                                                                     self._box)
+                                except (IOError, OSError) as exc:
+                                    self._raiseWithIndexDiagnostics(exc, 'thickness/deformation bulk membrane reference')
 
                             # Attribute Center_of_Interest atoms to membrane leaflets
                             # ('bottom' and 'top') before calculating local profiles.
@@ -764,6 +1000,8 @@ class Trajectory:
                                        for number in sorted(membraneAtoms - CoIAtoms,
                                                             key=lambda value: int(value))]
 
+            self._indexDiagnostics = self._buildIndexDiagnosticsFromMetadata(metadata_by_number, structure_natoms=natoms)
+
         for ts in universe.trajectory:
             if ts.dimensions is None or len(ts.dimensions) < 3:
                 raise IOError('Trajectory frame has no unit-cell dimensions; MembIT requires box vectors.')
@@ -886,9 +1124,13 @@ if __name__ == '__main__':
 
     printnatoms = args.printnatoms
     profile_timing = args.profile_timing
+    diagnose_index = args.diagnose_index
 
     traj = Trajectory(trajfile, indexfile, structurefile, traj_format,
                       distance_criteria, outputfile, thickness, deformation,
-                      simplethickness, insertion, printnatoms, profile_timing)
+                      simplethickness, insertion, printnatoms, profile_timing, diagnose_index)
 
-    traj.analyseTrajectory()
+    if diagnose_index:
+        traj.diagnoseIndexAndExit()
+    else:
+        traj.analyseTrajectory()
