@@ -73,8 +73,6 @@ Not every membrane analysis should use the same reduced MembIT trajectory.
 
 For example:
 
-- projected box-area area per lipid should use box dimensions from an
-  appropriate full-system trajectory;
 - transmembrane-core insertion or tilt may need a custom index with specific
   protein-region groups and leaflet marker groups;
 - water, ions, or full lipids should be retained only when they are directly
