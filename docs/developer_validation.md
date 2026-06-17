@@ -24,10 +24,17 @@ Use:
 --profile-timing
 ```
 
-to separate trajectory reader time, atom mapping/population, frame analysis time,
-and thickness/deformation calculation time.
+to separate:
 
-## Before committing
+- trajectory reader time;
+- MDAnalysis universe initialization;
+- atom mapping/population;
+- frame analysis time;
+- thickness/deformation calculation time.
+
+## Useful milestones
+
+Before committing reader or diagnostic changes:
 
 ```bash
 python -m py_compile membit.py

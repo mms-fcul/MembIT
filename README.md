@@ -4,11 +4,22 @@ MembIT analyzes membrane-protein trajectories to quantify membrane insertion,
 local membrane thickness, and membrane deformation around a protein or another
 center of interest.
 
-The recommended workflow is not to run MembIT directly on a raw trajectory from
-a molecular-dynamics engine. MembIT should be used on a trajectory prepared for
-membrane analysis: molecules imaged consistently, the protein or chosen solute
-centered, unnecessary atoms removed, and a matching structure/index generated for
-the processed atom set.
+MembIT is designed to be part of a broader membrane-analysis workflow. It can be
+used together with GROMACS and downstream plotting/refinement scripts to study,
+for example:
+
+- local membrane deformation around a protein or selected center of interest;
+- radial membrane-thickness profiles;
+- near-protein versus bulk membrane thickness;
+- insertion of a selected protein region relative to the membrane midplane;
+- convergence/equilibration metrics when interpreted together with complementary
+  analyses such as projected area per lipid.
+
+The recommended workflow is **not** to run MembIT directly on a raw trajectory
+from a molecular-dynamics engine. MembIT should be used on a trajectory prepared
+for membrane analysis: molecules imaged consistently, the protein or chosen
+solute centered, unnecessary atoms removed when appropriate, and a matching
+structure/index generated for the processed atom set.
 
 ## What MembIT needs
 
@@ -38,38 +49,41 @@ should not be complete lipid atom clouds.
    - handle PBC and molecule imaging;
    - center the protein, solute, or complex of interest;
    - keep the membrane and protein in a consistent representation.
-2. Remove atoms not needed by MembIT, usually water and ions.
-3. Keep the protein or center of interest and the lipid marker atoms needed to
-   define the two leaflets.
-4. Generate the structure and index against the same processed atom set used in
+2. Remove atoms not needed by the analysis:
+   - for MembIT thickness/deformation, this usually means keeping the protein or
+     center of interest plus lipid leaflet marker atoms;
+   - for complementary analyses, such as global projected area per lipid, the
+     full system or full box information may still be useful.
+3. Generate the structure and index against the same processed atom set used in
    the trajectory.
-5. Run MembIT.
+4. Run the MembIT calculation or complementary analysis.
+5. Refine and plot the raw output using a documented sign convention.
 
-For larger trajectories, XTC/TRR input is preferred over multi-frame PDB because
-it is much smaller and faster to read. PDB input remains supported for legacy
-workflows and validation.
+For larger MembIT trajectories, XTC/TRR input is preferred over multi-frame PDB
+because it is much smaller and faster to read. PDB input remains supported for
+legacy workflows and validation.
 
-## Example
+## Example: local deformation
 
 ```bash
-python membit.py \
-  -f treated_Protein_Phos.xtc \
-  -s treated_Protein_Phos.gro \
-  -n membit_index.ndx \
-  -thickness 6 1 0 6 25 \
-  -deformation \
-  -o analysis/deformation
+python membit.py   -f treated_Protein_Phos.xtc   -s treated_Protein_Phos.gro   -n membit_index.ndx   -thickness 6 1 0 6 25   -deformation   -o analysis/deformation
 ```
+
+## Example: radial thickness profile
+
+```bash
+python membit.py   -f treated_Protein_Phos.xtc   -s treated_Protein_Phos.gro   -n membit_index.ndx   -thickness 1 1 0 60 25   -o analysis/radial_thickness
+```
+
+This runs the thickness calculation without `-deformation`, so the output is
+absolute half-thickness rather than deformation relative to a bulk reference.
+
+## Example: input diagnostic
 
 Before running a long calculation, inspect input consistency:
 
 ```bash
-python membit.py \
-  -f treated_Protein_Phos.xtc \
-  -s treated_Protein_Phos.gro \
-  -n membit_index.ndx \
-  -thickness 6 1 0 6 25 \
-  --diagnose-index
+python membit.py   -f treated_Protein_Phos.xtc   -s treated_Protein_Phos.gro   -n membit_index.ndx   -thickness 6 1 0 6 25   --diagnose-index
 ```
 
 ## Documentation
@@ -80,10 +94,11 @@ See:
 - [`docs/index_files.md`](docs/index_files.md)
 - [`docs/trajectory_formats.md`](docs/trajectory_formats.md)
 - [`docs/usage_examples.md`](docs/usage_examples.md)
+- [`docs/analysis_workflows.md`](docs/analysis_workflows.md)
 - [`docs/troubleshooting.md`](docs/troubleshooting.md)
 - [`docs/developer_validation.md`](docs/developer_validation.md)
 
 ## Citation
 
-Please cite the original MembIT publication and the repository version used for
-your analysis.
+Please cite the original MembIT publication (https://doi.org/10.1142/S2737416523500254)
+and the repository version used for your analysis.
