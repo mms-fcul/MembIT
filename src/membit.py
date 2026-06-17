@@ -375,18 +375,48 @@ class Trajectory:
         print('  frame_analysis_total measures the insertion/thickness/deformation calculations after a frame is loaded.')
         print('  Some nested sections overlap by design, so percentages are diagnostic rather than additive.')
 
+    def _coerceAtomNumber(self, value):
+        """Return an integer atom number from legacy MembIT atom containers.
+
+        Most collection-level methods return atom numbers directly, but some
+        leaflet methods return Atom objects.  Diagnostics must normalize both
+        representations before comparing index groups against topology metadata.
+        """
+        try:
+            return int(value)
+        except Exception:
+            pass
+
+        for attr_name in ['getNumber', 'getAtomNumber', 'getNum',
+                          'number', 'atom_number', '_number',
+                          'atomNumber', 'id']:
+            attr = getattr(value, attr_name, None)
+            if attr is None:
+                continue
+            try:
+                candidate = attr() if callable(attr) else attr
+                return int(candidate)
+            except Exception:
+                continue
+
+        raise TypeError('Could not determine atom number from object: {0!r}'.format(value))
+
+    def _normalizeAtomNumbers(self, values):
+        """Normalize an iterable of atom numbers or Atom objects."""
+        return [self._coerceAtomNumber(value) for value in values]
+
     def _getGroupAtomNumbers(self):
-        """Return MembIT index groups as plain lists of atom numbers.
+        """Return MembIT index groups as plain lists of integer atom numbers.
 
         The legacy Protein/Membrane classes own the actual data structures.  This
         helper exposes the group membership in one place so diagnostics can be
         produced without changing calculation logic.
         """
         return {
-            'Protein': list(self._protein.getAtomsNumbers()),
-            'Center_of_Interest': list(self._CoI.getAtomsNumbers()),
-            'Monolayer1': list(self._membrane.getLeafletAtoms('one')),
-            'Monolayer2': list(self._membrane.getLeafletAtoms('two')),
+            'Protein': self._normalizeAtomNumbers(self._protein.getAtomsNumbers()),
+            'Center_of_Interest': self._normalizeAtomNumbers(self._CoI.getAtomsNumbers()),
+            'Monolayer1': self._normalizeAtomNumbers(self._membrane.getLeafletAtoms('one')),
+            'Monolayer2': self._normalizeAtomNumbers(self._membrane.getLeafletAtoms('two')),
         }
 
     def _topCounts(self, values, limit=12):
