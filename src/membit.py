@@ -132,7 +132,7 @@ parser.add_argument('--profile-timing',
 
 parser.add_argument('--diagnose-index',
                     help='Print an index/topology diagnostic report and exit before trajectory analysis. '
-                         'This is useful for checking whether a MembIT index matches a PDB/GRO/TPR structure, especially for full-system XTC runs.',
+                         'This is useful for checking whether a MembIT index, structure, and prepared trajectory match, especially for XTC/TRR inputs.',
                     required=False, default=False, action='store_true')
 
 
@@ -462,10 +462,11 @@ class Trajectory:
                             name, marker_count, count, 100.0 * marker_fraction)
                     )
 
-        # A very common mistake in direct full-system XTC testing is to reuse an
-        # index made for a reduced Protein+Phos trajectory.  Such indexes often
-        # look like: Protein = 1..N, membrane atoms immediately after N.  This is
-        # valid for the reduced structure, but wrong for the full-system topology.
+        # A common mistake is to mix atom-numbering schemes between the
+        # trajectory, structure, and index.  For example, an index made for a
+        # reduced Protein+Phos trajectory often looks like Protein = 1..N and
+        # membrane marker atoms immediately after N.  That is valid only for the
+        # matching reduced structure/trajectory, not for a larger structure.
         protein_max = protein.get('max')
         mono1_min = mono1.get('min')
         mono2_min = mono2.get('min')
@@ -473,8 +474,8 @@ class Trajectory:
                 mono1_min and mono2_min and min(mono1_min, mono2_min) >= protein_max + 1):
             warnings.append(
                 'The membrane atom numbers start immediately after the Protein group, while the structure contains {0} atoms. '
-                'For a full-system XTC/GRO/TPR this often means a reduced Protein+membrane-marker index is being reused with the full-system trajectory. '
-                'Generate a new GROMACS .ndx against the same full-system structure/topology supplied with -s.'.format(structure_natoms)
+                'This pattern often means an index/trajectory atom-numbering mismatch, such as a reduced Protein+membrane-marker index being used with a larger structure. '
+                'Prepare the trajectory for membrane analysis first, then generate the structure and GROMACS .ndx against the same processed atom set supplied to MembIT.'.format(structure_natoms)
             )
 
         return warnings
@@ -567,10 +568,12 @@ class Trajectory:
                 lines.append('  - {0}'.format(warning))
 
         lines.append('')
-        lines.append('Guidance:')
-        lines.append('  - For direct full-system XTC/TRR runs, generate the MembIT .ndx with GROMACS against the same full-system GRO/TPR supplied with -s.')
-        lines.append('  - Do not reuse an index generated for a reduced Protein+Phos trajectory with a full-system trajectory unless atom numbers have been remapped.')
+        lines.append('Recommended input workflow:')
+        lines.append('  - Prepare the trajectory before running MembIT: handle PBC, center/image the protein or solute, and keep the membrane/protein geometry consistent.')
+        lines.append('  - Run MembIT on a treated analysis trajectory, usually containing the protein or center of interest plus leaflet marker atoms, not a raw full-system trajectory straight from mdrun.')
+        lines.append('  - Generate the structure and .ndx against the same processed atom set supplied to MembIT; the atom numbering in -f, -s, and -n must match.')
         lines.append('  - For thickness/deformation, Monolayer1 and Monolayer2 should normally contain leaflet marker atoms such as phosphate/headgroup atoms, not complete lipid atom clouds.')
+        lines.append('  - If waters, ions, or full lipid atoms are scientifically required, verify the assumptions carefully and use --diagnose-index before long runs.')
         lines.append('  - If your force field uses different marker atom names, verify them with gmx make_ndx/select and generate Monolayer1/Monolayer2 accordingly.')
 
         return '\n'.join(lines)
