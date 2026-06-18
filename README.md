@@ -88,7 +88,7 @@ python membit.py   -f treated_Protein_Phos.xtc   -s treated_Protein_Phos.gro   -
 
 ## Documentation
 
-See:
+Additional documentation is available in the `docs/` folder:
 
 - [`docs/input_preparation.md`](docs/input_preparation.md)
 - [`docs/index_files.md`](docs/index_files.md)
@@ -97,6 +97,7 @@ See:
 - [`docs/analysis_workflows.md`](docs/analysis_workflows.md)
 - [`docs/troubleshooting.md`](docs/troubleshooting.md)
 - [`docs/developer_validation.md`](docs/developer_validation.md)
+- [`docs/performance_next_steps.md`](docs/performance_next_steps.md)
 
 ## Citation
 
